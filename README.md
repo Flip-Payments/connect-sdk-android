@@ -1,4 +1,6 @@
 # connect-sdk-android
+SDK do connect
+
 
 ### LICENSE
 ```
