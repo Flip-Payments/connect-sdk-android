@@ -10,6 +10,7 @@ android {
     versionCode 1
     versionName "1.0"
 
+    buildConfigField("String", "FLIP_LOGIN", '"https://flipconnect-signin-staging.herokuapp.com/#!/signin/"')
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
@@ -21,10 +22,15 @@ android {
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
+  // for tests
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
-  compile 'com.android.support:appcompat-v7:25.3.0'
   testCompile 'junit:junit:4.12'
+
+  // android SDK
+  compile 'com.android.support:appcompat-v7:25.3.0'
+
+  // chrome tabs
+  compile 'com.android.support:customtabs:25.3.0'
 }
