@@ -10,7 +10,7 @@ android {
     versionCode 1
     versionName "1.0"
 
-    buildConfigField("String", "FLIP_LOGIN", '"https://flipconnect-signin-staging.herokuapp.com/#!/signin/"')
+    buildConfigField("String", "FLIP_LOGIN", '"https://flipconnect-signin-staging.herokuapp.com/#!/signin"')
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
   buildTypes {

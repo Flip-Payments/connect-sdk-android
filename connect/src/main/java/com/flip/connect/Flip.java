@@ -6,10 +6,10 @@ package com.flip.connect;
 
 public class Flip {
 
-  private static final Flip ourInstance = new Flip();
+  private static final Flip instance = new Flip();
 
   public static Flip getInstance() {
-    return ourInstance;
+    return instance;
   }
 
   private Flip() {}
