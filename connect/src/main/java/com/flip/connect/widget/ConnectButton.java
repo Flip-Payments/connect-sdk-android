@@ -1,12 +1,15 @@
 package com.flip.connect.widget;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.customtabs.CustomTabsIntent;
 import android.util.AttributeSet;
 import android.view.View;
 import android.support.v7.widget.AppCompatButton;
 import com.flip.connect.BuildConfig;
+import com.flip.connect.view.activities.LoginActivity;
 
 /**
  * Created by JGabrielFreitas on 04/04/17.
@@ -36,9 +39,6 @@ public class ConnectButton extends AppCompatButton implements View.OnClickListen
 
   @Override public void onClick(View view) {
 
-    CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-    CustomTabsIntent customTabsIntent = builder.build();
-    customTabsIntent.launchUrl(getContext(), Uri.parse(BuildConfig.FLIP_LOGIN));
-
+    getContext().startActivity(new Intent(getContext(), LoginActivity.class));
   }
 }

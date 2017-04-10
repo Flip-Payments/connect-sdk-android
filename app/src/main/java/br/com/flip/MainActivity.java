@@ -1,13 +1,11 @@
 package br.com.flip;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import com.jgabrielfreitas.core.activity.BaseActivity;
+import com.jgabrielfreitas.layoutid.annotations.InjectLayout;
 
-public class MainActivity extends AppCompatActivity {
+@InjectLayout(layout = R.layout.activity_main)
+public class MainActivity extends BaseActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+    
+
 }
