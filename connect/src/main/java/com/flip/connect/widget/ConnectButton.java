@@ -1,14 +1,10 @@
 package com.flip.connect.widget;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.support.customtabs.CustomTabsIntent;
+import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.View;
-import android.support.v7.widget.AppCompatButton;
-import com.flip.connect.BuildConfig;
 import com.flip.connect.view.activities.LoginActivity;
 
 /**
