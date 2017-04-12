@@ -10,7 +10,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField("String", "FLIP_LOGIN", '"http://flip-connect.herokuapp.com/#!/login"')
+        buildConfigField("String", "KEY", '"${key}"')
+        buildConfigField("String", "FLIP_LOGIN", '"http://flip-connect.herokuapp.com/?clientId=${key}&redirectUrl=google.com.br"')
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

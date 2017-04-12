@@ -10,6 +10,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+      buildConfigField("String", "MERCHANT_KEY", '"BBEA4440-4960-4C06-92B6-3132321FB478"')
     }
     buildTypes {
         release {

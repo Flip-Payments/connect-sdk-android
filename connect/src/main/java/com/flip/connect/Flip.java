@@ -6,6 +6,8 @@ package com.flip.connect;
 
 public class Flip {
 
+  private String merchantKey;
+
   private static final Flip instance = new Flip();
 
   public static Flip getInstance() {
@@ -14,4 +16,11 @@ public class Flip {
 
   private Flip() {}
 
+  public static void initalize(String merchantKey) {
+    getInstance().merchantKey = merchantKey;
+  }
+
+  public static String getMerchantKey() {
+    return getInstance().merchantKey;
+  }
 }
