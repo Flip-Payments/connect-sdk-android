@@ -11,8 +11,6 @@
   <com.flip.connect.widget.ConnectButton
       android:id="@+id/connectButton"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="FlipConnect"
-      />
+      android:layout_height="wrap_content" />
 
 </android.support.constraint.ConstraintLayout>

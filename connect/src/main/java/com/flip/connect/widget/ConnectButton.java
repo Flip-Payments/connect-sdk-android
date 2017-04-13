@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.View;
+import com.flip.connect.R;
 import com.flip.connect.interfaces.AccountCallback;
 import com.flip.connect.view.activities.LoginActivity;
 import com.jgabrielfreitas.datacontroller.DataController;
@@ -16,15 +17,12 @@ import com.jgabrielfreitas.datacontroller.DataController;
 public class ConnectButton extends AppCompatButton implements View.OnClickListener {
 
   public ConnectButton(Context context) {
-    super(context);
-    init();
+    this(context, null);
   }
 
   public ConnectButton(Context context, AttributeSet attrs) {
-    super(context, attrs);
-    init();
+    this(context, attrs, android.support.v7.appcompat.R.attr.buttonStyle);
   }
-
 
   public ConnectButton(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
