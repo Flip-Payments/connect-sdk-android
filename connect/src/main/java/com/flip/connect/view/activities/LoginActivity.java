@@ -31,6 +31,6 @@ public class LoginActivity extends AppCompatActivity {
     if (SDK_INT >= LOLLIPOP) {
       CookieManager.getInstance().setAcceptThirdPartyCookies(flipWebView, true);
     }
-  flipWebView.loadUrl(FLIP_LOGIN.replace(KEY, Flip.getMerchantKey()));
+    flipWebView.loadUrl(FLIP_LOGIN.replace(KEY, Flip.getMerchantKey()));
   }
 }

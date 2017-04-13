@@ -30,11 +30,8 @@ public class MainActivity extends BaseActivity implements AccountCallback {
   }
 
   @Override public void success(String response) {
-    Toast.makeText(this, "login realizado com sucesso!", Toast.LENGTH_SHORT).show();
-    Log.d("account token", response);
+    Toast.makeText(this, "login realizado com sucesso", Toast.LENGTH_SHORT).show();
   }
 
-  @Override public void error(Exception e, String message) {
-
-  }
+  @Override public void error(Exception e, String message) {}
 }

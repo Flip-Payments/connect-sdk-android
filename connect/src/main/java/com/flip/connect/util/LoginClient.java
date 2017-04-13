@@ -5,6 +5,7 @@ import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.flip.connect.interfaces.AccountCallback;
+import com.jgabrielfreitas.datacontroller.DataController;
 
 /**
  * Created by JGabrielFreitas on 09/04/17.
@@ -22,6 +23,7 @@ public class LoginClient extends WebViewClient {
 
     if (getCookie(url, "account") != null && accountCallback != null) {
       this.accountCallback.success(getCookie(url, "account"));
+      new DataController(view.getContext()).writeData("account", getCookie(url, "account"));
       ((Activity) view.getContext()).finish();
     }
   }

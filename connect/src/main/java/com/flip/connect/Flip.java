@@ -23,4 +23,9 @@ public class Flip {
   public static String getMerchantKey() {
     return getInstance().merchantKey;
   }
+
+  public static String getToken() {
+    return UserInfo.getInstance().getToken();
+  }
+
 }

@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.flip.connect.interfaces.AccountCallback;
 import com.flip.connect.view.activities.LoginActivity;
+import com.jgabrielfreitas.datacontroller.DataController;
 
 /**
  * Created by JGabrielFreitas on 04/04/17.
@@ -40,6 +41,15 @@ public class ConnectButton extends AppCompatButton implements View.OnClickListen
 
   @Override public void onClick(View view) {
 
-    getContext().startActivity(new Intent(getContext(), LoginActivity.class));
+    String token = new DataController(getContext()).readStringData("account");
+
+    if (token == null) {
+      getContext().startActivity(new Intent(getContext(), LoginActivity.class));
+    } else {
+
+      // check if the callback is not null to pass token
+      if (LoginActivity.accountCallback != null)
+        LoginActivity.accountCallback.success(token);
+    }
   }
 }
