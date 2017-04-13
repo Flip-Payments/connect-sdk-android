@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.View;
+import com.flip.connect.interfaces.AccountCallback;
 import com.flip.connect.view.activities.LoginActivity;
 
 /**
@@ -31,6 +32,10 @@ public class ConnectButton extends AppCompatButton implements View.OnClickListen
 
   private void init() {
     setOnClickListener(this);
+  }
+
+  public void setAccountCallback(AccountCallback accountCallback) {
+    LoginActivity.accountCallback = accountCallback;
   }
 
   @Override public void onClick(View view) {

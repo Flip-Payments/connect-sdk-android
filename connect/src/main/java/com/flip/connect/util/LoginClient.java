@@ -1,11 +1,10 @@
 package com.flip.connect.util;
 
-import android.util.Log;
+import android.app.Activity;
 import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
-import static android.content.ContentValues.TAG;
+import com.flip.connect.interfaces.AccountCallback;
 
 /**
  * Created by JGabrielFreitas on 09/04/17.
@@ -13,10 +12,35 @@ import static android.content.ContentValues.TAG;
 
 public class LoginClient extends WebViewClient {
 
-    @Override
-    public void onPageFinished(WebView view, String url){
-        String cookies = CookieManager.getInstance().getCookie(url);
-        Log.d(TAG, "All the cookies in a string:" + cookies);
-    }
+  private AccountCallback accountCallback;
 
+  public LoginClient(AccountCallback accountCallback) {
+    this.accountCallback = accountCallback;
+  }
+
+  @Override public void onPageFinished(WebView view, String url) {
+
+    if (getCookie(url, "account") != null && accountCallback != null) {
+      this.accountCallback.success(getCookie(url, "account"));
+      ((Activity) view.getContext()).finish();
+    }
+  }
+
+  public String getCookie(String siteName, String cookieName) {
+    String cookieValue = null;
+
+    CookieManager cookieManager = CookieManager.getInstance();
+    String cookies = cookieManager.getCookie(siteName);
+    if (cookies !=null) {
+      String[] temp = cookies.split(";");
+      for (String ar1 : temp) {
+        if (ar1.contains(cookieName)) {
+          String[] temp1 = ar1.split("=");
+          cookieValue = temp1[1];
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
 }
