@@ -1,5 +1,8 @@
 package com.flip.connect;
 
+import android.content.Context;
+import com.jgabrielfreitas.datacontroller.DataController;
+
 /**
  * Created by JGabrielFreitas on 04/04/17.
  */
@@ -26,6 +29,10 @@ public class Flip {
 
   public static String getToken() {
     return UserInfo.getInstance().getToken();
+  }
+
+  public static void deleteAccountToken(Context context) {
+    new DataController(context).remove("account");
   }
 
 }
