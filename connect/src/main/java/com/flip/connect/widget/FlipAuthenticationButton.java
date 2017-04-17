@@ -28,6 +28,10 @@ public class FlipAuthenticationButton extends FlipButton {
     super(context, attrs, defStyleAttr);
   }
 
+  @Override protected int getTextButton() {
+    return R.string.login;
+  }
+
   public void setAccountCallback(AccountCallback accountCallback) {
     LoginActivity.accountCallback = accountCallback;
   }

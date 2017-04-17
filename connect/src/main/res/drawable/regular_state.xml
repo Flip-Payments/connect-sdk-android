@@ -6,4 +6,9 @@
       android:radius="100dp"/>
   <solid
       android:color="@color/green"/>
+  <padding
+      android:top="@dimen/top_bottom"
+      android:bottom="@dimen/top_bottom"
+      android:left="@dimen/left_right"
+      android:right="@dimen/left_right"/>
 </shape>
