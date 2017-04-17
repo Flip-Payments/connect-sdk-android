@@ -14,23 +14,18 @@ import com.jgabrielfreitas.datacontroller.DataController;
  * Created by JGabrielFreitas on 04/04/17.
  */
 
-public class ConnectButton extends AppCompatButton implements View.OnClickListener {
+public class FlipAuthenticationButton extends FlipButton {
 
-  public ConnectButton(Context context) {
-    this(context, null);
+  public FlipAuthenticationButton(Context context) {
+    super(context);
   }
 
-  public ConnectButton(Context context, AttributeSet attrs) {
-    this(context, attrs, android.support.v7.appcompat.R.attr.buttonStyle);
+  public FlipAuthenticationButton(Context context, AttributeSet attrs) {
+    super(context, attrs);
   }
 
-  public ConnectButton(Context context, AttributeSet attrs, int defStyleAttr) {
+  public FlipAuthenticationButton(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    init();
-  }
-
-  private void init() {
-    setOnClickListener(this);
   }
 
   public void setAccountCallback(AccountCallback accountCallback) {
