@@ -12,8 +12,18 @@
       android:id="@+id/connectButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_centerVertical="true"
       android:layout_centerHorizontal="true"
+      android:layout_centerVertical="true"
+      />
+
+  <com.flip.connect.widget.FlipCheckoutButton
+      android:id="@+id/checkoutButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignLeft="@+id/connectButton"
+      android:layout_alignStart="@+id/connectButton"
+      android:layout_below="@+id/connectButton"
+      android:layout_marginTop="18dp"
       />
 
 </RelativeLayout>

@@ -7,6 +7,7 @@ import butterknife.Bind;
 import com.flip.connect.*;
 import com.flip.connect.interfaces.AccountCallback;
 import com.flip.connect.widget.FlipAuthenticationButton;
+import com.flip.connect.widget.FlipCheckoutButton;
 import com.jgabrielfreitas.core.activity.BaseActivity;
 import com.jgabrielfreitas.layoutid.annotations.InjectLayout;
 
@@ -15,7 +16,8 @@ import static br.com.flip.BuildConfig.MERCHANT_KEY;
 @InjectLayout(layout = R.layout.activity_main)
 public class MainActivity extends BaseActivity implements AccountCallback {
 
-  @Bind(R.id.connectButton) FlipAuthenticationButton connectButton;
+  @Bind(R.id.connectButton)  FlipAuthenticationButton connectButton;
+  @Bind(R.id.checkoutButton) FlipCheckoutButton       checkoutButton;
   AccountCallback accountCallback = this;
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
