@@ -1,6 +1,7 @@
 package com.flip.connect.widget;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
@@ -33,6 +34,8 @@ abstract class FlipButton extends AppCompatButton implements View.OnClickListene
     setBackground(ContextCompat.getDrawable(getContext(), R.drawable.flip_style_selector));
     setTextColor(getResources().getColor(white));
     setText(getTextButton());
+    Drawable icon = getContext().getResources().getDrawable(R.drawable.ic_logo);
+    setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
   }
 
   protected abstract int getTextButton();
