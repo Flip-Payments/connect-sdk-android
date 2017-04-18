@@ -9,7 +9,7 @@ import com.jgabrielfreitas.datacontroller.DataController;
 
 public class Flip {
 
-  private String merchantKey;
+  private String clientId;
 
   private static final Flip instance = new Flip();
 
@@ -19,12 +19,12 @@ public class Flip {
 
   private Flip() {}
 
-  public static void initalize(String merchantKey) {
-    getInstance().merchantKey = merchantKey;
+  public static void initializer(String clientId) {
+    getInstance().clientId = clientId;
   }
 
-  public static String getMerchantKey() {
-    return getInstance().merchantKey;
+  public static String getClientId() {
+    return getInstance().clientId;
   }
 
   public static String getToken() {
