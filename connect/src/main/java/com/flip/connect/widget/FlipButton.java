@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import com.flip.connect.R;
 
@@ -41,4 +42,11 @@ abstract class FlipButton extends AppCompatButton implements View.OnClickListene
   protected abstract int getTextButton();
 
   @Override public void onClick(View view) {}
+
+  protected abstract boolean isValid();
+
+  protected void logError(String error) {
+    Log.e("error", error);
+  }
+
 }

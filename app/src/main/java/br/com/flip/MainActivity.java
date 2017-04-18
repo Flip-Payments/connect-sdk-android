@@ -6,6 +6,7 @@ import android.widget.Toast;
 import butterknife.Bind;
 import com.flip.connect.*;
 import com.flip.connect.interfaces.AccountCallback;
+import com.flip.connect.interfaces.CheckoutCallback;
 import com.flip.connect.interfaces.CheckoutGrabber;
 import com.flip.connect.model.checkout.Transaction;
 import com.flip.connect.widget.FlipAuthenticationButton;
@@ -28,13 +29,26 @@ public class MainActivity extends BaseActivity implements CheckoutGrabber {
 
   @Override protected void onStart() {
     super.onStart();
+
     connectButton.setAccountCallback(new AccountCallback() {
       @Override public void success(String response) {
         Toast.makeText(MainActivity.this, "login realizado com sucesso", Toast.LENGTH_SHORT).show();
       }
 
       @Override public void error(Exception e, String message) {
+        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+      }
+    });
 
+    checkoutButton.setGrabber(this);
+    checkoutButton.setCheckoutCallback(new CheckoutCallback() {
+      @Override public void success(String response) {
+        Toast.makeText(MainActivity.this, "checkout realizado com sucesso!", Toast.LENGTH_SHORT)
+            .show();
+      }
+
+      @Override public void error(Exception e, String message) {
+        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
       }
     });
   }
@@ -45,7 +59,8 @@ public class MainActivity extends BaseActivity implements CheckoutGrabber {
     Transaction transaction = new Transaction();
     transaction.setTotalAmount(200);
     transaction.setInstallments(1);
-    transaction.setStatementDescriptor("statement description");
+    transaction.setStatementDescriptor("description");
+    transaction.setSuccessUrl("http://flip-connect.herokuapp.com");
 
     return transaction;
   }

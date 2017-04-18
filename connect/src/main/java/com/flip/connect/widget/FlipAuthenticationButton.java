@@ -49,4 +49,8 @@ public class FlipAuthenticationButton extends FlipButton {
         LoginActivity.accountCallback.success(token);
     }
   }
+
+  @Override protected boolean isValid() {
+    return false;
+  }
 }
