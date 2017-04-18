@@ -19,7 +19,7 @@ import static java.lang.String.format;
  * Created by JGabrielFreitas on 17/04/17.
  */
 
-public class FlipCheckoutButton extends FlipButton {
+public final class FlipCheckoutButton extends FlipButton {
 
   private CheckoutGrabber grabber;
 
@@ -54,6 +54,7 @@ public class FlipCheckoutButton extends FlipButton {
       //logError(buildCheckoutUrl(grabber.getTransaction()));
       CheckoutActivity.checkoutUrl = buildCheckoutUrl(grabber.getTransaction());
       getContext().startActivity(new Intent(getContext(), CheckoutActivity.class));
+      logError(buildCheckoutUrl(grabber.getTransaction()));
 
     } else
       logError("grabber or checkoutCallback is null");

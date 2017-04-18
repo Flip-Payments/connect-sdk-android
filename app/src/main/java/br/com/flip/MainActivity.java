@@ -57,10 +57,10 @@ public class MainActivity extends BaseActivity implements CheckoutGrabber {
 
     // create your transaction
     Transaction transaction = new Transaction();
-    transaction.setTotalAmount(200);
-    transaction.setInstallments(1);
+    transaction.setTotalAmount(2000);
+    transaction.setInstallments(3);
     transaction.setStatementDescriptor("description");
-    transaction.setSuccessUrl("http://flip-connect.herokuapp.com");
+    transaction.setSuccessUrl("https://google.com/");
 
     return transaction;
   }

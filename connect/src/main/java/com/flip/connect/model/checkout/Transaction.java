@@ -1,6 +1,7 @@
 package com.flip.connect.model.checkout;
 
 import com.flip.connect.Flip;
+import com.flip.connect.util.URLParamEncoder;
 
 /**
  * Created by JGabrielFreitas on 17/04/17.
@@ -9,8 +10,8 @@ import com.flip.connect.Flip;
 public class Transaction {
 
   private String clientId;
-  private int    totalAmount;
-  private int    installments;
+  private int totalAmount;
+  private int installments;
   private String statementDescriptor;
   private String successUrl;
 
@@ -47,7 +48,7 @@ public class Transaction {
   }
 
   public String getSuccessUrl() {
-    return successUrl;
+    return URLParamEncoder.encode(successUrl);
   }
 
   public void setSuccessUrl(String successUrl) {

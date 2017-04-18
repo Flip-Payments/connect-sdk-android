@@ -18,6 +18,14 @@ import static java.lang.String.valueOf;
 
 abstract class BaseWebClient extends WebViewClient {
 
+  protected static final String TAG = "webclient";
+
+  protected void logCookies(String url) {
+    String cookies = CookieManager.getInstance().getCookie(url);
+    Log.e(TAG, "All the cookies in a string:" + cookies);
+  }
+
+
   protected String getCookie(String siteName, String cookieName) {
     String cookieValue = null;
 

@@ -1,9 +1,7 @@
 package com.flip.connect.util.client;
 
 import android.app.Activity;
-import android.webkit.CookieManager;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import com.flip.connect.interfaces.AccountCallback;
 import com.jgabrielfreitas.datacontroller.DataController;
 

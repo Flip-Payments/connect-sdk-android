@@ -13,7 +13,7 @@ import com.jgabrielfreitas.datacontroller.DataController;
  * Created by JGabrielFreitas on 04/04/17.
  */
 
-public class FlipAuthenticationButton extends FlipButton {
+public final class FlipAuthenticationButton extends FlipButton {
 
   public FlipAuthenticationButton(Context context) {
     super(context);
