@@ -1,38 +1,41 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+  compileSdkVersion 25
+  buildToolsVersion "25.0.2"
 
-    defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+  defaultConfig {
+    minSdkVersion 16
+    targetSdkVersion 25
+    versionCode 1
+    versionName "1.0"
 
-        buildConfigField("String", "KEY", '"${key}"')
-        buildConfigField("String", "FLIP_LOGIN", '"http://flip-connect.herokuapp.com/?clientId=${key}&redirectUrl=//flip-connect.herokuapp.com"')
-        buildConfigField("String", "FLIP_CHECKOUT", '"http://flip-connect.herokuapp.com/checkout?clientId=${key}"')
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    buildConfigField("String", "KEY", '"${key}"')
+    buildConfigField("String", "FLIP_LOGIN",
+        '"http://flip-connect.herokuapp.com/?clientId=${key}&redirectUrl=//flip-connect.herokuapp.com"')
+    buildConfigField("String", "FLIP_CHECKOUT",
+        '"http://flip-connect.herokuapp.com/checkout?clientId=${key}"')
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+  }
 }
 
 dependencies {
-    // for tests
-    testCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+  // for tests
+  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    exclude group: 'com.android.support', module: 'support-annotations'
+  })
 
-    // android SDK
-    compile 'com.android.support:appcompat-v7:25.3.0'
+  // android SDK
 
-    // shared preferences
-    compile 'com.github.jgabrielfreitas:DataController:v1.3.3'
+  // shared preferences
+  compile 'com.android.support:appcompat-v7:25.3.0'
+  compile 'com.github.jgabrielfreitas:DataController:v1.3.3'
+  compile 'com.android.support.constraint:constraint-layout:1.0.2'
+  testCompile 'junit:junit:4.12'
 }
