@@ -2,9 +2,9 @@ package com.flip.connect.view.activities;
 
 import android.webkit.WebViewClient;
 import com.flip.connect.interfaces.CheckoutCallback;
-import com.flip.connect.util.CheckoutClient;
+import com.flip.connect.util.client.CheckoutClient;
 
-public class CheckoutActivity extends BaseFlipActivity {
+public final class CheckoutActivity extends BaseFlipActivity {
 
   public static CheckoutCallback checkoutCallback;
   public static String checkoutUrl;

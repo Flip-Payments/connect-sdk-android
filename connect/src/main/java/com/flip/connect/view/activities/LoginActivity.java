@@ -3,12 +3,12 @@ package com.flip.connect.view.activities;
 import android.webkit.WebViewClient;
 import com.flip.connect.Flip;
 import com.flip.connect.interfaces.AccountCallback;
-import com.flip.connect.util.LoginClient;
+import com.flip.connect.util.client.LoginClient;
 
 import static com.flip.connect.BuildConfig.FLIP_LOGIN;
 import static com.flip.connect.BuildConfig.KEY;
 
-public class LoginActivity extends BaseFlipActivity {
+public final class LoginActivity extends BaseFlipActivity {
 
   public static AccountCallback accountCallback;
 

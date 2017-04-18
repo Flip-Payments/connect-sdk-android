@@ -11,9 +11,8 @@ android {
     versionName "1.0"
 
     buildConfigField("String", "KEY", '"${key}"')
-    buildConfigField("String", "FLIP_LOGIN", '"http://flip-connect.herokuapp.com/?clientId=${key}&redirectUrl=//flip-connect.herokuapp.com"')
-    buildConfigField("String", "FLIP_CHECKOUT",
-        '"http://flip-connect.herokuapp.com/checkout?clientId=${key}"')
+    buildConfigField("String", "FLIP_LOGIN", '"http://homolog-signin.flipconnect.io/#/?clientId=${key}&redirectUrl=//homolog-signin.flipconnect.io/#"')
+    buildConfigField("String", "FLIP_CHECKOUT", '"http://homolog-signin.flipconnect.io/#/checkout?clientId=${key}"')
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
