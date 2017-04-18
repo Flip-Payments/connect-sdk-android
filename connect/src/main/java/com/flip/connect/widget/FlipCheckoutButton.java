@@ -12,6 +12,7 @@ import com.flip.connect.view.activities.CheckoutActivity;
 
 import static com.flip.connect.BuildConfig.FLIP_CHECKOUT;
 import static com.flip.connect.BuildConfig.KEY;
+import static com.flip.connect.view.activities.CheckoutActivity.checkoutCallback;
 import static java.lang.String.format;
 
 /**
@@ -21,7 +22,6 @@ import static java.lang.String.format;
 public class FlipCheckoutButton extends FlipButton {
 
   private CheckoutGrabber grabber;
-  private CheckoutCallback checkoutCallback;
 
   public FlipCheckoutButton(Context context) {
     super(context);
@@ -39,8 +39,8 @@ public class FlipCheckoutButton extends FlipButton {
     this.grabber = grabber;
   }
 
-  public void setCheckoutCallback(CheckoutCallback checkoutCallback) {
-    this.checkoutCallback = checkoutCallback;
+  public void setCheckoutCallback(CheckoutCallback checkoutCallbackToPass) {
+    checkoutCallback = checkoutCallbackToPass;
   }
 
   @Override protected int getTextButton() {

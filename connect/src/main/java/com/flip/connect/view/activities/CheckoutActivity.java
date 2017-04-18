@@ -1,12 +1,8 @@
 package com.flip.connect.view.activities;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebViewClient;
-import com.flip.connect.R;
-import com.flip.connect.interfaces.AccountCallback;
 import com.flip.connect.interfaces.CheckoutCallback;
-import com.flip.connect.model.checkout.Transaction;
+import com.flip.connect.util.CheckoutClient;
 
 public class CheckoutActivity extends BaseFlipActivity {
 
@@ -18,6 +14,6 @@ public class CheckoutActivity extends BaseFlipActivity {
   }
 
   @Override protected WebViewClient client() {
-    return null;
+    return new CheckoutClient(checkoutCallback);
   }
 }
