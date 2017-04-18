@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 import butterknife.Bind;
-import com.flip.connect.*;
+import com.flip.connect.Flip;
 import com.flip.connect.interfaces.AccountCallback;
 import com.flip.connect.interfaces.CheckoutCallback;
 import com.flip.connect.interfaces.CheckoutGrabber;

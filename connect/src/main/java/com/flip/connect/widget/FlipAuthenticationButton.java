@@ -2,7 +2,6 @@ package com.flip.connect.widget;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.View;
 import com.flip.connect.R;

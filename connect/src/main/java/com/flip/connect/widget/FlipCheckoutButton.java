@@ -1,12 +1,14 @@
 package com.flip.connect.widget;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
 import com.flip.connect.R;
 import com.flip.connect.interfaces.CheckoutCallback;
 import com.flip.connect.interfaces.CheckoutGrabber;
 import com.flip.connect.model.checkout.Transaction;
+import com.flip.connect.view.activities.CheckoutActivity;
 
 import static com.flip.connect.BuildConfig.FLIP_CHECKOUT;
 import static com.flip.connect.BuildConfig.KEY;
@@ -49,7 +51,10 @@ public class FlipCheckoutButton extends FlipButton {
     super.onClick(view);
 
     if (isValid()) {
-      logError(buildCheckoutUrl(grabber.getTransaction()));
+      //logError(buildCheckoutUrl(grabber.getTransaction()));
+      CheckoutActivity.checkoutUrl = buildCheckoutUrl(grabber.getTransaction());
+      getContext().startActivity(new Intent(getContext(), CheckoutActivity.class));
+
     } else
       logError("grabber or checkoutCallback is null");
   }
