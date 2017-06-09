@@ -1,11 +1,11 @@
-package com.flip.connect.util.client;
+package com.flip.connect.presentation.client;
 
 import android.app.Activity;
 import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
-import com.flip.connect.interfaces.CheckoutCallback;
+import com.flip.connect.domain.boundary.CheckoutCallback;
 
 /**
  * Created by JGabrielFreitas on 18/04/17.

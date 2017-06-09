@@ -1,4 +1,4 @@
-package com.flip.connect.widget;
+package com.flip.connect.presentation.widget;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

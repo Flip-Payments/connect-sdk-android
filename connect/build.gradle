@@ -1,39 +1,43 @@
 apply plugin: 'com.android.library'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "25.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 
-  defaultConfig {
-    minSdkVersion 16
-    targetSdkVersion 25
-    versionCode 1
-    versionName "1.0"
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
 
-    buildConfigField("String", "KEY", '"${key}"')
-    buildConfigField("String", "FLIP_LOGIN", '"http://homolog-signin.flipconnect.io/#/?clientId=${key}&redirectUrl=//homolog-signin.flipconnect.io/#"')
-    buildConfigField("String", "FLIP_CHECKOUT", '"http://homolog-signin.flipconnect.io/#/checkout?clientId=${key}"')
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        buildConfigField("String", "KEY", '"${key}"')
+        buildConfigField("String", "HOST", '"${host}"')
+        buildConfigField("String", "FLIP_LOGIN", '"http://flipconnect-signin-staging.herokuapp.com/?clientId=${key}&redirectUri=flipconnect://${host}&responseType=code"')
+        buildConfigField("String", "FLIP_CHECKOUT", '"http://flipconnect-signin-staging.herokuapp.com/checkout?clientId=${key}"')
+        buildConfigField "String", 'API_BASE_URL', '"url connect"'
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-  }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+    }
 }
 
 dependencies {
-  // for tests
-  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-    exclude group: 'com.android.support', module: 'support-annotations'
-  })
+    // for tests
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 
-  // android SDK
+    // android SDK
 
-  // shared preferences
-  compile 'com.android.support:appcompat-v7:25.3.0'
-  compile 'com.github.jgabrielfreitas:DataController:v1.3.3'
-  compile 'com.android.support.constraint:constraint-layout:1.0.2'
-  testCompile 'junit:junit:4.12'
+    // shared preferences
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.github.jgabrielfreitas:DataController:v1.3.3'
+    testCompile 'junit:junit:4.12'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 }

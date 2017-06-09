@@ -1,7 +1,7 @@
-package com.flip.connect.model.checkout;
+package com.flip.connect.data.model.checkout;
 
 import com.flip.connect.Flip;
-import com.flip.connect.util.URLParamEncoder;
+import com.flip.connect.presentation.util.URLParamEncoder;
 
 /**
  * Created by JGabrielFreitas on 17/04/17.

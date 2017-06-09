@@ -1,4 +1,4 @@
-package com.flip.connect.util;
+package com.flip.connect.presentation.util;
 
 /**
  * Created by JGabrielFreitas on 18/04/17.

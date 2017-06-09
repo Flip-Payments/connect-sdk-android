@@ -1,18 +1,18 @@
-package com.flip.connect.widget;
+package com.flip.connect.presentation.widget;
 
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
 import com.flip.connect.R;
-import com.flip.connect.interfaces.CheckoutCallback;
-import com.flip.connect.interfaces.CheckoutGrabber;
-import com.flip.connect.model.checkout.Transaction;
-import com.flip.connect.view.activities.CheckoutActivity;
+import com.flip.connect.domain.boundary.CheckoutCallback;
+import com.flip.connect.domain.boundary.CheckoutGrabber;
+import com.flip.connect.data.model.checkout.Transaction;
+import com.flip.connect.presentation.view.activities.CheckoutActivity;
 
 import static com.flip.connect.BuildConfig.FLIP_CHECKOUT;
 import static com.flip.connect.BuildConfig.KEY;
-import static com.flip.connect.view.activities.CheckoutActivity.checkoutCallback;
+import static com.flip.connect.presentation.view.activities.CheckoutActivity.checkoutCallback;
 import static java.lang.String.format;
 
 /**

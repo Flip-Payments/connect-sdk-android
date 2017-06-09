@@ -1,4 +1,4 @@
-package com.flip.connect.interfaces;
+package com.flip.connect.domain.boundary;
 
 /**
  * Created by JGabrielFreitas on 17/04/17.

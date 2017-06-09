@@ -5,12 +5,12 @@ import android.support.annotation.Nullable;
 import android.widget.Toast;
 import butterknife.Bind;
 import com.flip.connect.Flip;
-import com.flip.connect.interfaces.AccountCallback;
-import com.flip.connect.interfaces.CheckoutCallback;
-import com.flip.connect.interfaces.CheckoutGrabber;
-import com.flip.connect.model.checkout.Transaction;
-import com.flip.connect.widget.FlipAuthenticationButton;
-import com.flip.connect.widget.FlipCheckoutButton;
+import com.flip.connect.domain.boundary.AccountCallback;
+import com.flip.connect.domain.boundary.CheckoutCallback;
+import com.flip.connect.domain.boundary.CheckoutGrabber;
+import com.flip.connect.data.model.checkout.Transaction;
+import com.flip.connect.presentation.widget.FlipAuthenticationButton;
+import com.flip.connect.presentation.widget.FlipCheckoutButton;
 import com.jgabrielfreitas.core.activity.BaseActivity;
 import com.jgabrielfreitas.layoutid.annotations.InjectLayout;
 
@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity implements CheckoutGrabber {
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    Flip.initializer(MERCHANT_KEY);
+    Flip.initializer(MERCHANT_KEY,"ipiranga");
   }
 
   @Override protected void onStart() {

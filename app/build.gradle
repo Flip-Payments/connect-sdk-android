@@ -11,7 +11,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-      buildConfigField("String", "MERCHANT_KEY", '"BBEA4440-4960-4C06-92B6-3132321FB478"')
+      buildConfigField("String", "MERCHANT_KEY", '"F7F667C7-199F-4A10-B53A-4FADCDFADB53"')
     }
     buildTypes {
         release {

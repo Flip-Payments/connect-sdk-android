@@ -1,12 +1,12 @@
-package com.flip.connect.widget;
+package com.flip.connect.presentation.widget;
 
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
 import com.flip.connect.R;
-import com.flip.connect.interfaces.AccountCallback;
-import com.flip.connect.view.activities.LoginActivity;
+import com.flip.connect.domain.boundary.AccountCallback;
+import com.flip.connect.presentation.view.activities.LoginActivity;
 import com.jgabrielfreitas.datacontroller.DataController;
 
 /**

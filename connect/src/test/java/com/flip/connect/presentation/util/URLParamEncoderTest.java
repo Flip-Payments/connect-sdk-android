@@ -1,4 +1,4 @@
-package com.flip.connect.util;
+package com.flip.connect.presentation.util;
 
 import org.junit.Assert;
 import org.junit.Test;

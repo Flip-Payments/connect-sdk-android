@@ -1,6 +1,7 @@
 package com.flip.connect;
 
 import android.content.Context;
+
 import com.jgabrielfreitas.datacontroller.DataController;
 
 /**
@@ -9,30 +10,37 @@ import com.jgabrielfreitas.datacontroller.DataController;
 
 public class Flip {
 
-  private String clientId;
+    private String clientId;
+    private String redirectUrl;
+    private static final Flip instance = new Flip();
 
-  private static final Flip instance = new Flip();
+    public static Flip getInstance() {
+        return instance;
+    }
 
-  public static Flip getInstance() {
-    return instance;
-  }
+    private Flip() {
+    }
 
-  private Flip() {}
+    public static void initializer(String clientId, String redirectUrl) {
+        getInstance().clientId = clientId;
+        getInstance().redirectUrl = redirectUrl;
+    }
 
-  public static void initializer(String clientId) {
-    getInstance().clientId = clientId;
-  }
+    public static String getClientId() {
+        return getInstance().clientId;
+    }
 
-  public static String getClientId() {
-    return getInstance().clientId;
-  }
+    public String getRedirectUrl() {
+        return redirectUrl;
+    }
 
-  public static String getToken() {
-    return UserInfo.getInstance().getToken();
-  }
+    public static String getToken() {
+        return UserInfo.getInstance().getToken();
+    }
 
-  public static void deleteAccountToken(Context context) {
-    new DataController(context).remove("account");
-  }
+    public static void deleteAccountToken(Context context) {
+        new DataController(context).remove("account");
+    }
+
 
 }

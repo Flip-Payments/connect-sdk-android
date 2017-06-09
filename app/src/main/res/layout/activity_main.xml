@@ -9,7 +9,7 @@
     tools:context="br.com.flip.MainActivity"
     >
 
-  <com.flip.connect.widget.FlipAuthenticationButton
+  <com.flip.connect.presentation.widget.FlipAuthenticationButton
       android:id="@+id/connectButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
       android:layout_centerVertical="true"
       />
 
-  <com.flip.connect.widget.FlipCheckoutButton
+  <com.flip.connect.presentation.widget.FlipCheckoutButton
       android:id="@+id/checkoutButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
