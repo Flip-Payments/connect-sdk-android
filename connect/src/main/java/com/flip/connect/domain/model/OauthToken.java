@@ -1,23 +1,19 @@
-package com.flip.connect.data.model;
+package com.flip.connect.domain.model;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by jcosilva on 6/8/2017.
  */
 
 public class OauthToken {
-
     private String accessToken;
     private String tokenCreateDate;
     private String tokenExpiryDate;
     private String refreshToken;
     private String accountKey;
     private Boolean success;
-    private List<Object> operationReport = null;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private List<OperationReport> operationReport = null;
 
     public String getAccessToken() {
         return accessToken;
@@ -27,7 +23,7 @@ public class OauthToken {
         this.accessToken = accessToken;
     }
 
-    public String getTokenCreateDate() {
+    public Object getTokenCreateDate() {
         return tokenCreateDate;
     }
 
@@ -35,7 +31,7 @@ public class OauthToken {
         this.tokenCreateDate = tokenCreateDate;
     }
 
-    public String getTokenExpiryDate() {
+    public Object getTokenExpiryDate() {
         return tokenExpiryDate;
     }
 
@@ -51,7 +47,7 @@ public class OauthToken {
         this.refreshToken = refreshToken;
     }
 
-    public String getAccountKey() {
+    public Object getAccountKey() {
         return accountKey;
     }
 
@@ -59,7 +55,7 @@ public class OauthToken {
         this.accountKey = accountKey;
     }
 
-    public Boolean getSuccess() {
+    public Boolean hasSuccess() {
         return success;
     }
 
@@ -67,20 +63,24 @@ public class OauthToken {
         this.success = success;
     }
 
-    public List<Object> getOperationReport() {
+    public List<OperationReport> getOperationReport() {
         return operationReport;
     }
 
-    public void setOperationReport(List<Object> operationReport) {
+    public void setOperationReport(List<OperationReport> operationReport) {
         this.operationReport = operationReport;
     }
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+    @Override
+    public String toString() {
+        return "OauthToken{" +
+                "accessToken=" + accessToken +
+                ", tokenCreateDate=" + tokenCreateDate +
+                ", tokenExpiryDate=" + tokenExpiryDate +
+                ", refreshToken=" + refreshToken +
+                ", accountKey=" + accountKey +
+                ", success=" + success +
+                ", operationReport=" + operationReport +
+                '}';
     }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
 }

@@ -12,9 +12,8 @@ android {
 
         buildConfigField("String", "KEY", '"${key}"')
         buildConfigField("String", "HOST", '"${host}"')
-        buildConfigField("String", "FLIP_LOGIN", '"http://flipconnect-signin-staging.herokuapp.com/?clientId=${key}&redirectUri=flipconnect://${host}&responseType=code"')
-        buildConfigField("String", "FLIP_CHECKOUT", '"http://flipconnect-signin-staging.herokuapp.com/checkout?clientId=${key}"')
-        buildConfigField "String", 'API_BASE_URL', '"url connect"'
+        buildConfigField("String", "SCHEMA", '"${schema}"')
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -22,6 +21,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
+            buildConfigField("String", "FLIP_LOGIN", '"http://flipconnect-signin-staging.herokuapp.com/?clientId=${key}&redirectUri=${schema}://${host}&responseType=code"')
+            buildConfigField("String", "FLIP_CHECKOUT", '"http://flipconnect-signin-staging.herokuapp.com/checkout?clientId=${key}"')
+            buildConfigField "String", 'API_BASE_URL', '"http://dlp-qrservices.cloudapp.net:20112"'
+
+        }
+        debug {
+            buildConfigField("String", "FLIP_LOGIN", '"http://flipconnect-signin-staging.herokuapp.com/?clientId=${key}&redirectUri=${schema}://${host}&responseType=code"')
+            buildConfigField("String", "FLIP_CHECKOUT", '"http://flipconnect-signin-staging.herokuapp.com/checkout?clientId=${key}"')
+            buildConfigField "String", 'API_BASE_URL', '"http://dlp-qrservices.cloudapp.net:20112"'
         }
     }
 }

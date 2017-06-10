@@ -1,7 +1,10 @@
 package com.flip.connect.data.repository.api;
 
+import android.util.Log;
+
 import com.flip.connect.data.dependencies.NetworkDependencies;
-import com.flip.connect.data.model.OauthToken;
+import com.flip.connect.domain.boundary.CallbackBoundary;
+import com.flip.connect.domain.model.OauthToken;
 import com.flip.connect.domain.repository.AuthRepository;
 
 import java.util.Map;
@@ -15,19 +18,30 @@ import retrofit2.Response;
  */
 
 public class AuthManager implements AuthRepository {
+
+    private AuthService service;
+
+    public AuthManager() {
+        service = NetworkDependencies.retrofit().create(AuthService.class);
+    }
+
     @Override
-    public void authRefreshToken(Map<String, String> options) {
-        AuthService service = NetworkDependencies.retrofit().create(AuthService.class);
+    public void authRequestToken(Map<String, String> options, final CallbackBoundary callbackBoundary) {
         service.requestAccessToken(options).enqueue(new Callback<OauthToken>() {
             @Override
             public void onResponse(Call<OauthToken> call, Response<OauthToken> response) {
-
+                if (response.isSuccessful() && response.body().hasSuccess()) {
+                    callbackBoundary.success(response.body());
+                } else {
+                    callbackBoundary.error(new Throwable(response.code() + " Error: " + response.message()));
+                }
             }
 
             @Override
             public void onFailure(Call<OauthToken> call, Throwable t) {
-
+                callbackBoundary.error(t);
             }
         });
     }
+
 }

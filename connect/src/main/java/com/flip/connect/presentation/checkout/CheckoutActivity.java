@@ -1,8 +1,9 @@
-package com.flip.connect.presentation.view.activities;
+package com.flip.connect.presentation.checkout;
 
 import android.webkit.WebViewClient;
 import com.flip.connect.domain.boundary.CheckoutCallback;
-import com.flip.connect.presentation.client.CheckoutClient;
+import com.flip.connect.presentation.base.BaseFlipActivity;
+import com.flip.connect.presentation.checkout.CheckoutClient;
 
 public final class CheckoutActivity extends BaseFlipActivity {
 

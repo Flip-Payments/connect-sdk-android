@@ -1,5 +1,4 @@
 <resources>
-  <string name="app_name">connect</string>
   <string name="login">Login com FlipConnect</string>
   <string name="pay_with_flipconnect">Pagar com FlipConnect</string>
 </resources>

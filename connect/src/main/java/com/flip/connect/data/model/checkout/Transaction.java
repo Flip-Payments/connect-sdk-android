@@ -1,6 +1,6 @@
 package com.flip.connect.data.model.checkout;
 
-import com.flip.connect.Flip;
+import com.flip.connect.Connect;
 import com.flip.connect.presentation.util.URLParamEncoder;
 
 /**
@@ -16,7 +16,7 @@ public class Transaction {
   private String successUrl;
 
   public Transaction() {
-    this.clientId = Flip.getClientId();
+    this.clientId = Connect.getInstance().getClientId();
   }
 
   public String getClientId() {

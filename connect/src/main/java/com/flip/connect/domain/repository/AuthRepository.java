@@ -1,5 +1,7 @@
 package com.flip.connect.domain.repository;
 
+import com.flip.connect.domain.boundary.CallbackBoundary;
+
 import java.util.Map;
 
 /**
@@ -8,5 +10,5 @@ import java.util.Map;
 
 public interface AuthRepository {
 
-    void authRefreshToken(Map<String, String> options);
+    void authRequestToken(Map<String, String> options, CallbackBoundary callbackBoundary);
 }

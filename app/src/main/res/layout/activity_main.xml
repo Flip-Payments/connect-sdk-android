@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B3BFC7"
-    tools:context="br.com.flip.MainActivity"
-    >
+    tools:context="br.com.flip.MainActivity">
 
-  <com.flip.connect.presentation.widget.FlipAuthenticationButton
-      android:id="@+id/connectButton"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:layout_centerVertical="true"
-      />
+    <com.flip.connect.presentation.widget.FlipAuthenticationButton
+        android:id="@+id/connectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
-  <com.flip.connect.presentation.widget.FlipCheckoutButton
-      android:id="@+id/checkoutButton"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignLeft="@+id/connectButton"
-      android:layout_alignStart="@+id/connectButton"
-      android:layout_below="@+id/connectButton"
-      android:layout_marginTop="18dp"
-      />
+    <com.flip.connect.presentation.widget.FlipCheckoutButton
+        android:id="@+id/checkoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/connectButton"
+        android:layout_alignStart="@+id/connectButton"
+        android:layout_below="@+id/connectButton"
+        android:layout_marginTop="18dp" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/refreshToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkoutButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="refreshToken" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/verifyToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/refreshToken"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="verifyToken" />
 
 </RelativeLayout>

@@ -4,10 +4,10 @@ package com.flip.connect.domain.boundary;
  * Created by JGabrielFreitas on 12/04/17.
  */
 
-interface Callback<T> {
+public interface CallbackBoundary<T> {
 
   void success(T response);
 
-  void error(Exception e);
+  void error(Throwable e);
 
 }
