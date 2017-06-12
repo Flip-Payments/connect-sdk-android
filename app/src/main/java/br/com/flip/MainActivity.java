@@ -12,7 +12,7 @@ import com.flip.connect.domain.boundary.AccountCallback;
 import com.flip.connect.domain.boundary.CheckoutGrabber;
 import com.flip.connect.domain.model.OauthToken;
 import com.flip.connect.presentation.auth.ConnectAuth;
-import com.flip.connect.presentation.widget.FlipAuthenticationButton;
+import com.flip.connect.presentation.widget.ConnectAuthenticationButton;
 import com.jgabrielfreitas.core.activity.BaseActivity;
 import com.jgabrielfreitas.layoutid.annotations.InjectLayout;
 
@@ -24,7 +24,7 @@ import static br.com.flip.BuildConfig.MERCHANT_KEY;
 public class MainActivity extends BaseActivity implements CheckoutGrabber {
 
     @Bind(R.id.connectButton)
-    FlipAuthenticationButton connectButton;
+    ConnectAuthenticationButton connectButton;
 
 
     @Bind(R.id.refreshToken)

@@ -7,7 +7,7 @@
     android:background="#B3BFC7"
     tools:context="br.com.flip.MainActivity">
 
-    <com.flip.connect.presentation.widget.FlipAuthenticationButton
+    <com.flip.connect.presentation.widget.ConnectAuthenticationButton
         android:id="@+id/connectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

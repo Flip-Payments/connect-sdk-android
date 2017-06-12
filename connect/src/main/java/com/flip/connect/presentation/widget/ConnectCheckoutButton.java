@@ -20,19 +20,19 @@ import static java.lang.String.format;
  * Created by JGabrielFreitas on 17/04/17.
  */
 
-final class FlipCheckoutButton extends FlipButton {
+final class ConnectCheckoutButton extends FlipButton {
 
     private CheckoutGrabber grabber;
 
-    public FlipCheckoutButton(Context context) {
+    public ConnectCheckoutButton(Context context) {
         super(context);
     }
 
-    public FlipCheckoutButton(Context context, AttributeSet attrs) {
+    public ConnectCheckoutButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public FlipCheckoutButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ConnectCheckoutButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

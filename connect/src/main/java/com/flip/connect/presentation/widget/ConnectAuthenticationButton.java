@@ -13,17 +13,17 @@ import com.flip.connect.presentation.login.LoginActivity;
  * Created by JGabrielFreitas on 04/04/17.
  */
 
-public final class FlipAuthenticationButton extends FlipButton {
+public final class ConnectAuthenticationButton extends FlipButton {
 
-    public FlipAuthenticationButton(Context context) {
+    public ConnectAuthenticationButton(Context context) {
         super(context);
     }
 
-    public FlipAuthenticationButton(Context context, AttributeSet attrs) {
+    public ConnectAuthenticationButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public FlipAuthenticationButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ConnectAuthenticationButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
