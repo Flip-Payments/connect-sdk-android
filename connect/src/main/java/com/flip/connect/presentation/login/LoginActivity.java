@@ -9,25 +9,35 @@ import com.flip.connect.domain.boundary.AccountCallback;
 import com.flip.connect.domain.model.OauthToken;
 import com.flip.connect.presentation.base.BaseFlipActivity;
 
+import java.util.UUID;
+
 import static com.flip.connect.BuildConfig.FLIP_LOGIN;
 import static com.flip.connect.BuildConfig.HOST;
 import static com.flip.connect.BuildConfig.KEY;
 import static com.flip.connect.BuildConfig.SCHEMA;
+import static com.flip.connect.BuildConfig.STATE;
 
 public final class LoginActivity extends BaseFlipActivity implements LoginContract.View {
 
     public static AccountCallback accountCallback;
     private LoginContract.Presenter presenter;
+    private String uuid;
 
     @Override
     protected String urlToLoad() {
-        return FLIP_LOGIN.replace(KEY, Connect.getInstance().getClientId()).replace(HOST, Connect.getInstance().getHost()).replace(SCHEMA, Connect.getInstance().getSchema());
+
+        return FLIP_LOGIN
+                .replace(KEY, Connect.getInstance().getClientId())
+                .replace(HOST, Connect.getInstance().getHost())
+                .replace(SCHEMA, Connect.getInstance().getSchema())
+                .replace(STATE, uuid);
 
     }
 
     @Override
     protected WebViewClient client() {
-        return new LoginClient();
+        uuid = UUID.randomUUID().toString();
+        return new LoginClient(uuid,accountCallback);
     }
 
     @Override
