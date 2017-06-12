@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity implements CheckoutGrabber {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Connect.initializer(MERCHANT_KEY, "ipiranga", "ipiranga", "FC3E9D34-978B-483B-9CC0-462DFB82A75B");
+        Connect.initializer(MERCHANT_KEY, "HOST", "SCHEMA", "CLIENT_SECRET");
 
     }
 
