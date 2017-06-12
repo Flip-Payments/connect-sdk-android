@@ -53,6 +53,7 @@ public class MainActivity extends BaseActivity implements CheckoutGrabber {
             @Override
             public void error(Throwable t) {
                 Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
             }
         });
 
@@ -92,7 +93,7 @@ public class MainActivity extends BaseActivity implements CheckoutGrabber {
 
                     @Override
                     public void error(Throwable e) {
-
+                        e.printStackTrace();
                     }
                 });
             }
