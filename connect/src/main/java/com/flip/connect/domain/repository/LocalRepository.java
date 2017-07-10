@@ -1,5 +1,6 @@
 package com.flip.connect.domain.repository;
 
+import com.flip.connect.data.dependencies.TokenType;
 import com.flip.connect.domain.model.OauthToken;
 
 /**
@@ -7,6 +8,7 @@ import com.flip.connect.domain.model.OauthToken;
  */
 
 public interface LocalRepository {
-    void saveOauth(OauthToken token);
-    OauthToken getOauth();
+    void saveOauth(OauthToken token, TokenType tokenType);
+
+    OauthToken getOauth(TokenType tokenType);
 }

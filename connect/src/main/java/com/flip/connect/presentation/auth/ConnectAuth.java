@@ -1,13 +1,14 @@
 package com.flip.connect.presentation.auth;
 
 import android.content.Context;
-import android.util.Log;
 
+import com.flip.connect.data.dependencies.TokenType;
 import com.flip.connect.data.repository.local.LocalDataManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.OauthToken;
 import com.flip.connect.domain.repository.LocalRepository;
-import com.flip.connect.domain.usecase.OauthUseCase;
+import com.flip.connect.domain.usecase.OauthAccessUseCase;
+import com.flip.connect.domain.usecase.PublicOauthUseCase;
 
 /**
  * Created by jcosilva on 6/9/2017.
@@ -16,13 +17,13 @@ import com.flip.connect.domain.usecase.OauthUseCase;
 public class ConnectAuth {
 
     private LocalRepository localManager;
-    private OauthUseCase useCase;
+    private OauthAccessUseCase useCase;
     private OauthToken token;
 
     public ConnectAuth(Context context) {
         localManager = new LocalDataManager(context);
-        useCase = new OauthUseCase();
-        token = localManager.getOauth();
+        useCase = new OauthAccessUseCase();
+        token = localManager.getOauth(TokenType.ACCESS_TOKEN);
     }
 
     public void refreshToken(CallbackBoundary callbackBoundary) {

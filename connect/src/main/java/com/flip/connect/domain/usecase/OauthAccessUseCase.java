@@ -1,37 +1,18 @@
 package com.flip.connect.domain.usecase;
 
-import android.util.Log;
-
 import com.flip.connect.Connect;
-import com.flip.connect.data.repository.api.AuthManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.OauthToken;
-import com.flip.connect.domain.repository.AuthRepository;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by jcosilva on 6/9/2017.
  */
 
-public class OauthUseCase {
+public class OauthAccessUseCase extends BaseUseCase {
 
-    private AuthRepository authManager;
-    private Map<String, String> options;
-    private CallbackBoundary callbackBoundary;
-
-    public OauthUseCase() {
-        this.options = new HashMap<>();
-        authManager = new AuthManager();
-        this.options.put("redirectUri", Connect.getInstance().getSchema() + "://" + Connect.getInstance().getHost());
-        options.put("clientId", Connect.getInstance().getClientId());
-        options.put("clientSecret", Connect.getInstance().getClientSecret());
-    }
-
-
-    private void request() {
-        authManager.authRequestToken(options, callbackBoundary);
+    public OauthAccessUseCase() {
+        super();
+        options.put("redirectUri", Connect.getInstance().getSchema() + "://" + Connect.getInstance().getHost());
     }
 
     public void refreshToken(OauthToken token, CallbackBoundary callbackBoundary) {

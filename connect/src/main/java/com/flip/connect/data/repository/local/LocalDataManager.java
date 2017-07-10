@@ -2,6 +2,7 @@ package com.flip.connect.data.repository.local;
 
 import android.content.Context;
 
+import com.flip.connect.data.dependencies.TokenType;
 import com.flip.connect.domain.model.OauthToken;
 import com.flip.connect.domain.repository.LocalRepository;
 import com.google.gson.Gson;
@@ -20,12 +21,12 @@ public class LocalDataManager implements LocalRepository {
     }
 
     @Override
-    public void saveOauth(OauthToken token) {
-        dataController.writeData("Oauth", new Gson().toJson(token));
+    public void saveOauth(OauthToken token, TokenType tokenType) {
+        dataController.writeData(tokenType.toString(), new Gson().toJson(token));
     }
 
     @Override
-    public OauthToken getOauth() {
-        return new Gson().fromJson(dataController.readStringData("Oauth"), OauthToken.class);
+    public OauthToken getOauth(TokenType tokenType) {
+        return new Gson().fromJson(dataController.readStringData(tokenType.toString()), OauthToken.class);
     }
 }

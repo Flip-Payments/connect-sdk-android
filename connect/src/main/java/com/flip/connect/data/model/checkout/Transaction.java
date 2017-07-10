@@ -54,24 +54,4 @@ public class Transaction {
   public void setSuccessUrl(String successUrl) {
     this.successUrl = successUrl;
   }
-
-  @Override public String toString() {
-    return "Transaction{"
-        + "clientId='"
-        + clientId
-        + '\''
-        + ", totalAmount='"
-        + totalAmount
-        + '\''
-        + ", installments='"
-        + installments
-        + '\''
-        + ", statementDescriptor='"
-        + statementDescriptor
-        + '\''
-        + ", successUrl='"
-        + successUrl
-        + '\''
-        + '}';
-  }
 }
