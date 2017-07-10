@@ -6,7 +6,7 @@ import android.webkit.WebViewClient;
 
 import com.flip.connect.Connect;
 import com.flip.connect.domain.boundary.AccountCallback;
-import com.flip.connect.domain.model.OauthToken;
+import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.presentation.base.BaseFlipActivity;
 
 import java.util.UUID;
@@ -37,7 +37,7 @@ public final class LoginActivity extends BaseFlipActivity implements LoginContra
     @Override
     protected WebViewClient client() {
         uuid = UUID.randomUUID().toString();
-        return new LoginClient(uuid,accountCallback);
+        return new LoginClient(uuid, accountCallback);
     }
 
     @Override

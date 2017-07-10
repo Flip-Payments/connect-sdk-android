@@ -1,4 +1,4 @@
-package com.flip.connect.domain.model;
+package com.flip.connect.domain.model.auth;
 
 import java.util.List;
 

@@ -1,10 +1,8 @@
-package com.flip.connect.data.repository.api;
-
-import android.util.Log;
+package com.flip.connect.data.repository.api.auth;
 
 import com.flip.connect.data.dependencies.NetworkDependencies;
 import com.flip.connect.domain.boundary.CallbackBoundary;
-import com.flip.connect.domain.model.OauthToken;
+import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.repository.AuthRepository;
 
 import java.util.Map;

@@ -27,12 +27,13 @@ android {
             buildConfigField("String", "FLIP_LOGIN", '"http://flipconnect-signin-staging.herokuapp.com/?clientId=${key}&redirectUri=${schema}://${host}&responseType=code&state=${state}"')
             buildConfigField("String", "FLIP_CHECKOUT", '"http://flipconnect-signin-staging.herokuapp.com/checkout?clientId=${key}"')
             buildConfigField "String", 'API_BASE_URL', '"http://dlp-qrservices.cloudapp.net:20112"'
-
+            buildConfigField("String","PUBLIC_API",'"http://dlp-qrservices.cloudapp.net:20116"')
         }
         debug {
             buildConfigField("String", "FLIP_LOGIN", '"http://flipconnect-signin-staging.herokuapp.com/?clientId=${key}&redirectUri=${schema}://${host}&responseType=code"')
             buildConfigField("String", "FLIP_CHECKOUT", '"http://flipconnect-signin-staging.herokuapp.com/checkout?clientId=${key}"')
             buildConfigField "String", 'API_BASE_URL', '"http://dlp-qrservices.cloudapp.net:20112"'
+            buildConfigField("String","PUBLIC_API",'"http://dlp-qrservices.cloudapp.net:20116"')
         }
     }
 }

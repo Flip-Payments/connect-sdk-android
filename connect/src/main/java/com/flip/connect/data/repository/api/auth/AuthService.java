@@ -1,6 +1,6 @@
-package com.flip.connect.data.repository.api;
+package com.flip.connect.data.repository.api.auth;
 
-import com.flip.connect.domain.model.OauthToken;
+import com.flip.connect.domain.model.auth.OauthToken;
 
 import java.util.Map;
 
@@ -16,5 +16,6 @@ public interface AuthService {
 
     @POST("/api/oauth/token")
     Call<OauthToken> requestAccessToken(@QueryMap Map<String, String> options);
+
 
 }

@@ -1,6 +1,6 @@
 package com.flip.connect.presentation.login;
 
-import com.flip.connect.domain.model.OauthToken;
+import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.presentation.base.BasePresenterContract;
 import com.flip.connect.presentation.base.BaseViewContract;
 

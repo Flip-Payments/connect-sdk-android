@@ -10,15 +10,13 @@ import com.flip.connect.Connect;
 import com.flip.connect.data.model.checkout.Transaction;
 import com.flip.connect.domain.boundary.AccountCallback;
 import com.flip.connect.domain.boundary.CheckoutGrabber;
-import com.flip.connect.domain.model.OauthToken;
+import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.presentation.auth.ConnectAuth;
 import com.flip.connect.presentation.widget.ConnectAuthenticationButton;
 import com.jgabrielfreitas.core.activity.BaseActivity;
 import com.jgabrielfreitas.layoutid.annotations.InjectLayout;
 
 import butterknife.Bind;
-
-import static br.com.flip.BuildConfig.MERCHANT_KEY;
 
 @InjectLayout(layout = R.layout.activity_main)
 public class MainActivity extends BaseActivity implements CheckoutGrabber {
@@ -36,7 +34,7 @@ public class MainActivity extends BaseActivity implements CheckoutGrabber {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Connect.initializer(MERCHANT_KEY, "HOST", "SCHEMA", "CLIENT_SECRET");
+        Connect.initializer("F7F667C7-199F-4A10-B53A-4FADCDFADB53", "ipiranga", "ipiranga", "FC3E9D34-978B-483B-9CC0-462DFB82A75B");
     }
 
     @Override

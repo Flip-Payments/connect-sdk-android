@@ -1,7 +1,7 @@
 package com.flip.connect.domain.usecase;
 
 import com.flip.connect.Connect;
-import com.flip.connect.data.repository.api.AuthManager;
+import com.flip.connect.data.repository.api.auth.AuthManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.repository.AuthRepository;
 
@@ -20,8 +20,8 @@ abstract class BaseUseCase {
     BaseUseCase() {
         options = new HashMap<>();
         authManager = new AuthManager();
-        options.put("clientId", Connect.getInstance().getClientId());
-        options.put("clientSecret", Connect.getInstance().getClientSecret());
+        options.put(Options.CLIENT_ID.toString(), Connect.getInstance().getClientId());
+        options.put(Options.CLIENT_SECRET.toString(), Connect.getInstance().getClientSecret());
     }
 
     void request() {

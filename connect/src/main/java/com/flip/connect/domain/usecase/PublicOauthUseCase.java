@@ -14,7 +14,7 @@ public class PublicOauthUseCase extends BaseUseCase {
 
     public void requestPublicToken(CallbackBoundary callbackBoundary) {
         this.callbackBoundary = callbackBoundary;
-        options.put("grantType", Method.CLIENT_CREDENTIALS.name());
+        options.put(Options.GRANT_TYPE.toString(), Method.CLIENT_CREDENTIALS.name());
         request();
     }
 
