@@ -5,45 +5,34 @@ package com.flip.connect;
  */
 
 public class Connect {
-
-    private String clientId;
-    private String host;
-    private String schema;
-    private String clientSecret;
     private static final Connect instance = new Connect();
+    public ConnectConfigurations connectConfigurations;
 
     public static Connect getInstance() {
         return instance;
     }
 
-    public static void initializer(String clientId, String host, String schema, String clientSecret) {
-        getInstance().clientId = clientId;
-        getInstance().host = host;
-        getInstance().schema = schema;
-        getInstance().clientSecret = clientSecret;
+    public static void initializer(ConnectConfigurations configurations) {
+        getInstance().connectConfigurations = configurations;
     }
 
     public String getClientId() {
-        if (clientId == null)
-            throw new RuntimeException("clientId not defined");
-        return getInstance().clientId;
+        return connectConfigurations.getClientId();
     }
 
     public String getHost() {
-        if (host == null)
-            throw new RuntimeException("Host not defined");
-        return host;
+        return connectConfigurations.getHost();
     }
 
     public String getSchema() {
-        if (schema == null)
-            throw new RuntimeException("Schema not defined");
-        return schema;
+        return connectConfigurations.getSchema();
     }
 
     public String getClientSecret() {
-        if (schema == null)
-            throw new RuntimeException("ClientSecret not defined");
-        return clientSecret;
+        return connectConfigurations.getClientSecret();
+    }
+
+    public String getPublicToken() {
+        return connectConfigurations.getPublicToken();
     }
 }

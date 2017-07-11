@@ -12,19 +12,19 @@ import java.util.Map;
  * Created by jcosilva on 10/07/2017.
  */
 
-abstract class BaseUseCase {
-    AuthRepository authManager;
-    Map<String, String> options;
-    CallbackBoundary callbackBoundary;
+public abstract class BaseUseCase {
+    protected AuthRepository authManager;
+    protected Map<String, String> options;
+    protected CallbackBoundary callbackBoundary;
 
-    BaseUseCase() {
+    protected BaseUseCase() {
         options = new HashMap<>();
         authManager = new AuthManager();
         options.put(Options.CLIENT_ID.toString(), Connect.getInstance().getClientId());
         options.put(Options.CLIENT_SECRET.toString(), Connect.getInstance().getClientSecret());
     }
 
-    void request() {
+    protected void request() {
         authManager.authRequestToken(options, callbackBoundary);
     }
 }

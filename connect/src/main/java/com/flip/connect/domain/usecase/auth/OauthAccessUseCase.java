@@ -1,8 +1,11 @@
-package com.flip.connect.domain.usecase;
+package com.flip.connect.domain.usecase.auth;
 
 import com.flip.connect.Connect;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.auth.OauthToken;
+import com.flip.connect.domain.usecase.BaseUseCase;
+import com.flip.connect.domain.usecase.Method;
+import com.flip.connect.domain.usecase.Options;
 
 /**
  * Created by jcosilva on 6/9/2017.

@@ -31,7 +31,7 @@ public class ConnectConfigurations {
         this.host = host;
     }
 
-     String getSchema() {
+    String getSchema() {
         if (schema == null)
             throw new RuntimeException("Schema not defined");
         return schema;
@@ -41,7 +41,7 @@ public class ConnectConfigurations {
         this.schema = schema;
     }
 
-     String getClientSecret() {
+    String getClientSecret() {
         if (schema == null)
             throw new RuntimeException("ClientSecret not defined");
         return clientSecret;
@@ -51,7 +51,9 @@ public class ConnectConfigurations {
         this.clientSecret = clientSecret;
     }
 
-    protected String getPublicToken() {
+    String getPublicToken() {
+        if (schema == null)
+            throw new RuntimeException("PublicToken not defined");
         return publicToken;
     }
 

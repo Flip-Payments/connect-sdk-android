@@ -1,93 +1,111 @@
 package com.flip.connect.domain.model.user;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
-public class User{
-	private List<EmailsItem> emails;
-	private String membershipCreateDate;
-	private boolean isEnabled;
-	private PersonalData personalData;
-	private PublicProfile publicProfile;
-	private List<PhonesItem> phones;
-	private boolean isNewsLetterAllowed;
-	private String accountKey;
+public class User {
 
-	public void setEmails(List<EmailsItem> emails){
-		this.emails = emails;
-	}
+    @SerializedName("emails")
+    private List<EmailsItem> emails;
 
-	public List<EmailsItem> getEmails(){
-		return emails;
-	}
+    @SerializedName("membershipCreateDate")
+    private String membershipCreateDate;
 
-	public void setMembershipCreateDate(String membershipCreateDate){
-		this.membershipCreateDate = membershipCreateDate;
-	}
+    @SerializedName("isEnabled")
+    private boolean isEnabled;
 
-	public String getMembershipCreateDate(){
-		return membershipCreateDate;
-	}
+    @SerializedName("personalData")
+    private PersonalData personalData;
 
-	public void setIsEnabled(boolean isEnabled){
-		this.isEnabled = isEnabled;
-	}
+    @SerializedName("publicProfile")
+    private PublicProfile publicProfile;
 
-	public boolean isIsEnabled(){
-		return isEnabled;
-	}
+    @SerializedName("phones")
+    private List<PhonesItem> phones;
 
-	public void setPersonalData(PersonalData personalData){
-		this.personalData = personalData;
-	}
+    @SerializedName("isNewsLetterAllowed")
+    private boolean isNewsLetterAllowed;
 
-	public Object getPersonalData(){
-		return personalData;
-	}
+    @SerializedName("accountKey")
+    private String accountKey;
 
-	public void setPublicProfile(PublicProfile publicProfile){
-		this.publicProfile = publicProfile;
-	}
+    public void setEmails(List<EmailsItem> emails) {
+        this.emails = emails;
+    }
 
-	public PublicProfile getPublicProfile(){
-		return publicProfile;
-	}
+    public List<EmailsItem> getEmails() {
+        return emails;
+    }
 
-	public void setPhones(List<PhonesItem> phones){
-		this.phones = phones;
-	}
+    public void setMembershipCreateDate(String membershipCreateDate) {
+        this.membershipCreateDate = membershipCreateDate;
+    }
 
-	public List<PhonesItem> getPhones(){
-		return phones;
-	}
+    public String getMembershipCreateDate() {
+        return membershipCreateDate;
+    }
 
-	public void setIsNewsLetterAllowed(boolean isNewsLetterAllowed){
-		this.isNewsLetterAllowed = isNewsLetterAllowed;
-	}
+    public void setIsEnabled(boolean isEnabled) {
+        this.isEnabled = isEnabled;
+    }
 
-	public boolean isIsNewsLetterAllowed(){
-		return isNewsLetterAllowed;
-	}
+    public boolean isIsEnabled() {
+        return isEnabled;
+    }
 
-	public void setAccountKey(String accountKey){
-		this.accountKey = accountKey;
-	}
+    public void setPersonalData(PersonalData personalData) {
+        this.personalData = personalData;
+    }
 
-	public String getAccountKey(){
-		return accountKey;
-	}
+    public PersonalData getPersonalData() {
+        return personalData;
+    }
 
-	@Override
- 	public String toString(){
-		return 
-			"User{" + 
-			"emails = '" + emails + '\'' + 
-			",membershipCreateDate = '" + membershipCreateDate + '\'' + 
-			",isEnabled = '" + isEnabled + '\'' + 
-			",personalData = '" + personalData + '\'' + 
-			",publicProfile = '" + publicProfile + '\'' + 
-			",phones = '" + phones + '\'' + 
-			",isNewsLetterAllowed = '" + isNewsLetterAllowed + '\'' + 
-			",accountKey = '" + accountKey + '\'' + 
-			"}";
-		}
+    public void setPublicProfile(PublicProfile publicProfile) {
+        this.publicProfile = publicProfile;
+    }
+
+    public PublicProfile getPublicProfile() {
+        return publicProfile;
+    }
+
+    public void setPhones(List<PhonesItem> phones) {
+        this.phones = phones;
+    }
+
+    public List<PhonesItem> getPhones() {
+        return phones;
+    }
+
+    public void setIsNewsLetterAllowed(boolean isNewsLetterAllowed) {
+        this.isNewsLetterAllowed = isNewsLetterAllowed;
+    }
+
+    public boolean isIsNewsLetterAllowed() {
+        return isNewsLetterAllowed;
+    }
+
+    public void setAccountKey(String accountKey) {
+        this.accountKey = accountKey;
+    }
+
+    public String getAccountKey() {
+        return accountKey;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "User{" +
+                        "emails = '" + emails + '\'' +
+                        ",membershipCreateDate = '" + membershipCreateDate + '\'' +
+                        ",isEnabled = '" + isEnabled + '\'' +
+                        ",personalData = '" + personalData + '\'' +
+                        ",publicProfile = '" + publicProfile + '\'' +
+                        ",phones = '" + phones + '\'' +
+                        ",isNewsLetterAllowed = '" + isNewsLetterAllowed + '\'' +
+                        ",accountKey = '" + accountKey + '\'' +
+                        "}";
+    }
 }

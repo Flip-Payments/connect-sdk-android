@@ -1,31 +1,37 @@
 package com.flip.connect.domain.model.user;
 
-public class PublicProfile{
-	private Object pictureUrl;
-	private String name;
+import com.google.gson.annotations.SerializedName;
 
-	public void setPictureUrl(Object pictureUrl){
-		this.pictureUrl = pictureUrl;
-	}
+public class PublicProfile {
 
-	public Object getPictureUrl(){
-		return pictureUrl;
-	}
+    @SerializedName("pictureUrl")
+    private String pictureUrl;
 
-	public void setName(String name){
-		this.name = name;
-	}
+    @SerializedName("name")
+    private String name;
 
-	public String getName(){
-		return name;
-	}
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
 
-	@Override
- 	public String toString(){
-		return 
-			"PublicProfile{" + 
-			"pictureUrl = '" + pictureUrl + '\'' + 
-			",name = '" + name + '\'' + 
-			"}";
-		}
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "PublicProfile{" +
+                        "pictureUrl = '" + pictureUrl + '\'' +
+                        ",name = '" + name + '\'' +
+                        "}";
+    }
 }

@@ -1,7 +1,5 @@
 package com.flip.connect.data.dependencies;
 
-import com.flip.connect.BuildConfig;
-
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -16,9 +14,9 @@ public class NetworkDependencies {
         return new OkHttpClient.Builder().build();
     }
 
-    public static Retrofit retrofit() {
+    public static Retrofit retrofit(String url) {
         return new Retrofit.Builder()
-                .baseUrl(BuildConfig.API_BASE_URL)
+                .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client())
                 .build();

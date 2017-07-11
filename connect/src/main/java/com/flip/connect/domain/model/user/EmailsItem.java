@@ -1,51 +1,61 @@
 package com.flip.connect.domain.model.user;
 
-public class EmailsItem{
-	private String address;
-	private boolean isValidated;
-	private boolean isPrimary;
-	private String key;
+import com.google.gson.annotations.SerializedName;
 
-	public void setAddress(String address){
-		this.address = address;
-	}
+public class EmailsItem {
 
-	public String getAddress(){
-		return address;
-	}
+    @SerializedName("address")
+    private String address;
 
-	public void setIsValidated(boolean isValidated){
-		this.isValidated = isValidated;
-	}
+    @SerializedName("isValidated")
+    private boolean isValidated;
 
-	public boolean isIsValidated(){
-		return isValidated;
-	}
+    @SerializedName("isPrimary")
+    private boolean isPrimary;
 
-	public void setIsPrimary(boolean isPrimary){
-		this.isPrimary = isPrimary;
-	}
+    @SerializedName("key")
+    private String key;
 
-	public boolean isIsPrimary(){
-		return isPrimary;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public void setKey(String key){
-		this.key = key;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public String getKey(){
-		return key;
-	}
+    public void setIsValidated(boolean isValidated) {
+        this.isValidated = isValidated;
+    }
 
-	@Override
- 	public String toString(){
-		return 
-			"EmailsItem{" + 
-			"address = '" + address + '\'' + 
-			",isValidated = '" + isValidated + '\'' + 
-			",isPrimary = '" + isPrimary + '\'' + 
-			",key = '" + key + '\'' + 
-			"}";
-		}
+    public boolean isIsValidated() {
+        return isValidated;
+    }
+
+    public void setIsPrimary(boolean isPrimary) {
+        this.isPrimary = isPrimary;
+    }
+
+    public boolean isIsPrimary() {
+        return isPrimary;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "EmailsItem{" +
+                        "address = '" + address + '\'' +
+                        ",isValidated = '" + isValidated + '\'' +
+                        ",isPrimary = '" + isPrimary + '\'' +
+                        ",key = '" + key + '\'' +
+                        "}";
+    }
 }

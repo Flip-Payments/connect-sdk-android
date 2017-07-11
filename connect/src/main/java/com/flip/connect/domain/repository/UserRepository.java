@@ -1,6 +1,8 @@
 package com.flip.connect.domain.repository;
 
 import com.flip.connect.domain.boundary.CallbackBoundary;
+import com.flip.connect.domain.model.auth.OauthToken;
+import com.flip.connect.domain.model.user.UserResponse;
 
 /**
  * Created by Kanda on 10/07/2017.
@@ -8,5 +10,5 @@ import com.flip.connect.domain.boundary.CallbackBoundary;
 
 public interface UserRepository {
 
-    void getUser(String accountKey, CallbackBoundary callbackBoundary);
+    void getUser(OauthToken token, CallbackBoundary<UserResponse> callbackBoundary);
 }

@@ -47,7 +47,7 @@ public class OauthToken {
         this.refreshToken = refreshToken;
     }
 
-    public Object getAccountKey() {
+    public String getAccountKey() {
         return accountKey;
     }
 
