@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ConnectConfigurations config = new ConnectConfigurations();
-
         Connect.initializer(config);
         new ConnectAuth(this).verifyToken(new CallbackBoundary<OauthToken>() {
             @Override
