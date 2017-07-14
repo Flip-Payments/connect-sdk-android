@@ -11,7 +11,7 @@ public class OauthToken {
     private String tokenCreateDate;
     private String tokenExpiryDate;
     private String refreshToken;
-    private String accountKey;
+    private String userKey;
     private Boolean success;
     private List<OperationReport> operationReport = null;
 
@@ -47,12 +47,12 @@ public class OauthToken {
         this.refreshToken = refreshToken;
     }
 
-    public String getAccountKey() {
-        return accountKey;
+    public String getUserKey() {
+        return userKey;
     }
 
-    public void setAccountKey(String accountKey) {
-        this.accountKey = accountKey;
+    public void setUserKey(String userKey) {
+        this.userKey = userKey;
     }
 
     public Boolean hasSuccess() {
@@ -78,7 +78,7 @@ public class OauthToken {
                 ", tokenCreateDate=" + tokenCreateDate +
                 ", tokenExpiryDate=" + tokenExpiryDate +
                 ", refreshToken=" + refreshToken +
-                ", accountKey=" + accountKey +
+                ", userKey=" + userKey +
                 ", success=" + success +
                 ", operationReport=" + operationReport +
                 '}';

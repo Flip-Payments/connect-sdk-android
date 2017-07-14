@@ -32,6 +32,11 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ConnectConfigurations config = new ConnectConfigurations();
+        config.setClientId("F7F667C7-199F-4A10-B53A-4FADCDFADB53");
+        config.setClientSecret("FC3E9D34-978B-483B-9CC0-462DFB82A75B");
+        config.setHost("ipiranga");
+        config.setSchema("ipiranga");
+        config.setPublicToken("4C9E9B38C3EF63AD5AF250611248C226");
         Connect.initializer(config);
         new ConnectAuth(this).verifyToken(new CallbackBoundary<OauthToken>() {
             @Override

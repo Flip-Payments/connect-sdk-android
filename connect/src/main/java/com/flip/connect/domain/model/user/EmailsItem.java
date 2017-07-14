@@ -51,7 +51,7 @@ public class EmailsItem {
     @Override
     public String toString() {
         return
-                "EmailsItem{" +
+                "EmailsAccount{" +
                         "address = '" + address + '\'' +
                         ",isValidated = '" + isValidated + '\'' +
                         ",isPrimary = '" + isPrimary + '\'' +

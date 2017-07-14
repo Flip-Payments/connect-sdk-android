@@ -29,7 +29,7 @@ public class PublicProfile {
     @Override
     public String toString() {
         return
-                "PublicProfile{" +
+                "PublicProfileAccount{" +
                         "pictureUrl = '" + pictureUrl + '\'' +
                         ",name = '" + name + '\'' +
                         "}";

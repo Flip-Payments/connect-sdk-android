@@ -6,8 +6,11 @@
 
     <application android:supportsRtl="true">
         <activity
-            android:name=".presentation.login.LoginActivity"
-            android:theme="@style/NoActionBar"/>
+            android:name=".presentation.views.login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.views.edit.EditionActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -1,25 +1,11 @@
-package com.flip.connect.domain.model.user;
+package com.flip.connect.domain.model.account;
 
-import com.google.gson.annotations.SerializedName;
-
-public class PhonesItem{
-
-	@SerializedName("phoneTypeFriendlyName")
+public class PhonesAccount {
 	private String phoneTypeFriendlyName;
-
-	@SerializedName("phoneType")
 	private String phoneType;
-
-	@SerializedName("isValidated")
 	private boolean isValidated;
-
-	@SerializedName("isPrimary")
 	private boolean isPrimary;
-
-	@SerializedName("key")
 	private String key;
-
-	@SerializedName("fullNumber")
 	private String fullNumber;
 
 	public void setPhoneTypeFriendlyName(String phoneTypeFriendlyName){

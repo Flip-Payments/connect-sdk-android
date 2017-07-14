@@ -62,7 +62,7 @@ public class PersonalData {
     @Override
     public String toString() {
         return
-                "PersonalData{" +
+                "PersonalDataAccount{" +
                         "genderTypeFriendlyName = '" + genderTypeFriendlyName + '\'' +
                         ",country = '" + country + '\'' +
                         ",birthdate = '" + birthdate + '\'' +

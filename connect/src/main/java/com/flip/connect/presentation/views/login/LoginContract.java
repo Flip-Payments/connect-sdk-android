@@ -1,4 +1,4 @@
-package com.flip.connect.presentation.login;
+package com.flip.connect.presentation.views.login;
 
 import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.presentation.base.BasePresenterContract;

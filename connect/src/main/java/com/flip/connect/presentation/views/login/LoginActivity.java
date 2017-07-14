@@ -1,4 +1,4 @@
-package com.flip.connect.presentation.login;
+package com.flip.connect.presentation.views.login;
 
 import android.net.Uri;
 import android.os.Bundle;

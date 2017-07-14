@@ -1,4 +1,4 @@
-package com.flip.connect.domain.usecase.profile;
+package com.flip.connect.domain.usecase.publicProfile;
 
 import android.content.Context;
 
@@ -6,10 +6,9 @@ import com.flip.connect.data.dependencies.TokenType;
 import com.flip.connect.data.repository.api.user.UserManager;
 import com.flip.connect.data.repository.local.LocalDataManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
-import com.flip.connect.domain.model.user.User;
 import com.flip.connect.domain.model.user.UserResponse;
 import com.flip.connect.domain.repository.LocalRepository;
-import com.flip.connect.domain.repository.UserRepository;
+import com.flip.connect.domain.repository.PublicDataRepository;
 import com.flip.connect.domain.usecase.BaseUseCase;
 
 /**
@@ -18,7 +17,7 @@ import com.flip.connect.domain.usecase.BaseUseCase;
 
 public class ProfileUseCase extends BaseUseCase {
 
-    private UserRepository userRepository;
+    private PublicDataRepository userRepository;
     private LocalRepository localRepository;
 
     public ProfileUseCase(Context context) {

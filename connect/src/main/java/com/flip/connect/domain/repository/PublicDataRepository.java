@@ -8,7 +8,7 @@ import com.flip.connect.domain.model.user.UserResponse;
  * Created by Kanda on 10/07/2017.
  */
 
-public interface UserRepository {
+public interface PublicDataRepository {
 
     void getUser(OauthToken token, CallbackBoundary<UserResponse> callbackBoundary);
 }
