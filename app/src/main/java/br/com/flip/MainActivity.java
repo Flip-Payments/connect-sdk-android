@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
 
     ConnectAuthenticationButton connectButton;
 
-
     AppCompatButton refreshButton;
 
     AppCompatButton verifyButton;

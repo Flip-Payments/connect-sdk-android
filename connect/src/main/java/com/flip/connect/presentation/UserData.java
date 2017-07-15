@@ -21,6 +21,7 @@ public class UserData {
     private Context context;
 
     public UserData(Context context) {
+        this.context = context;
         profileUseCase = new ProfileUseCase(context);
     }
 

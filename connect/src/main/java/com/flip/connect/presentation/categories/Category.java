@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 public enum Category implements Serializable {
     publicProfile,
+    personalData,
     emails,
     phones
 }

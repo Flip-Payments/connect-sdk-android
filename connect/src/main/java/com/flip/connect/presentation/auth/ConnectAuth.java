@@ -26,11 +26,19 @@ public class ConnectAuth {
     }
 
     public void refreshToken(CallbackBoundary callbackBoundary) {
-        useCase.refreshToken(token, callbackBoundary);
+        if (token == null) {
+            callbackBoundary.error(new Throwable("Token not found"));
+        } else {
+            useCase.refreshToken(token, callbackBoundary);
+        }
     }
 
     public void verifyToken(CallbackBoundary callbackBoundary) {
-        useCase.verifyToken(token, callbackBoundary);
+        if (token == null) {
+            callbackBoundary.error(new Throwable("Token not found"));
+        } else {
+            useCase.verifyToken(token, callbackBoundary);
+        }
     }
 
 }

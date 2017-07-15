@@ -26,7 +26,7 @@ public class AccountManager implements AccountRepository {
 
     @Override
     public void getAccount(final CallbackBoundary<Account> callbackBoundary) {
-        service.getAccount().enqueue(new Callback<Account>() {
+        service.getAccount("Bearer 4C9E9B38C3EF63AD5AF250611248C226").enqueue(new Callback<Account>() {
             @Override
             public void onResponse(@NonNull Call<Account> call, @NonNull Response<Account> response) {
                 callbackBoundary.success(response.body());

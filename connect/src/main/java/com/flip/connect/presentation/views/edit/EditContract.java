@@ -1,5 +1,9 @@
 package com.flip.connect.presentation.views.edit;
 
+import com.flip.connect.domain.model.account.EmailsAccount;
+import com.flip.connect.domain.model.account.PersonalDataAccount;
+import com.flip.connect.domain.model.account.PhonesAccount;
+import com.flip.connect.domain.model.account.PublicProfileAccount;
 import com.flip.connect.presentation.categories.Category;
 
 import java.util.List;
@@ -18,8 +22,10 @@ public interface EditContract {
     }
 
     interface View {
-
-        void showProfile(List<Object> items);
+        void showPublicProfile(PublicProfileAccount publicProfile);
+        void showPersonalData(PersonalDataAccount personalData);
+        void showEmails(List<EmailsAccount> emails);
+        void showPhones(List<PhonesAccount> phones);
         void toast(String msg);
     }
 }

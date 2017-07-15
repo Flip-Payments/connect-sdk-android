@@ -24,23 +24,21 @@ public class EditUseCase {
         manager = new AccountManager();
     }
 
-    public void ClientInformations(List<Category> categories, CallbackBoundary<List<Object>> callbackBoundary) {
-        if (!intersection(categories, getCategoriesAccount()).isEmpty()) {
-            manager.getAccount(new CallbackBoundary<Account>() {
-                @Override
-                public void success(Account response) {
+    public void clientInformation(CallbackBoundary<Account> callbackBoundary) {
+        manager.getAccount(new CallbackBoundary<Account>() {
+            @Override
+            public void success(Account response) {
 
-                }
+            }
 
-                @Override
-                public void error(Throwable e) {
+            @Override
+            public void error(Throwable e) {
 
-                }
-            });
-        }
+            }
+        });
     }
 
-    private List<Category> getCategoriesAccount() {
+    public List<Category> getCategoriesAccount() {
         List<Category> categories = new ArrayList<>();
         categories.add(emails);
         categories.add(phones);
