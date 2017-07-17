@@ -9,7 +9,7 @@
             android:name=".presentation.views.login.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.views.edit.EditionActivity"
+            android:name=".presentation.views.edit.EditActivity"
             android:screenOrientation="portrait" />
     </application>
 

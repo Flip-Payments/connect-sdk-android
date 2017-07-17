@@ -1,6 +1,6 @@
 package com.flip.connect.domain.repository;
 
-import com.flip.connect.data.dependencies.TokenType;
+import com.flip.connect.domain.usecase.TokenType;
 import com.flip.connect.domain.model.auth.OauthToken;
 
 /**

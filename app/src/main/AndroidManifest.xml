@@ -28,7 +28,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="com.flip.connect.presentation.views.edit.EditionActivity" />
+        <activity android:name="com.flip.connect.presentation.views.edit.EditActivity" />
         <activity android:name=".ProfileActivity" />
     </application>
 

@@ -2,7 +2,7 @@ package com.flip.connect.data.repository.local;
 
 import android.content.Context;
 
-import com.flip.connect.data.dependencies.TokenType;
+import com.flip.connect.domain.usecase.TokenType;
 import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.repository.LocalRepository;
 import com.google.gson.Gson;

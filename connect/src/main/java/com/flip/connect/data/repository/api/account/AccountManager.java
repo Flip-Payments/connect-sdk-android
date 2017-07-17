@@ -4,8 +4,9 @@ import android.support.annotation.NonNull;
 
 import com.flip.connect.BuildConfig;
 import com.flip.connect.data.dependencies.NetworkDependencies;
+import com.flip.connect.data.model.account.AccountResponse;
 import com.flip.connect.domain.boundary.CallbackBoundary;
-import com.flip.connect.domain.model.account.Account;
+import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.repository.AccountRepository;
 
 import retrofit2.Call;
@@ -21,20 +22,20 @@ public class AccountManager implements AccountRepository {
     private AccountService service;
 
     public AccountManager() {
-        service = NetworkDependencies.retrofit(BuildConfig.PUBLIC_API).create(AccountService.class);
+        service = NetworkDependencies.retrofit(BuildConfig.PRIVATE_API).create(AccountService.class);
     }
 
     @Override
-    public void getAccount(final CallbackBoundary<Account> callbackBoundary) {
-        service.getAccount("Bearer 4C9E9B38C3EF63AD5AF250611248C226").enqueue(new Callback<Account>() {
+    public void getAccount(OauthToken token, final CallbackBoundary<AccountResponse> callbackBoundary) {
+        service.getAccount("bearer "+token.getAccessToken()).enqueue(new Callback<AccountResponse>() {
             @Override
-            public void onResponse(@NonNull Call<Account> call, @NonNull Response<Account> response) {
+            public void onResponse(@NonNull Call<AccountResponse> call, @NonNull Response<AccountResponse> response) {
                 callbackBoundary.success(response.body());
             }
 
             @Override
-            public void onFailure(@NonNull Call<Account> call, @NonNull Throwable t) {
-
+            public void onFailure(@NonNull Call<AccountResponse> call, @NonNull Throwable t) {
+                callbackBoundary.error(t);
             }
         });
     }

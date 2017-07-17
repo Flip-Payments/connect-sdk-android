@@ -183,10 +183,11 @@
             android:layout_marginTop="8dp" />
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input"
+            android:id="@+id/publicName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/imgProfile"
+            android:hint="Nome"
             android:layout_marginBottom="8dp">
 
             <android.support.v7.widget.AppCompatEditText

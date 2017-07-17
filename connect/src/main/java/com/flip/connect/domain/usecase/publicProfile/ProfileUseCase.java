@@ -2,7 +2,7 @@ package com.flip.connect.domain.usecase.publicProfile;
 
 import android.content.Context;
 
-import com.flip.connect.data.dependencies.TokenType;
+import com.flip.connect.domain.usecase.TokenType;
 import com.flip.connect.data.repository.api.user.UserManager;
 import com.flip.connect.data.repository.local.LocalDataManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;

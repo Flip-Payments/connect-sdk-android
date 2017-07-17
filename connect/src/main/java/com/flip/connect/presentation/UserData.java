@@ -9,7 +9,7 @@ import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.user.UserResponse;
 import com.flip.connect.domain.usecase.publicProfile.ProfileUseCase;
 import com.flip.connect.presentation.categories.Category;
-import com.flip.connect.presentation.views.edit.EditionActivity;
+import com.flip.connect.presentation.views.edit.EditActivity;
 
 /**
  * Created by Kanda on 11/07/2017.
@@ -33,7 +33,7 @@ public class UserData {
         if (context != null) {
             Bundle bundle = new Bundle();
             bundle.putSerializable("CATEGORY", categories);
-            context.startActivity(new Intent(context, EditionActivity.class).putExtras(bundle));
+            context.startActivity(new Intent(context, EditActivity.class).putExtras(bundle));
         }
     }
 }

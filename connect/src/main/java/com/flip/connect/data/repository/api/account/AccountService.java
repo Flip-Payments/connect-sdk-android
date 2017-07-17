@@ -1,6 +1,6 @@
 package com.flip.connect.data.repository.api.account;
 
-import com.flip.connect.domain.model.account.Account;
+import com.flip.connect.data.model.account.AccountResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -19,6 +19,6 @@ public interface AccountService {
             "Content-Type: application/json"
     })
     @GET("/user/account")
-    public Call<Account> getAccount(@Header("Authorization") String authorization);
+    Call<AccountResponse> getAccount(@Header("Authorization") String authorization);
 
 }

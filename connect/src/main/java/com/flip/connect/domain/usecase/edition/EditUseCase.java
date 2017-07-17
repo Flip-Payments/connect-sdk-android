@@ -1,8 +1,10 @@
 package com.flip.connect.domain.usecase.edition;
 
+import com.flip.connect.data.model.account.AccountResponse;
 import com.flip.connect.data.repository.api.account.AccountManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.account.Account;
+import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.repository.AccountRepository;
 import com.flip.connect.presentation.categories.Category;
 
@@ -24,18 +26,8 @@ public class EditUseCase {
         manager = new AccountManager();
     }
 
-    public void clientInformation(CallbackBoundary<Account> callbackBoundary) {
-        manager.getAccount(new CallbackBoundary<Account>() {
-            @Override
-            public void success(Account response) {
-
-            }
-
-            @Override
-            public void error(Throwable e) {
-
-            }
-        });
+    public void clientInformation(OauthToken token, CallbackBoundary<AccountResponse> callbackBoundary) {
+        manager.getAccount(token, callbackBoundary);
     }
 
     public List<Category> getCategoriesAccount() {
