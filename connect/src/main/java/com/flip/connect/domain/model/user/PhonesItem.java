@@ -1,8 +1,9 @@
 package com.flip.connect.domain.model.user;
 
+import com.flip.connect.domain.model.BaseResponse;
 import com.google.gson.annotations.SerializedName;
 
-public class PhonesItem{
+public class PhonesItem extends BaseResponse{
 
 	@SerializedName("phoneTypeFriendlyName")
 	private String phoneTypeFriendlyName;

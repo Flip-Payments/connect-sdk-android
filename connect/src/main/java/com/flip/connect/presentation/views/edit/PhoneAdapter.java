@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.flip.connect.R;
 import com.flip.connect.domain.model.account.EmailsAccount;
+import com.flip.connect.domain.model.account.PhonesAccount;
 
 import java.util.List;
 
@@ -15,12 +16,12 @@ import java.util.List;
  * Created by Kanda on 13/07/2017.
  */
 
-public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.ViewHolder> {
+public class PhoneAdapter extends RecyclerView.Adapter<PhoneAdapter.ViewHolder> {
     int SECTION = 0;
 
-    private List items;
+    private List<PhonesAccount> items;
 
-    public EmailAdapter(List items) {
+    public PhoneAdapter(List<PhonesAccount> items) {
         this.items = items;
     }
 
@@ -33,9 +34,8 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        TextInputLayout emailText = (TextInputLayout) holder.itemView.findViewById(R.id.email);
-        EmailsAccount email = (EmailsAccount) items.get(position);
-        emailText.getEditText().setText(email.getAddress());
+        TextInputLayout emailText = (TextInputLayout) holder.itemView.findViewById(R.id.phone);
+        emailText.getEditText().setText(items.get(position).getFullNumber());
     }
 
     @Override

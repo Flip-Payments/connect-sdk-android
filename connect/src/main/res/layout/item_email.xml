@@ -7,13 +7,13 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/section"
-        android:layout_marginBottom="8dp"
-        android:layout_toRightOf="@id/categoryPhone">
+        android:id="@+id/email"
+        android:layout_marginBottom="8dp">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="asdasdas"
             android:inputType="textEmailAddress"
             android:maxLength="100"
             android:maxLines="1" />

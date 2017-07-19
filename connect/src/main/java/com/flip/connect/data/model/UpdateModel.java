@@ -5,4 +5,5 @@ package com.flip.connect.data.model;
  */
 
 public class UpdateModel {
+
 }

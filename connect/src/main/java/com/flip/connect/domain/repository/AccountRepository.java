@@ -1,6 +1,7 @@
 package com.flip.connect.domain.repository;
 
-import com.flip.connect.data.model.account.AccountResponse;
+import com.flip.connect.data.model.UpdateModel;
+import com.flip.connect.data.model.account.AccountModel;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.auth.OauthToken;
 
@@ -9,7 +10,9 @@ import com.flip.connect.domain.model.auth.OauthToken;
  */
 
 public interface AccountRepository {
-    void getAccount(OauthToken token, CallbackBoundary<AccountResponse> callbackBoundary);
+    void getAccount(OauthToken token, CallbackBoundary<AccountModel> callbackBoundary);
+
+    void setAccount(OauthToken token, CallbackBoundary<UpdateModel> callbackBoundary, UpdateModel account);
 
     void getAddress();
 

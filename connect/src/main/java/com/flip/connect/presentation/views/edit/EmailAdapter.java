@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import com.flip.connect.R;
 import com.flip.connect.domain.model.account.EmailsAccount;
-import com.flip.connect.domain.model.account.PhonesAccount;
 
 import java.util.List;
 
@@ -16,39 +15,26 @@ import java.util.List;
  * Created by Kanda on 13/07/2017.
  */
 
-public class EditAdapter extends RecyclerView.Adapter<EditAdapter.ViewHolder> {
+public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.ViewHolder> {
     int SECTION = 0;
 
-    private List items;
+    private List<EmailsAccount> items;
 
-    public EditAdapter(List items) {
+    public EmailAdapter(List<EmailsAccount> items) {
         this.items = items;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        if (viewType == EMAIL) {
-            return new ViewHolder(layoutInflater.inflate(R.layout.item_email, parent, false));
-        }else if(viewType == PHONE){
-            return new ViewHolder(layoutInflater.inflate(R.layout.item_phone, parent, false));
-        }
-        return null;
+        return new ViewHolder(layoutInflater.inflate(R.layout.item_email, parent, false));
     }
 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        if(holder.getItemViewType() == EMAIL) {
-            TextInputLayout emailText = (TextInputLayout) holder.itemView.findViewById(R.id.email);
-            EmailsAccount email = (EmailsAccount) items.get(position);
-            emailText.getEditText().setText(email.getAddress());
-        }
-        else if(holder.getItemViewType() == PHONE ){
-            TextInputLayout phoneText = (TextInputLayout) holder.itemView.findViewById(R.id.email);
-            PhonesAccount phone = (PhonesAccount) items.get(position);
-            phoneText.getEditText().setText(phone.getFullNumber());
-        }
+        TextInputLayout emailText = (TextInputLayout) holder.itemView.findViewById(R.id.email);
+        emailText.getEditText().setText(items.get(position).getAddress());
     }
 
     @Override

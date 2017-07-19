@@ -1,6 +1,8 @@
 package com.flip.connect.domain.model.account;
 
-public class PhonesAccount {
+import com.flip.connect.domain.model.BaseResponse;
+
+public class PhonesAccount extends BaseResponse{
 	private String phoneTypeFriendlyName;
 	private String phoneType;
 	private boolean isValidated;

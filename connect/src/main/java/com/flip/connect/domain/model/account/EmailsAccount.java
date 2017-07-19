@@ -1,6 +1,8 @@
 package com.flip.connect.domain.model.account;
 
-public class EmailsAccount {
+import com.flip.connect.domain.model.BaseResponse;
+
+public class EmailsAccount extends BaseResponse{
 	private String address;
 	private boolean isValidated;
 	private boolean isPrimary;

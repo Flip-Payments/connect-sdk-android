@@ -4,6 +4,11 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -28,10 +33,22 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
     private RelativeLayout categoryPhone;
     private ImageManager imageManager;
 
+    private TextInputLayout birthDate, gender, country, dependents, name;
+    private AppCompatImageView imageProfile;
+    private RecyclerView emailRecyclerView, phoneRecyclerView;
+    private EmailAdapter emailAdapter;
+    private PhoneAdapter phoneAdapter;
+    private LinearLayoutManager layoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_edition);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         presenter = new EditPresenter(this);
         presenter.attach(this);
         Category[] categories = (Category[]) getIntent().getExtras().get("CATEGORY");
@@ -41,24 +58,39 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int i = item.getItemId();
+        if (i == R.id.OK) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void showPublicProfile(PublicProfileAccount publicProfile) {
         categoryPublicProfile.setVisibility(View.VISIBLE);
-        AppCompatImageView imageProfile = (AppCompatImageView) categoryPublicProfile.findViewById(R.id.imgProfile);
-        TextInputLayout name = (TextInputLayout) categoryPublicProfile.findViewById(R.id.publicName);
-        if(!publicProfile.getPictureUrl().equals(""))
+        if (!publicProfile.getPictureUrl().equals(""))
             imageManager.loadImage(this, publicProfile.getPictureUrl(), imageProfile);
 
-        if(!publicProfile.getName().equals(""))
+        if (!publicProfile.getName().equals(""))
             name.getEditText().setText(publicProfile.getName());
     }
 
     @Override
     public void showPersonalData(PersonalDataAccount personalData) {
         categoryPersonalData.setVisibility(View.VISIBLE);
-        TextInputLayout birthDate = (TextInputLayout) categoryPersonalData.findViewById(R.id.birthDate);
-        TextInputLayout gender = (TextInputLayout) categoryPersonalData.findViewById(R.id.gender);
-        TextInputLayout country = (TextInputLayout) categoryPersonalData.findViewById(R.id.country);
-        TextInputLayout dependents = (TextInputLayout) categoryPersonalData.findViewById(R.id.dependents);
 
         if (!personalData.getBirthdate().equals(""))
             birthDate.getEditText().setText(DateFormatUtil.formatDate(personalData.getBirthdate()));
@@ -70,23 +102,37 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
             country.getEditText().setText(personalData.getCountry());
 
         if (personalData.getDependentCount() != 0)
-            dependents.getEditText().setText(personalData.getDependentCount()+"");
+            dependents.getEditText().setText(personalData.getDependentCount() + "");
     }
 
     @Override
     public void showEmails(List<EmailsAccount> emails) {
         categoryEmail.setVisibility(View.VISIBLE);
-
+        emailAdapter = new EmailAdapter(emails);
+        layoutManager = new LinearLayoutManager(this);
+        emailRecyclerView.setHasFixedSize(true);
+        emailRecyclerView.setLayoutManager(layoutManager);
+        emailRecyclerView.setAdapter(emailAdapter);
     }
 
     @Override
     public void showPhones(List<PhonesAccount> phones) {
         categoryPhone.setVisibility(View.VISIBLE);
+        phoneAdapter = new PhoneAdapter(phones);
+        layoutManager = new LinearLayoutManager(this);
+        phoneRecyclerView.setHasFixedSize(true);
+        phoneRecyclerView.setLayoutManager(layoutManager);
+        phoneRecyclerView.setAdapter(phoneAdapter);
     }
 
     @Override
     public void toast(String msg) {
-        Toast.makeText(getBaseContext(), "Tente editar seu perfil novamente mais tarde", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), msg, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void finishView() {
+        finish();
     }
 
     public void bindViews() {
@@ -94,5 +140,13 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
         categoryPersonalData = (RelativeLayout) findViewById(R.id.categoryPersonalData);
         categoryEmail = (RelativeLayout) findViewById(R.id.categoryEmail);
         categoryPhone = (RelativeLayout) findViewById(R.id.categoryPhone);
+        birthDate = (TextInputLayout) categoryPersonalData.findViewById(R.id.birthDate);
+        gender = (TextInputLayout) categoryPersonalData.findViewById(R.id.gender);
+        country = (TextInputLayout) categoryPersonalData.findViewById(R.id.country);
+        dependents = (TextInputLayout) categoryPersonalData.findViewById(R.id.dependents);
+        imageProfile = (AppCompatImageView) categoryPublicProfile.findViewById(R.id.imgProfile);
+        name = (TextInputLayout) categoryPublicProfile.findViewById(R.id.publicName);
+        emailRecyclerView = (RecyclerView) categoryEmail.findViewById(R.id.emails);
+        phoneRecyclerView = (RecyclerView) categoryPhone.findViewById(R.id.phones);
     }
 }

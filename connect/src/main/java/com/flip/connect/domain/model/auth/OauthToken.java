@@ -1,19 +1,19 @@
 package com.flip.connect.domain.model.auth;
 
+import com.flip.connect.domain.model.BaseResponse;
+
 import java.util.List;
 
 /**
  * Created by jcosilva on 6/8/2017.
  */
 
-public class OauthToken {
+public class OauthToken extends BaseResponse {
     private String accessToken;
     private String tokenCreateDate;
     private String tokenExpiryDate;
     private String refreshToken;
     private String userKey;
-    private Boolean success;
-    private List<OperationReport> operationReport = null;
 
     public String getAccessToken() {
         return accessToken;
@@ -55,22 +55,6 @@ public class OauthToken {
         this.userKey = userKey;
     }
 
-    public Boolean hasSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-    public List<OperationReport> getOperationReport() {
-        return operationReport;
-    }
-
-    public void setOperationReport(List<OperationReport> operationReport) {
-        this.operationReport = operationReport;
-    }
-
     @Override
     public String toString() {
         return "OauthToken{" +
@@ -79,8 +63,8 @@ public class OauthToken {
                 ", tokenExpiryDate=" + tokenExpiryDate +
                 ", refreshToken=" + refreshToken +
                 ", userKey=" + userKey +
-                ", success=" + success +
-                ", operationReport=" + operationReport +
+                ", success=" + getSuccess() +
+                ", operationReport=" + getOperationReport() +
                 '}';
     }
 }

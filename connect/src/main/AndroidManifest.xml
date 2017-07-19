@@ -10,6 +10,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.views.edit.EditActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" />
     </application>
 

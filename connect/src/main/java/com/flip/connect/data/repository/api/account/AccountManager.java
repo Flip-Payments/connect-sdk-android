@@ -1,10 +1,12 @@
 package com.flip.connect.data.repository.api.account;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.flip.connect.BuildConfig;
 import com.flip.connect.data.dependencies.NetworkDependencies;
-import com.flip.connect.data.model.account.AccountResponse;
+import com.flip.connect.data.model.UpdateModel;
+import com.flip.connect.data.model.account.AccountModel;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.repository.AccountRepository;
@@ -26,15 +28,30 @@ public class AccountManager implements AccountRepository {
     }
 
     @Override
-    public void getAccount(OauthToken token, final CallbackBoundary<AccountResponse> callbackBoundary) {
-        service.getAccount("bearer "+token.getAccessToken()).enqueue(new Callback<AccountResponse>() {
+    public void getAccount(OauthToken token, final CallbackBoundary<AccountModel> callbackBoundary) {
+        service.getAccount("bearer "+token.getAccessToken()).enqueue(new Callback<AccountModel>() {
             @Override
-            public void onResponse(@NonNull Call<AccountResponse> call, @NonNull Response<AccountResponse> response) {
+            public void onResponse(@NonNull Call<AccountModel> call, @NonNull Response<AccountModel> response) {
                 callbackBoundary.success(response.body());
             }
 
             @Override
-            public void onFailure(@NonNull Call<AccountResponse> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<AccountModel> call, @NonNull Throwable t) {
+                callbackBoundary.error(t);
+            }
+        });
+    }
+
+    @Override
+    public void setAccount(OauthToken token, final CallbackBoundary<UpdateModel> callbackBoundary, UpdateModel account) {
+        service.updatePersonalData("bearer "+token.getAccessToken(), account).enqueue(new Callback<UpdateModel>() {
+            @Override
+            public void onResponse(Call<UpdateModel> call, Response<UpdateModel> response) {
+                callbackBoundary.success(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<UpdateModel> call, Throwable t) {
                 callbackBoundary.error(t);
             }
         });

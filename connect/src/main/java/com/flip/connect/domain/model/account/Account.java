@@ -1,8 +1,10 @@
 package com.flip.connect.domain.model.account;
 
+import com.flip.connect.domain.model.BaseResponse;
+
 import java.util.List;
 
-public class Account{
+public class Account extends BaseResponse{
 	private List<EmailsAccount> emails;
 	private boolean isEnabled;
 	private PersonalDataAccount personalData;
@@ -77,7 +79,7 @@ public class Account{
 			",publicProfile = '" + publicProfile + '\'' + 
 			",phones = '" + phones + '\'' + 
 			",isNewsLetterAllowed = '" + isNewsLetterAllowed + '\'' + 
-			",accountKey = '" + accountKey + '\'' + 
+			",accountKey = '" + accountKey + '\'' +
 			"}";
 		}
 }

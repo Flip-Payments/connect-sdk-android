@@ -27,5 +27,6 @@ public interface EditContract {
         void showEmails(List<EmailsAccount> emails);
         void showPhones(List<PhonesAccount> phones);
         void toast(String msg);
+        void finishView();
     }
 }

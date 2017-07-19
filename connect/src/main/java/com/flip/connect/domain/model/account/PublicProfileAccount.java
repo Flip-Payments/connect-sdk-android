@@ -1,6 +1,8 @@
 package com.flip.connect.domain.model.account;
 
-public class PublicProfileAccount {
+import com.flip.connect.domain.model.BaseResponse;
+
+public class PublicProfileAccount extends BaseResponse {
 	private String pictureUrl;
 	private String name;
 

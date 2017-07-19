@@ -1,8 +1,9 @@
 package com.flip.connect.domain.model.user;
 
+import com.flip.connect.domain.model.BaseResponse;
 import com.google.gson.annotations.SerializedName;
 
-public class PersonalData {
+public class PersonalData extends BaseResponse {
 
     @SerializedName("genderTypeFriendlyName")
     private String genderTypeFriendlyName;

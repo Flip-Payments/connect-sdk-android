@@ -1,6 +1,8 @@
 package com.flip.connect.domain.model.account;
 
-public class PersonalDataAccount {
+import com.flip.connect.domain.model.BaseResponse;
+
+public class PersonalDataAccount extends BaseResponse{
 	private String genderTypeFriendlyName;
 	private String country;
 	private String birthdate;

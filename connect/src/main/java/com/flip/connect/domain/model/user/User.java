@@ -1,10 +1,11 @@
 package com.flip.connect.domain.model.user;
 
+import com.flip.connect.domain.model.BaseResponse;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class User {
+public class User extends BaseResponse {
 
     @SerializedName("emails")
     private List<EmailsItem> emails;
