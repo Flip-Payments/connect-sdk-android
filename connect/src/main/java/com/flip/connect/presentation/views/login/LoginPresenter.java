@@ -3,7 +3,7 @@ package com.flip.connect.presentation.views.login;
 import android.content.Context;
 import android.util.Log;
 
-import com.flip.connect.domain.usecase.TokenType;
+import com.flip.connect.domain.entities.TokenType;
 import com.flip.connect.data.repository.local.LocalDataManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.auth.OauthToken;

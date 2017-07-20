@@ -3,6 +3,7 @@ package com.flip.connect.domain.usecase;
 import com.flip.connect.Connect;
 import com.flip.connect.data.repository.api.auth.AuthManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
+import com.flip.connect.domain.entities.Options;
 import com.flip.connect.domain.repository.AuthRepository;
 
 import java.util.HashMap;

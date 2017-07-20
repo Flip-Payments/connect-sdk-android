@@ -1,4 +1,4 @@
-package com.flip.connect.domain.usecase;
+package com.flip.connect.domain.entities;
 
 /**
  * Created by jcosilva on 6/9/2017.

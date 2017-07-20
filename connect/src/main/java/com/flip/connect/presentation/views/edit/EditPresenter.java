@@ -4,15 +4,12 @@ import android.content.Context;
 import android.util.Log;
 
 import com.flip.connect.data.model.UpdateModel;
-import com.flip.connect.data.model.account.AccountModel;
+import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.data.repository.local.LocalDataManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
-import com.flip.connect.domain.model.account.PublicProfileAccount;
-import com.flip.connect.domain.model.user.PersonalData;
-import com.flip.connect.domain.model.user.PublicProfile;
 import com.flip.connect.domain.repository.LocalRepository;
-import com.flip.connect.domain.usecase.TokenType;
+import com.flip.connect.domain.entities.TokenType;
 import com.flip.connect.domain.usecase.edition.EditUseCase;
 import com.flip.connect.presentation.categories.Category;
 
@@ -63,7 +60,7 @@ class EditPresenter implements EditContract.Presenter {
 
     @Override
     public void updateProfile(UpdateModel updateModel) {
-        useCase.updateClientInformation(localRepository.getOauth(TokenType.ACCESS_TOKEN), updateModel, new CallbackBoundary<BaseResponse>() {
+        useCase.updateInformation(localRepository.getOauth(TokenType.ACCESS_TOKEN), updateModel, new CallbackBoundary<BaseResponse>() {
             @Override
             public void success(BaseResponse response) {
                 view.toast("Perfil editado com sucesso!");

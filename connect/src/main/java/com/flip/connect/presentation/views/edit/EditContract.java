@@ -1,7 +1,6 @@
 package com.flip.connect.presentation.views.edit;
 
 import com.flip.connect.data.model.UpdateModel;
-import com.flip.connect.data.model.account.AccountModel;
 import com.flip.connect.domain.model.account.EmailsAccount;
 import com.flip.connect.domain.model.account.PersonalDataAccount;
 import com.flip.connect.domain.model.account.PhonesAccount;

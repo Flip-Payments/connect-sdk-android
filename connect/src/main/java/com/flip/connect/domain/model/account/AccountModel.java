@@ -1,4 +1,4 @@
-package com.flip.connect.data.model.account;
+package com.flip.connect.domain.model.account;
 
 import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.account.Account;
