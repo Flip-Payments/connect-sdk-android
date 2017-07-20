@@ -1,5 +1,5 @@
 # connect-sdk-android
-[![](https://jitpack.io/v/Flip-Payments/connect-sdk-android.svg)](https://jitpack.io/#Flip-Payments/connect-sdk-android)
+[![](https://jitpack.io/v/Flip-Payments/connect-sdk-android.svg)](https://jitpack.io/#Flip-Payments/connect-sdk-android) [![Github Version](https://img.shields.io/github/release/Flip-Payments/connect-sdk-ios.svg)](https://github.com/Flip-Payments/connect-sdk-ios/releases)
 
 SDK de integração com o Connect API.
 
