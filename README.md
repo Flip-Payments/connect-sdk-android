@@ -3,7 +3,15 @@
 
 SDK de integração com o Connect API.
 
-### Gradle
+## Como funiona
+
+A FlipConnectSDK funciona recebendo **ClientId** e **ClientSecret** para abrir uma página web para logar exatamente como na autenticação do Facebook e do Google. O usuário irá logar no nosso ambiente e, caso seja bem sucedido, o usuário será redirecionado para a aplicação usando a previamente configurada **RedirectURI**.
+
+Quando a aplicação abre, a SDK irá procurar por parâmetros válidos na URI, para que então possa fazer requisições para recuperar o **access token**, o **refresh token** e a **account key**.
+
+Com essas informações você será capaz de acessar as informações do usuário!
+
+## Instalação
 
 Adicione o artifactory no `/build.gradle` raíz
 
@@ -24,18 +32,9 @@ E no seu `app/build.gradle`
 
 Veja abaixo como realizar a configuração inicial do Connect
 
+## Usabilidade
 
-# Inicializando o Connect
-Você deve fornecer suas informações cadastradas no ambiente do Connect para inicializar a lib
-```java
-Connect.initializer(CLIENT_ID, HOST, SCHEMA, CLIENT_SECRET);
-```
-
-Após a configuração básica do Connect você poderá fazer o Login
-
-
-
-## Configurando o Manifest
+### Configurando o Manifest
 
 Você deve adicionar a activity de Login do Connect ao seu manifest. Também é necessário adicionar uma `intent-filter` contendo seu host e seu schema cadastrado no ambiente do Connect.
 ```xml
@@ -53,8 +52,17 @@ Você deve adicionar a activity de Login do Connect ao seu manifest. Também é 
         </activity>
 ```
 
+### Inicializando o Connect
 
-## Adicionando botão de Login
+Você deve fornecer suas informações cadastradas no ambiente do Connect para inicializar a lib
+```java
+Connect.initializer(CLIENT_ID, HOST, SCHEMA, CLIENT_SECRET);
+```
+
+Após a configuração básica do Connect você poderá fazer o Login
+
+### Adicionando botão de Login
+
 Para realizar o login você deve adicionar nosso botão de Login da seguinte maneira:
 ```xml
   <com.flip.connect.presentation.widget.ConnectAuthenticationButton
@@ -65,7 +73,7 @@ Para realizar o login você deve adicionar nosso botão de Login da seguinte man
         android:layout_centerVertical="true" />
 ```
 
-## Adicionar Callback para retorno do Login
+### Adicionar Callback para retorno do Login
 ```java 
  connectButton.setAccountCallback(new AccountCallback() {
             @Override
@@ -81,7 +89,7 @@ Para realizar o login você deve adicionar nosso botão de Login da seguinte man
         });
 ```
 
-## Atualizando o token
+### Atualizando o token
 
 A atualização de token é feita através da classe ConnectAuth. É necessário implementar a interface `AccountCallback `para ter acesso ao sucesso ou falha da solicitação de atualização do token.
 
@@ -102,7 +110,7 @@ A atualização de token é feita através da classe ConnectAuth. É necessário
 
 ```
 
-## Verificando se o token é válido
+### Verificando se o token é válido
 
 A verificação de token é feita através da classe ConnectAuth. É necessário implementar a interface `AccountCallback `para ter acesso ao sucesso ou falha da solicitação de verificação do token. Ao receber o retorno no `success `do `AccountCallback` você deve verificar se o `token.hasSuccess()` é `true`(token válido) ou `false `(token inválido)
 
@@ -126,3 +134,10 @@ A verificação de token é feita através da classe ConnectAuth. É necessário
                 });
 ```
 
+## Contribuições
+
+Pull requests serão muito bem-vindos!
+
+## Problemas
+
+Algum problema, dúvida ou sugestão? [Abra uma issue!](https://github.com/Flip-Payments/connect-sdk-android/issues/new)
