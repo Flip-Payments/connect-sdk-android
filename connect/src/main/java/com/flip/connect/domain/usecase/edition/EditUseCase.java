@@ -1,8 +1,10 @@
 package com.flip.connect.domain.usecase.edition;
 
+import com.flip.connect.data.model.UpdateModel;
 import com.flip.connect.data.model.account.AccountModel;
 import com.flip.connect.data.repository.api.account.AccountManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
+import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.repository.AccountRepository;
 import com.flip.connect.presentation.categories.Category;
@@ -40,6 +42,10 @@ public class EditUseCase {
                 callbackBoundary.error(e);
             }
         });
+    }
+
+    public void updateClientInformation(OauthToken token, UpdateModel update, final CallbackBoundary<BaseResponse> callbackBoundary){
+        manager.updatePersonalData(token, update, callbackBoundary);
     }
 
     public List<Category> getCategoriesAccount() {

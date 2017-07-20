@@ -2,6 +2,7 @@ package com.flip.connect.data.repository.api.account;
 
 import com.flip.connect.data.model.UpdateModel;
 import com.flip.connect.data.model.account.AccountModel;
+import com.flip.connect.domain.model.BaseResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -25,9 +26,9 @@ public interface AccountService {
     Call<AccountModel> getAccount(@Header("Authorization") String authorization);
 
     @PATCH("/user/account/personaldata")
-    Call<UpdateModel> updatePersonalData(@Header("Authorization") String authorization, @Body UpdateModel body);
+    Call<BaseResponse> updatePersonalData(@Header("Authorization") String authorization, @Body UpdateModel body);
 
     @PATCH("/user/account/publicprofile")
-    Call<UpdateModel> updatePublicProfile(@Header("Authorization") String authorization);
+    Call<BaseResponse> updatePublicProfile(@Header("Authorization") String authorization, @Body UpdateModel body);
 
 }

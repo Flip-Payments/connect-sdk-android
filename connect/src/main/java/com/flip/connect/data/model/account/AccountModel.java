@@ -12,6 +12,6 @@ public class AccountModel extends BaseResponse {
 
     @Override
     public String toString() {
-        return "Success: "+super.getSuccess()+", "+super.toString();
+        return super.toString();
     }
 }

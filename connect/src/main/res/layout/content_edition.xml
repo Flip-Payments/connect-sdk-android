@@ -61,18 +61,21 @@
                         android:maxLines="1" />
                 </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/genderTitle"
+                    android:textSize="12sp"
+                    android:layout_below="@+id/birthDate"
+                    android:text="Gênero:"/>
+
+                <Spinner
                     android:id="@+id/gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/birthDate"
+                    android:layout_below="@+id/genderTitle"
                     android:layout_marginBottom="8dp"
-                    android:hint="Sexo">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </android.support.design.widget.TextInputLayout>
+                    />
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/dependents"

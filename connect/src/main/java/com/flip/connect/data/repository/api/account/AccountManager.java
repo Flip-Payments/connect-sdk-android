@@ -8,8 +8,12 @@ import com.flip.connect.data.dependencies.NetworkDependencies;
 import com.flip.connect.data.model.UpdateModel;
 import com.flip.connect.data.model.account.AccountModel;
 import com.flip.connect.domain.boundary.CallbackBoundary;
+import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.repository.AccountRepository;
+import com.google.gson.Gson;
+
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +36,10 @@ public class AccountManager implements AccountRepository {
         service.getAccount("bearer "+token.getAccessToken()).enqueue(new Callback<AccountModel>() {
             @Override
             public void onResponse(@NonNull Call<AccountModel> call, @NonNull Response<AccountModel> response) {
-                callbackBoundary.success(response.body());
+                if(response.isSuccessful() && response.body().getSuccess())
+                    callbackBoundary.success(response.body());
+                else
+                    callbackBoundary.error(new Throwable(response.code() + " Error: " + response.message()));
             }
 
             @Override
@@ -43,15 +50,19 @@ public class AccountManager implements AccountRepository {
     }
 
     @Override
-    public void setAccount(OauthToken token, final CallbackBoundary<UpdateModel> callbackBoundary, UpdateModel account) {
-        service.updatePersonalData("bearer "+token.getAccessToken(), account).enqueue(new Callback<UpdateModel>() {
+    public void updatePersonalData(OauthToken token, final UpdateModel update, final CallbackBoundary<BaseResponse> callbackBoundary) {
+        service.updatePersonalData("bearer "+token.getAccessToken(), update).enqueue(new Callback<BaseResponse>() {
             @Override
-            public void onResponse(Call<UpdateModel> call, Response<UpdateModel> response) {
-                callbackBoundary.success(response.body());
+            public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
+                Log.e("ABUSO", new Gson().toJson(update));
+                if(response.isSuccessful() && response.body().getSuccess())
+                    callbackBoundary.success(response.body());
+                else
+                    callbackBoundary.error(new Throwable(response.body().toString()));
             }
 
             @Override
-            public void onFailure(Call<UpdateModel> call, Throwable t) {
+            public void onFailure(Call<BaseResponse> call, Throwable t) {
                 callbackBoundary.error(t);
             }
         });

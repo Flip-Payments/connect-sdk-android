@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
         new ConnectAuth(this).verifyToken(new CallbackBoundary<OauthToken>() {
             @Override
             public void success(OauthToken response) {
-                if (response.hasSuccess()) {
+                if (response.getSuccess()) {
                     startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                     finish();
                 }
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
                     @Override
                     public void success(OauthToken response) {
                         Toast.makeText(MainActivity.this, "verify token realizado com sucesso", Toast.LENGTH_SHORT).show();
-                        if (response.hasSuccess()) {
+                        if (response.getSuccess()) {
                             Toast.makeText(MainActivity.this, "token valido", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(MainActivity.this, "token invalido", Toast.LENGTH_SHORT).show();

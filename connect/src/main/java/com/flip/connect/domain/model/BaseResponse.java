@@ -1,5 +1,7 @@
 package com.flip.connect.domain.model;
 
+import android.util.Log;
+
 import com.flip.connect.domain.model.auth.OperationReport;
 
 import java.util.List;
@@ -26,5 +28,15 @@ public class BaseResponse {
 
     public void setOperationReport(List<OperationReport> operationReport) {
         this.operationReport = operationReport;
+    }
+
+    @Override
+    public String toString() {
+        String aux = "";
+        for(OperationReport or : operationReport){
+            Log.e("RequestError", "Success: "+success+", field: "+or.getField()+", message: "+or.getMessage());
+            aux+=or.getMessage();
+        }
+        return aux;
     }
 }
