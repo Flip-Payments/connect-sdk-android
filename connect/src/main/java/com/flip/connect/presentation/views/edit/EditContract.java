@@ -1,6 +1,6 @@
 package com.flip.connect.presentation.views.edit;
 
-import com.flip.connect.data.model.UpdateModel;
+import com.flip.connect.data.model.PatchesBase;
 import com.flip.connect.domain.model.account.EmailsAccount;
 import com.flip.connect.domain.model.account.PersonalDataAccount;
 import com.flip.connect.domain.model.account.PhonesAccount;
@@ -21,7 +21,7 @@ public interface EditContract {
 
         void initProfile(Category... categories);
 
-        void updateProfile(UpdateModel updateModel);
+        void updateProfile(PatchesBase patchesBase);
     }
 
     interface View {

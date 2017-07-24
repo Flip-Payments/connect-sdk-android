@@ -1,51 +1,13 @@
 package com.flip.connect.data.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.flip.connect.domain.model.user.PublicProfile;
 
 /**
- * Created by ltorres on 19/07/2017.
+ * Created by ltorres on 24/07/2017.
  */
 
 public class UpdateModel {
-    private List<Patch> patches = new ArrayList<>();
+    public class publicProfile extends PatchesBase{
 
-    public void addPatch(String op, String path, String value){
-        this.patches.add(new Patch(op, path, value));
-    }
-
-    private class Patch{
-
-        public Patch(String op, String path, String value){
-            this.op = op;
-            this.path = path;
-            this.value = value;
-        }
-
-        private String op, path, value;
-
-        public String getOp() {
-            return op;
-        }
-
-        public void setOp(String op) {
-            this.op = op;
-        }
-
-        public String getPath() {
-            return path;
-        }
-
-        public void setPath(String path) {
-            this.path = path;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public void setValue(String value) {
-            this.value = value;
-        }
     }
 }

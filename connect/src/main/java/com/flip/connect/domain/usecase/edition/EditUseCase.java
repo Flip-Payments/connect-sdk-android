@@ -1,6 +1,6 @@
 package com.flip.connect.domain.usecase.edition;
 
-import com.flip.connect.data.model.UpdateModel;
+import com.flip.connect.data.model.PatchesBase;
 import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.data.repository.api.account.AccountManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
@@ -44,7 +44,7 @@ public class EditUseCase {
         });
     }
 
-    public void updateInformation(OauthToken token, UpdateModel update, final CallbackBoundary<BaseResponse> callbackBoundary){
+    public void updateInformation(OauthToken token, PatchesBase update, final CallbackBoundary<BaseResponse> callbackBoundary){
         manager.updateAccount(token, update, callbackBoundary);
     }
 

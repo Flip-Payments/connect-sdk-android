@@ -1,6 +1,7 @@
 package com.flip.connect;
 
 import android.content.Context;
+import android.util.Log;
 
 /**
  * Created by JGabrielFreitas on 04/04/17.

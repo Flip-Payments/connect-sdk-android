@@ -1,6 +1,6 @@
 package com.flip.connect.data.repository.api.account;
 
-import com.flip.connect.data.model.UpdateModel;
+import com.flip.connect.data.model.PatchesBase;
 import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.domain.model.BaseResponse;
 
@@ -26,6 +26,6 @@ public interface AccountService {
     Call<AccountModel> getAccount(@Header("Authorization") String authorization);
 
     @PATCH("/user/account")
-    Call<BaseResponse> updateAccount(@Header("Authorization") String authorization, @Body UpdateModel body);
+    Call<BaseResponse> updateAccount(@Header("Authorization") String authorization, @Body PatchesBase body);
 
 }

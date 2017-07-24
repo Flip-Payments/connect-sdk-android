@@ -3,7 +3,7 @@ package com.flip.connect.presentation.views.edit;
 import android.content.Context;
 import android.util.Log;
 
-import com.flip.connect.data.model.UpdateModel;
+import com.flip.connect.data.model.PatchesBase;
 import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.data.repository.local.LocalDataManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
@@ -59,8 +59,8 @@ class EditPresenter implements EditContract.Presenter {
     }
 
     @Override
-    public void updateProfile(UpdateModel updateModel) {
-        useCase.updateInformation(localRepository.getOauth(TokenType.ACCESS_TOKEN), updateModel, new CallbackBoundary<BaseResponse>() {
+    public void updateProfile(PatchesBase patchesBase) {
+        useCase.updateInformation(localRepository.getOauth(TokenType.ACCESS_TOKEN), patchesBase, new CallbackBoundary<BaseResponse>() {
             @Override
             public void success(BaseResponse response) {
                 view.toast("Perfil editado com sucesso!");

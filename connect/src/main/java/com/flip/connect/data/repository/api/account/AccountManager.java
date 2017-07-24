@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.flip.connect.BuildConfig;
 import com.flip.connect.data.dependencies.NetworkDependencies;
-import com.flip.connect.data.model.UpdateModel;
+import com.flip.connect.data.model.PatchesBase;
 import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
@@ -48,7 +48,7 @@ public class AccountManager implements AccountRepository {
     }
 
     @Override
-    public void updateAccount(OauthToken token, final UpdateModel update, final CallbackBoundary<BaseResponse> callbackBoundary) {
+    public void updateAccount(OauthToken token, final PatchesBase update, final CallbackBoundary<BaseResponse> callbackBoundary) {
         service.updateAccount("bearer " + token.getAccessToken(), update).enqueue(new Callback<BaseResponse>() {
             @Override
             public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {

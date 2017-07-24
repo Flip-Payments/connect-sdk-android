@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.flip.connect.R;
-import com.flip.connect.data.model.UpdateModel;
+import com.flip.connect.data.model.PatchesBase;
 import com.flip.connect.domain.entities.GenderType;
 import com.flip.connect.domain.entities.PersonalDataType;
 import com.flip.connect.domain.model.account.EmailsAccount;
@@ -163,7 +163,7 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
     }
 
     private void getContents() {
-        UpdateModel updateModel = new UpdateModel();
+        PatchesBase patchesBase = new PatchesBase();
         for (Map.Entry<String, View> entry : contents.entrySet()) {
             String op;
             String key = "/".concat(entry.getKey());
@@ -184,10 +184,10 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
 
             op = value.length() > 0 ? "replace" : "remove";
 
-            updateModel.addPatch(op, key, value);
+            patchesBase.addPatch(op, key, value);
         }
 
-        presenter.updateProfile(updateModel);
+        presenter.updateProfile(patchesBase);
     }
 
     public void bindViews() {

@@ -2,6 +2,7 @@ package com.flip.connect.presentation.views.login;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebViewClient;
 
 import com.flip.connect.Connect;
@@ -10,6 +11,8 @@ import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.presentation.base.BaseFlipActivity;
 
 import java.util.UUID;
+
+import br.com.rexlab.fplib.FingerPrintLibrary;
 
 import static com.flip.connect.BuildConfig.FLIP_LOGIN;
 import static com.flip.connect.BuildConfig.HOST;
@@ -44,13 +47,16 @@ public final class LoginActivity extends BaseFlipActivity implements LoginContra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Uri uri = getIntent().getData();
+        Log.e("LOGO", "LOGO");
         if (uri != null) {
+            Log.e("LOGO1", "LOGO");
             showProgress();
             String authCode = uri.getQueryParameter("code");
             presenter = new LoginPresenter(this);
             presenter.attachView(this);
             presenter.loadCredentials(authCode);
         } else {
+            Log.e("LOG2O", "LOGO");
             loadWebView();
         }
     }

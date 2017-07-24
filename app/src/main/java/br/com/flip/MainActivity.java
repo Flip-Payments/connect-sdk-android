@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
             }
         });
 
-
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
