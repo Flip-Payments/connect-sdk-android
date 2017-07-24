@@ -3,6 +3,7 @@ package br.com.flip;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatButton;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -47,6 +48,8 @@ public class MainActivity extends BaseActivity implements CheckoutGrabber {
             @Override
             public void success(OauthToken response) {
                 Toast.makeText(MainActivity.this, "login realizado com sucesso", Toast.LENGTH_SHORT).show();
+
+                Log.i("UNIQUE ID", Connect.getInstance().getUniqueId());
             }
 
             @Override

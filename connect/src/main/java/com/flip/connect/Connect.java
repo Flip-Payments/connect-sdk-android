@@ -1,5 +1,7 @@
 package com.flip.connect;
 
+import android.content.Context;
+
 /**
  * Created by JGabrielFreitas on 04/04/17.
  */
@@ -11,6 +13,7 @@ public class Connect {
     private String schema;
     private String clientSecret;
     private static final Connect instance = new Connect();
+    private String uniqueId;
 
     public static Connect getInstance() {
         return instance;
@@ -45,5 +48,13 @@ public class Connect {
         if (schema == null)
             throw new RuntimeException("ClientSecret not defined");
         return clientSecret;
+    }
+
+    public String getUniqueId() {
+        return uniqueId;
+    }
+
+    public void setUniqueId(String uniqueId) {
+        this.uniqueId = uniqueId;
     }
 }
