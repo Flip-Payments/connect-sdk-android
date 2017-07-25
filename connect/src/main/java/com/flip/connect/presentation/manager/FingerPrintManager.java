@@ -8,14 +8,12 @@ import com.flip.connect.domain.model.auth.OauthToken;
 
 import java.util.UUID;
 
-import br.com.rexlab.fplib.FingerPrintLibrary;
-
 /**
  * Created by ltorres on 24/07/2017.
  */
 
 public class FingerPrintManager {
-    public static void sendFingerPrint(Context context, OauthToken token) {
+    /*public static void sendFingerPrint(Context context, OauthToken token) {
         //region Fingerprint
         String uniqueId = UUID.randomUUID().toString();
         Connect.getInstance().setUniqueId(uniqueId);
@@ -26,5 +24,5 @@ public class FingerPrintManager {
         FingerPrintLibrary.configFingerprint(true, true, true, true, true, true);
         FingerPrintLibrary.getFingerprint();
         //endregion
-    }
+    }*/
 }

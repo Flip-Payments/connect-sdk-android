@@ -7,7 +7,7 @@ import java.util.List;
  * Created by ltorres on 19/07/2017.
  */
 
-public class PatchesBase {
+public class Patches {
     private List<Patch> patches = new ArrayList<>();
 
     public void addPatch(String op, String path, String value){

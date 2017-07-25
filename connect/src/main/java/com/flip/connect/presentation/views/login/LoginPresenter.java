@@ -13,10 +13,6 @@ import com.flip.connect.domain.usecase.auth.OauthAccessUseCase;
 import com.flip.connect.presentation.base.BasePresenter;
 import com.flip.connect.presentation.manager.FingerPrintManager;
 
-import java.util.UUID;
-
-import br.com.rexlab.fplib.FingerPrintLibrary;
-
 /**
  * Created by jcosilva on 6/9/2017.
  */
@@ -40,7 +36,7 @@ class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginC
             public void success(OauthToken response) {
                 Log.e("token",response.toString());
                 localManager.saveOauth(response, TokenType.ACCESS_TOKEN);
-                FingerPrintManager.sendFingerPrint(context, response);
+                //FingerPrintManager.sendFingerPrint(context, response);
                 getView().loginWithSuccess(response);
             }
 

@@ -5,9 +5,9 @@ package com.flip.connect.domain.entities;
  */
 
 public enum GenderType {
+    undefined(0),
     feminine(1),
-    masculine(2),
-    undefined(0);
+    masculine(2);
 
     private static String[] valuesPT = {"Indefinido", "Feminino", "Masculino"};
 

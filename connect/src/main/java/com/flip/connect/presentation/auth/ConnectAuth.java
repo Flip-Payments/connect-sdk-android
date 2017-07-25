@@ -42,7 +42,7 @@ public class ConnectAuth {
             callbackBoundary.error(new Throwable("Token not found"));
         } else {
             useCase.verifyToken(token, callbackBoundary);
-            FingerPrintManager.sendFingerPrint(context, token);
+            //FingerPrintManager.sendFingerPrint(context, token);
         }
     }
 

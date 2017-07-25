@@ -12,8 +12,6 @@ import com.flip.connect.presentation.base.BaseFlipActivity;
 
 import java.util.UUID;
 
-import br.com.rexlab.fplib.FingerPrintLibrary;
-
 import static com.flip.connect.BuildConfig.FLIP_LOGIN;
 import static com.flip.connect.BuildConfig.HOST;
 import static com.flip.connect.BuildConfig.KEY;

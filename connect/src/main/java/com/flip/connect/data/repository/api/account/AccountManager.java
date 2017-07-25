@@ -5,13 +5,16 @@ import android.util.Log;
 
 import com.flip.connect.BuildConfig;
 import com.flip.connect.data.dependencies.NetworkDependencies;
-import com.flip.connect.data.model.PatchesBase;
+import com.flip.connect.data.model.UpdateModel;
 import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.repository.AccountRepository;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,13 +51,16 @@ public class AccountManager implements AccountRepository {
     }
 
     @Override
-    public void updateAccount(OauthToken token, final PatchesBase update, final CallbackBoundary<BaseResponse> callbackBoundary) {
-        service.updateAccount("bearer " + token.getAccessToken(), update).enqueue(new Callback<BaseResponse>() {
+    public void update(OauthToken token, final JsonObject update, final CallbackBoundary<BaseResponse> callbackBoundary) {
+        service.update("bearer " + token.getAccessToken(), update).enqueue(new Callback<BaseResponse>() {
             @Override
             public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
-                Log.e("Request", new Gson().toJson(update));
+                Log.e("Request", update.toString());
                 if (response.isSuccessful() && response.body().getSuccess())
                     callbackBoundary.success(response.body());
+                else if(response.body() == null){
+                    callbackBoundary.error(new Throwable("Unknow error"));
+                }
                 else
                     callbackBoundary.error(new Throwable(response.body().toString()));
             }

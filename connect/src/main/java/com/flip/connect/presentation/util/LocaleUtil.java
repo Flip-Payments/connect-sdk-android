@@ -1,5 +1,7 @@
 package com.flip.connect.presentation.util;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
@@ -22,14 +24,13 @@ public class LocaleUtil {
                 orderedLocales.add(locale);
             }
         }
-        Collections.sort(countries);
         return countries;
     }
 
     public static int getPositionOfCountry(String country){
         getAllCountryAvailable();
         for(int i=0;i<orderedLocales.size();i++){
-            if(country.equals(orderedLocales.get(i).getCountry())){
+            if(orderedLocales.get(i).getCountry().equals(country)){
                 return i;
             }
         }

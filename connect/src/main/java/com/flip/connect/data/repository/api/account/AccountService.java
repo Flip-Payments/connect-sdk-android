@@ -1,8 +1,11 @@
 package com.flip.connect.data.repository.api.account;
 
-import com.flip.connect.data.model.PatchesBase;
-import com.flip.connect.domain.model.account.AccountModel;
+import com.flip.connect.data.model.UpdateModel;
 import com.flip.connect.domain.model.BaseResponse;
+import com.flip.connect.domain.model.account.AccountModel;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -22,10 +25,10 @@ public interface AccountService {
             "Accept: application/json",
             "Content-Type: application/json"
     })
-    @GET("/user/account")
+    @GET("/user/account?include=documents&include=addresses&include=emails&include=personaldata&include=phones")
     Call<AccountModel> getAccount(@Header("Authorization") String authorization);
 
     @PATCH("/user/account")
-    Call<BaseResponse> updateAccount(@Header("Authorization") String authorization, @Body PatchesBase body);
+    Call<BaseResponse> update(@Header("Authorization") String authorization, @Body JsonObject body);
 
 }

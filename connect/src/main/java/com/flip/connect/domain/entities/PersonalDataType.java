@@ -8,7 +8,5 @@ public enum PersonalDataType {
     birthdate,
     gendertype,
     dependentcount,
-    country;
-
-
+    country
 }

@@ -1,13 +1,13 @@
 package com.flip.connect.domain.usecase.edition;
 
-import com.flip.connect.data.model.PatchesBase;
-import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.data.repository.api.account.AccountManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
+import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.repository.AccountRepository;
 import com.flip.connect.presentation.categories.Category;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +33,12 @@ public class EditUseCase {
             public void success(AccountModel response) {
                 if (response == null) {
                     callbackBoundary.error(new Throwable());
-                } else
-                    callbackBoundary.success(response);
+                } else {
+                    if (response.getSuccess())
+                        callbackBoundary.success(response);
+                    else
+                        callbackBoundary.error(new Throwable(response.getOperationReport().toString()));
+                }
             }
 
             @Override
@@ -44,8 +48,8 @@ public class EditUseCase {
         });
     }
 
-    public void updateInformation(OauthToken token, PatchesBase update, final CallbackBoundary<BaseResponse> callbackBoundary){
-        manager.updateAccount(token, update, callbackBoundary);
+    public void updateInformation(OauthToken token, JsonObject update, final CallbackBoundary<BaseResponse> callbackBoundary) {
+        manager.update(token, update, callbackBoundary);
     }
 
     public List<Category> getCategoriesAccount() {

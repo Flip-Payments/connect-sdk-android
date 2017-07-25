@@ -1,5 +1,7 @@
 package com.flip.connect.data.repository.api.user;
 
+import android.util.Log;
+
 import com.flip.connect.BuildConfig;
 import com.flip.connect.Connect;
 import com.flip.connect.data.dependencies.NetworkDependencies;
