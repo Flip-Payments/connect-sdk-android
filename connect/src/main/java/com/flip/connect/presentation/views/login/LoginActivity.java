@@ -45,16 +45,13 @@ public final class LoginActivity extends BaseFlipActivity implements LoginContra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Uri uri = getIntent().getData();
-        Log.e("LOGO", "LOGO");
         if (uri != null) {
-            Log.e("LOGO1", "LOGO");
             showProgress();
             String authCode = uri.getQueryParameter("code");
             presenter = new LoginPresenter(this);
             presenter.attachView(this);
             presenter.loadCredentials(authCode);
         } else {
-            Log.e("LOG2O", "LOGO");
             loadWebView();
         }
     }

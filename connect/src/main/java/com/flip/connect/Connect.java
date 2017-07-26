@@ -47,4 +47,8 @@ public class Connect {
 
         return uniqueId;
     }
+
+    public String getFingerPrintID(){
+        return connectConfigurations.getFingerPrintID();
+    }
 }

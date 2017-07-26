@@ -10,6 +10,7 @@ public class ConnectConfigurations {
     private String schema;
     private String clientSecret;
     private String publicToken;
+    private String fingerPrintID;
 
     String getClientId() {
         if (clientId == null)
@@ -42,7 +43,7 @@ public class ConnectConfigurations {
     }
 
     String getClientSecret() {
-        if (schema == null)
+        if (clientSecret == null)
             throw new RuntimeException("ClientSecret not defined");
         return clientSecret;
     }
@@ -52,12 +53,22 @@ public class ConnectConfigurations {
     }
 
     String getPublicToken() {
-        if (schema == null)
+        if (publicToken == null)
             throw new RuntimeException("PublicToken not defined");
         return publicToken;
     }
 
     public void setPublicToken(String publicToken) {
         this.publicToken = publicToken;
+    }
+
+    String getFingerPrintID() {
+        if (fingerPrintID == null)
+            throw new RuntimeException("FingerPrint not defined");
+        return fingerPrintID;
+    }
+
+    public void setFingerPrintID(String fingerPrintID) {
+        this.fingerPrintID = fingerPrintID;
     }
 }

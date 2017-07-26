@@ -36,7 +36,7 @@ class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginC
             public void success(OauthToken response) {
                 Log.e("token",response.toString());
                 localManager.saveOauth(response, TokenType.ACCESS_TOKEN);
-                //FingerPrintManager.sendFingerPrint(context, response);
+                FingerPrintManager.sendFingerPrint(context, response);
                 getView().loginWithSuccess(response);
             }
 
