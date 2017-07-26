@@ -1,7 +1,8 @@
 package com.flip.connect;
 
-import android.content.Context;
-import android.util.Log;
+import com.flip.connect.presentation.util.StringUtil;
+
+import java.util.UUID;
 
 /**
  * Created by JGabrielFreitas on 04/04/17.
@@ -41,10 +42,9 @@ public class Connect {
     }
 
     public String getUniqueId() {
-        return uniqueId;
-    }
+        if (StringUtil.isEmptyOrNull(uniqueId))
+            uniqueId = UUID.randomUUID().toString();
 
-    public void setUniqueId(String uniqueId) {
-        this.uniqueId = uniqueId;
+        return uniqueId;
     }
 }
