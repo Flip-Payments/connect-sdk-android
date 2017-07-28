@@ -3,7 +3,7 @@
 
 SDK de integração com o Connect API.
 
-## Como funiona
+## Como funciona
 
 A FlipConnectSDK funciona recebendo **ClientId** e **ClientSecret** para abrir uma página web para logar exatamente como na autenticação do Facebook e do Google. O usuário irá logar no nosso ambiente e, caso seja bem sucedido, o usuário será redirecionado para a aplicação usando a previamente configurada **RedirectURI**.
 
