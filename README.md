@@ -42,7 +42,7 @@ Você deve adicionar a activity de Login do Connect ao seu manifest. Também é 
             <intent-filter>
                 <data
                     android:host="SEU_HOST"
-                    android:scheme="SEU_SCHEMA" />
+                    android:schema="SEU_SCHEMA" />
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.BROWSABLE" />

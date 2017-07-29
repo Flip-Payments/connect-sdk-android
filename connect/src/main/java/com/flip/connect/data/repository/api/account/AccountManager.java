@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.flip.connect.BuildConfig;
 import com.flip.connect.data.dependencies.NetworkDependencies;
-import com.flip.connect.data.model.SavePendingProfile;
+import com.flip.connect.data.model.TempProfile;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.account.AccountModel;
@@ -70,7 +70,7 @@ public class AccountManager implements AccountRepository {
     }
 
     @Override
-    public void savePendingProfile(String clientID, SavePendingProfile body, final CallbackBoundary<PendingProfile> callbackBoundary) {
+    public void savePendingProfile(String clientID, TempProfile body, final CallbackBoundary<PendingProfile> callbackBoundary) {
         body.setApplicationKey(clientID);
         service.savePendingProfile(body).enqueue(new Callback<PendingProfile>(){
             @Override

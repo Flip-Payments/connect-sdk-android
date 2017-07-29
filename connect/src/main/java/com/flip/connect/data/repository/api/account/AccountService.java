@@ -1,13 +1,10 @@
 package com.flip.connect.data.repository.api.account;
 
-import com.flip.connect.data.model.SavePendingProfile;
-import com.flip.connect.data.model.UpdateModel;
+import com.flip.connect.data.model.TempProfile;
 import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.domain.model.user.PendingProfile;
 import com.google.gson.JsonObject;
-
-import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -16,8 +13,6 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 /**
  * Created by Kanda on 13/07/2017.
@@ -37,6 +32,6 @@ public interface AccountService {
     Call<BaseResponse> update(@Header("Authorization") String authorization, @Body JsonObject body);
 
     @POST("/user/temporaryProfile")
-    Call<PendingProfile> savePendingProfile(@Body SavePendingProfile body);
+    Call<PendingProfile> savePendingProfile(@Body TempProfile body);
 
 }

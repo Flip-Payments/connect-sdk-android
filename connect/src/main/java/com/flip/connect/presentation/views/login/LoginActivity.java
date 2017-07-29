@@ -27,7 +27,7 @@ public final class LoginActivity extends BaseFlipActivity implements LoginContra
     @Override
     protected String urlToLoad() {
 
-        if (Connect.getInstance().getConnectConfigurations().getPendingProfile() != null)
+        if (Connect.getInstance().getConnectConfigurations().getTempProfile() != null)
             return FLIP_LOGIN
                     .replace(KEY, Connect.getInstance().getClientId())
                     .replace(HOST, Connect.getInstance().getHost())
@@ -60,8 +60,8 @@ public final class LoginActivity extends BaseFlipActivity implements LoginContra
             String authCode = uri.getQueryParameter("code");
             presenter.loadCredentials(authCode);
         } else {
-            if (Connect.getInstance().getConnectConfigurations().getPendingProfile() != null) {
-                presenter.savePendingProfile(Connect.getInstance().getConnectConfigurations().getPendingProfile());
+            if (Connect.getInstance().getConnectConfigurations().getTempProfile() != null) {
+                presenter.savePendingProfile(Connect.getInstance().getConnectConfigurations().getTempProfile());
             } else {
                 loadWebView();
             }

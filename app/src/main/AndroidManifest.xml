@@ -19,8 +19,8 @@
         <activity android:name="com.flip.connect.presentation.views.login.LoginActivity">
             <intent-filter>
                 <data
-                    android:host="ipiranga"
-                    android:scheme="ipiranga" />
+                    android:host="HOST"
+                    android:schema="SCHEME" />
 
                 <action android:name="android.intent.action.VIEW" />
 

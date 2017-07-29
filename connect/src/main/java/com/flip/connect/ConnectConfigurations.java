@@ -1,6 +1,6 @@
 package com.flip.connect;
 
-import com.flip.connect.data.model.SavePendingProfile;
+import com.flip.connect.data.model.TempProfile;
 
 /**
  * Created by Kanda on 11/07/2017.
@@ -8,7 +8,7 @@ import com.flip.connect.data.model.SavePendingProfile;
 
 public class ConnectConfigurations {
     private String clientId, host, schema, clientSecret, publicToken, fingerPrintID;
-    private SavePendingProfile pendingProfile = null;
+    private TempProfile pendingProfile = null;
 
     String getClientId() {
         if (clientId == null)
@@ -70,11 +70,11 @@ public class ConnectConfigurations {
         this.fingerPrintID = fingerPrintID;
     }
 
-    public SavePendingProfile getPendingProfile() {
+    public TempProfile getTempProfile() {
         return pendingProfile;
     }
 
-    public void setPendingProfile(SavePendingProfile pendingProfile) {
+    public void setTempProfile(TempProfile pendingProfile) {
         this.pendingProfile = pendingProfile;
     }
 }

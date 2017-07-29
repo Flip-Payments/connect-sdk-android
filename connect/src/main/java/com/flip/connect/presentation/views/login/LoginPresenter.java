@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.flip.connect.Connect;
-import com.flip.connect.data.model.SavePendingProfile;
+import com.flip.connect.data.model.TempProfile;
 import com.flip.connect.data.repository.local.LocalDataManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.entities.TokenType;
@@ -54,7 +54,7 @@ class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginC
     }
 
     @Override
-    public void savePendingProfile(SavePendingProfile pendingProfile) {
+    public void savePendingProfile(TempProfile pendingProfile) {
         accountUseCase.savePendingProfile(pendingProfile, new CallbackBoundary<PendingProfile>() {
             @Override
             public void success(PendingProfile response) {

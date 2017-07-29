@@ -13,11 +13,11 @@ import java.util.List;
  * Created by ltorres on 28/07/2017.
  */
 
-public class SavePendingProfile {
+public class TempProfile {
     private String applicationKey;
     private Data data;
 
-    public SavePendingProfile(PersonalData personalData, List<Vehicle> vehicles, List<Address> addresses, List<Phone> phones, List<Document> documents, List<Email> emails) {
+    public TempProfile(PersonalData personalData, List<Vehicle> vehicles, List<Address> addresses, List<Phone> phones, List<Document> documents, List<Email> emails) {
         data = new Data(personalData, vehicles, addresses, phones, documents, emails);
     }
 

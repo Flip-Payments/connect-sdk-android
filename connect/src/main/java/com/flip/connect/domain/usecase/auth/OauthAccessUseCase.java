@@ -1,8 +1,6 @@
 package com.flip.connect.domain.usecase.auth;
 
 import com.flip.connect.Connect;
-import com.flip.connect.data.model.SavePendingProfile;
-import com.flip.connect.data.repository.api.account.AccountManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.usecase.BaseUseCase;

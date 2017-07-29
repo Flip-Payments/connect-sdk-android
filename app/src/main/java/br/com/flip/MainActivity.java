@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.flip.connect.Connect;
 import com.flip.connect.ConnectConfigurations;
-import com.flip.connect.data.model.SavePendingProfile;
+import com.flip.connect.data.model.TempProfile;
 import com.flip.connect.data.model.checkout.Transaction;
 import com.flip.connect.domain.boundary.AccountCallback;
 import com.flip.connect.domain.boundary.CallbackBoundary;
@@ -41,14 +41,14 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ConnectConfigurations config = new ConnectConfigurations();
-        config.setClientId("432B08E5-ACDA-4AD0-976F-CC5C323B2A1D");
-        config.setClientSecret("FC3E9D34-978B-483B-9CC0-462DFB82A75B");
-        config.setHost("ipiranga");
-        config.setSchema("ipiranga");
-        config.setPublicToken("4C9E9B38C3EF63AD5AF250611248C226");
-        config.setFingerPrintID("c470458e-7845-4380-a5db-e7e28548c243");
+        config.setClientId("CLIENTID");
+        config.setClientSecret("CLIENTSECRET");
+        config.setHost("HOST");
+        config.setSchema("SCHEMA");
+        config.setPublicToken("PUBLICTOKEN");
+        config.setFingerPrintID("FINGERPRINT");
 
-        config.setPendingProfile(feedPendingProfile()); // READ THE DOCUMENTATION
+        config.setTempProfile(feedTempProfile()); // READ THE DOCUMENTATION
 
         Connect.initializer(config);
         new ConnectAuth(this).verifyToken(new CallbackBoundary<OauthToken>() {
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
         });
     }
 
-    private SavePendingProfile feedPendingProfile(){
+    private TempProfile feedTempProfile(){
         PersonalData personalData = new PersonalData("BR", "12/05/1997", 2, "masculine");
 
         Vehicle vehicle =new Vehicle("BBB 1234", null, "RJ", "BR");
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
         Email email = new Email("connect@gmail.com");
         List<Email> emails = new ArrayList<>();
         emails.add(email);
-        return new SavePendingProfile(personalData, vehicles, addresses, phones, documents, emails);
+        return new TempProfile(personalData, vehicles, addresses, phones, documents, emails);
     }
 
     @Override

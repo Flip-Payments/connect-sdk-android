@@ -1,7 +1,7 @@
 package com.flip.connect.domain.usecase.account;
 
 import com.flip.connect.Connect;
-import com.flip.connect.data.model.SavePendingProfile;
+import com.flip.connect.data.model.TempProfile;
 import com.flip.connect.data.repository.api.account.AccountManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
@@ -55,7 +55,7 @@ public class AccountUseCase {
         manager.update(token, update, callbackBoundary);
     }
 
-    public void savePendingProfile(SavePendingProfile pendingProfile, final CallbackBoundary<PendingProfile> callbackBoundary){
+    public void savePendingProfile(TempProfile pendingProfile, final CallbackBoundary<PendingProfile> callbackBoundary){
         manager.savePendingProfile(Connect.getInstance().getClientId(), pendingProfile, callbackBoundary);
     }
 
