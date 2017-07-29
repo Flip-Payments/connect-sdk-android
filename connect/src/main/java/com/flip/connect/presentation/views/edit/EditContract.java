@@ -1,15 +1,11 @@
 package com.flip.connect.presentation.views.edit;
 
-import com.flip.connect.data.model.Patches;
-import com.flip.connect.data.model.UpdateModel;
-import com.flip.connect.domain.model.account.EmailsAccount;
-import com.flip.connect.domain.model.account.PersonalDataAccount;
-import com.flip.connect.domain.model.account.PhonesAccount;
-import com.flip.connect.domain.model.account.PublicProfileAccount;
+import com.flip.connect.domain.model.user.Email;
+import com.flip.connect.domain.model.user.PersonalData;
+import com.flip.connect.domain.model.user.Phone;
+import com.flip.connect.domain.model.user.PublicProfile;
 import com.flip.connect.presentation.categories.Category;
 import com.google.gson.JsonObject;
-
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -29,13 +25,13 @@ public interface EditContract {
     }
 
     interface View {
-        void showPublicProfile(PublicProfileAccount publicProfile);
+        void showPublicProfile(PublicProfile publicProfile);
 
-        void showPersonalData(PersonalDataAccount personalData);
+        void showPersonalData(PersonalData personalData);
 
-        void showEmails(List<EmailsAccount> emails);
+        void showEmails(List<Email> emails);
 
-        void showPhones(List<PhonesAccount> phones);
+        void showPhones(List<Phone> phones);
 
         void toast(String msg);
 

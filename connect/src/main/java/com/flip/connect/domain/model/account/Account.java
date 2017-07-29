@@ -1,23 +1,27 @@
 package com.flip.connect.domain.model.account;
 
 import com.flip.connect.domain.model.BaseResponse;
+import com.flip.connect.domain.model.user.Email;
+import com.flip.connect.domain.model.user.PersonalData;
+import com.flip.connect.domain.model.user.Phone;
+import com.flip.connect.domain.model.user.PublicProfile;
 
 import java.util.List;
 
 public class Account extends BaseResponse{
-	private List<EmailsAccount> emails;
+	private List<Email> emails;
 	private boolean isEnabled;
-	private PersonalDataAccount personalData;
-	private PublicProfileAccount publicProfile;
-	private List<PhonesAccount> phones;
+	private PersonalData personalData;
+	private PublicProfile publicProfile;
+	private List<Phone> phones;
 	private boolean isNewsLetterAllowed;
 	private String accountKey;
 
-	public void setEmails(List<EmailsAccount> emails){
+	public void setEmails(List<Email> emails){
 		this.emails = emails;
 	}
 
-	public List<EmailsAccount> getEmails(){
+	public List<Email> getEmails(){
 		return emails;
 	}
 
@@ -29,27 +33,27 @@ public class Account extends BaseResponse{
 		return isEnabled;
 	}
 
-	public void setPersonalData(PersonalDataAccount personalData){
+	public void setPersonalData(PersonalData personalData){
 		this.personalData = personalData;
 	}
 
-	public PersonalDataAccount getPersonalData(){
+	public PersonalData getPersonalData(){
 		return personalData;
 	}
 
-	public void setPublicProfile(PublicProfileAccount publicProfile){
+	public void setPublicProfile(PublicProfile publicProfile){
 		this.publicProfile = publicProfile;
 	}
 
-	public PublicProfileAccount getPublicProfile(){
+	public PublicProfile getPublicProfile(){
 		return publicProfile;
 	}
 
-	public void setPhones(List<PhonesAccount> phones){
+	public void setPhones(List<Phone> phones){
 		this.phones = phones;
 	}
 
-	public List<PhonesAccount> getPhones(){
+	public List<Phone> getPhones(){
 		return phones;
 	}
 

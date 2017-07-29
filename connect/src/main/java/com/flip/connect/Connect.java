@@ -11,7 +11,7 @@ import java.util.UUID;
 public class Connect {
     private static final Connect instance = new Connect();
     private ConnectConfigurations connectConfigurations;
-    private String uniqueId;
+    private String uniqueId, dataKey;
 
     public static Connect getInstance() {
         return instance;
@@ -50,5 +50,17 @@ public class Connect {
 
     public String getFingerPrintID(){
         return connectConfigurations.getFingerPrintID();
+    }
+
+    public String getDataKey() {
+        return dataKey;
+    }
+
+    public void setDataKey(String dataKey) {
+        this.dataKey = dataKey;
+    }
+
+    public ConnectConfigurations getConnectConfigurations() {
+        return connectConfigurations;
     }
 }

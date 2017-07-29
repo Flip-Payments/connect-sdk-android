@@ -3,7 +3,7 @@ package com.flip.connect.domain.model.user;
 import com.flip.connect.domain.model.BaseResponse;
 import com.google.gson.annotations.SerializedName;
 
-public class PhonesItem extends BaseResponse{
+public class Phone extends BaseResponse{
 
 	@SerializedName("phoneTypeFriendlyName")
 	private String phoneTypeFriendlyName;
@@ -22,6 +22,11 @@ public class PhonesItem extends BaseResponse{
 
 	@SerializedName("fullNumber")
 	private String fullNumber;
+
+	public Phone(String phoneType, String fullNumber) {
+		this.phoneType = phoneType;
+		this.fullNumber = fullNumber;
+	}
 
 	public void setPhoneTypeFriendlyName(String phoneTypeFriendlyName){
 		this.phoneTypeFriendlyName = phoneTypeFriendlyName;

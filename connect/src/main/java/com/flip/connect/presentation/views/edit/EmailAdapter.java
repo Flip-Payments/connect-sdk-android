@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.flip.connect.R;
-import com.flip.connect.domain.model.account.EmailsAccount;
+import com.flip.connect.domain.model.user.Email;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +19,9 @@ import java.util.List;
 public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.ViewHolder> {
     private List<TextInputLayout> textInputLayouts = new ArrayList<>();
 
-    private List<EmailsAccount> items;
+    private List<Email> items;
 
-    public EmailAdapter(List<EmailsAccount> items) {
+    public EmailAdapter(List<Email> items) {
         this.items = items;
     }
 
@@ -43,11 +43,8 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.ViewHolder> 
         return items.size();
     }
 
-    public List<EmailsAccount> getItems(){
-        for(int i=0;i<textInputLayouts.size();i++) {
-            items.get(i).setAddress(textInputLayouts.get(i).getEditText().getText().toString());;
-        }
-        return items;
+    public List<TextInputLayout> getLayouts(){
+        return textInputLayouts;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

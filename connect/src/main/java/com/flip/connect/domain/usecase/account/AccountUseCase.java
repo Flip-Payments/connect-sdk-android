@@ -1,10 +1,13 @@
-package com.flip.connect.domain.usecase.edition;
+package com.flip.connect.domain.usecase.account;
 
+import com.flip.connect.Connect;
+import com.flip.connect.data.model.SavePendingProfile;
 import com.flip.connect.data.repository.api.account.AccountManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.domain.model.auth.OauthToken;
+import com.flip.connect.domain.model.user.PendingProfile;
 import com.flip.connect.domain.repository.AccountRepository;
 import com.flip.connect.presentation.categories.Category;
 import com.google.gson.JsonObject;
@@ -20,10 +23,10 @@ import static com.flip.connect.presentation.categories.Category.publicProfile;
  * Created by Kanda on 13/07/2017.
  */
 
-public class EditUseCase {
+public class AccountUseCase {
     private AccountRepository manager;
 
-    public EditUseCase() {
+    public AccountUseCase() {
         manager = new AccountManager();
     }
 
@@ -50,6 +53,10 @@ public class EditUseCase {
 
     public void updateInformation(OauthToken token, JsonObject update, final CallbackBoundary<BaseResponse> callbackBoundary) {
         manager.update(token, update, callbackBoundary);
+    }
+
+    public void savePendingProfile(SavePendingProfile pendingProfile, final CallbackBoundary<PendingProfile> callbackBoundary){
+        manager.savePendingProfile(Connect.getInstance().getClientId(), pendingProfile, callbackBoundary);
     }
 
     public List<Category> getCategoriesAccount() {

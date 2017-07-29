@@ -20,6 +20,13 @@ public class PersonalData extends BaseResponse {
     @SerializedName("genderType")
     private String genderType;
 
+    public PersonalData(String country, String birthdate, int dependentCount, String genderType) {
+        this.country = country;
+        this.birthdate = birthdate;
+        this.dependentCount = dependentCount;
+        this.genderType = genderType;
+    }
+
     public void setGenderTypeFriendlyName(String genderTypeFriendlyName) {
         this.genderTypeFriendlyName = genderTypeFriendlyName;
     }
@@ -63,7 +70,7 @@ public class PersonalData extends BaseResponse {
     @Override
     public String toString() {
         return
-                "PersonalDataAccount{" +
+                "PersonalData{" +
                         "genderTypeFriendlyName = '" + genderTypeFriendlyName + '\'' +
                         ",country = '" + country + '\'' +
                         ",birthdate = '" + birthdate + '\'' +

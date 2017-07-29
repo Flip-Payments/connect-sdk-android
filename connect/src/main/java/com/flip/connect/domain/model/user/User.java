@@ -8,7 +8,7 @@ import java.util.List;
 public class User extends BaseResponse {
 
     @SerializedName("emails")
-    private List<EmailsItem> emails;
+    private List<Email> emails;
 
     @SerializedName("membershipCreateDate")
     private String membershipCreateDate;
@@ -23,7 +23,7 @@ public class User extends BaseResponse {
     private PublicProfile publicProfile;
 
     @SerializedName("phones")
-    private List<PhonesItem> phones;
+    private List<Phone> phones;
 
     @SerializedName("isNewsLetterAllowed")
     private boolean isNewsLetterAllowed;
@@ -31,11 +31,11 @@ public class User extends BaseResponse {
     @SerializedName("accountKey")
     private String accountKey;
 
-    public void setEmails(List<EmailsItem> emails) {
+    public void setEmails(List<Email> emails) {
         this.emails = emails;
     }
 
-    public List<EmailsItem> getEmails() {
+    public List<Email> getEmails() {
         return emails;
     }
 
@@ -71,11 +71,11 @@ public class User extends BaseResponse {
         return publicProfile;
     }
 
-    public void setPhones(List<PhonesItem> phones) {
+    public void setPhones(List<Phone> phones) {
         this.phones = phones;
     }
 
-    public List<PhonesItem> getPhones() {
+    public List<Phone> getPhones() {
         return phones;
     }
 

@@ -1,16 +1,14 @@
 package com.flip.connect;
 
+import com.flip.connect.data.model.SavePendingProfile;
+
 /**
  * Created by Kanda on 11/07/2017.
  */
 
 public class ConnectConfigurations {
-    private String clientId;
-    private String host;
-    private String schema;
-    private String clientSecret;
-    private String publicToken;
-    private String fingerPrintID;
+    private String clientId, host, schema, clientSecret, publicToken, fingerPrintID;
+    private SavePendingProfile pendingProfile = null;
 
     String getClientId() {
         if (clientId == null)
@@ -22,7 +20,7 @@ public class ConnectConfigurations {
         this.clientId = clientId;
     }
 
-    protected String getHost() {
+    String getHost() {
         if (host == null)
             throw new RuntimeException("Host not defined");
         return host;
@@ -70,5 +68,13 @@ public class ConnectConfigurations {
 
     public void setFingerPrintID(String fingerPrintID) {
         this.fingerPrintID = fingerPrintID;
+    }
+
+    public SavePendingProfile getPendingProfile() {
+        return pendingProfile;
+    }
+
+    public void setPendingProfile(SavePendingProfile pendingProfile) {
+        this.pendingProfile = pendingProfile;
     }
 }

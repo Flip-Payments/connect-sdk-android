@@ -7,8 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.flip.connect.R;
-import com.flip.connect.domain.model.account.EmailsAccount;
-import com.flip.connect.domain.model.account.PhonesAccount;
+import com.flip.connect.domain.model.user.Phone;
 
 import java.util.List;
 
@@ -19,9 +18,9 @@ import java.util.List;
 public class PhoneAdapter extends RecyclerView.Adapter<PhoneAdapter.ViewHolder> {
     int SECTION = 0;
 
-    private List<PhonesAccount> items;
+    private List<Phone> items;
 
-    public PhoneAdapter(List<PhonesAccount> items) {
+    public PhoneAdapter(List<Phone> items) {
         this.items = items;
     }
 

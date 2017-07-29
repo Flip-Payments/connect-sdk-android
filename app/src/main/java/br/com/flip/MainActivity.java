@@ -5,19 +5,28 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.flip.connect.Connect;
 import com.flip.connect.ConnectConfigurations;
+import com.flip.connect.data.model.SavePendingProfile;
 import com.flip.connect.data.model.checkout.Transaction;
 import com.flip.connect.domain.boundary.AccountCallback;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.boundary.CheckoutGrabber;
 import com.flip.connect.domain.model.auth.OauthToken;
+import com.flip.connect.domain.model.user.Address;
+import com.flip.connect.domain.model.user.Document;
+import com.flip.connect.domain.model.user.Email;
+import com.flip.connect.domain.model.user.PersonalData;
+import com.flip.connect.domain.model.user.Phone;
+import com.flip.connect.domain.model.user.Vehicle;
 import com.flip.connect.presentation.auth.ConnectAuth;
 import com.flip.connect.presentation.widget.ConnectAuthenticationButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
 
@@ -38,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
         config.setSchema("ipiranga");
         config.setPublicToken("4C9E9B38C3EF63AD5AF250611248C226");
         config.setFingerPrintID("c470458e-7845-4380-a5db-e7e28548c243");
+
+        config.setPendingProfile(feedPendingProfile()); // READ THE DOCUMENTATION
+
         Connect.initializer(config);
         new ConnectAuth(this).verifyToken(new CallbackBoundary<OauthToken>() {
             @Override
@@ -117,6 +129,31 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
                 });
             }
         });
+    }
+
+    private SavePendingProfile feedPendingProfile(){
+        PersonalData personalData = new PersonalData("BR", "12/05/1997", 2, "masculine");
+
+        Vehicle vehicle =new Vehicle("BBB 1234", null, "RJ", "BR");
+        List<Vehicle> vehicles = new ArrayList<>();
+        vehicles.add(vehicle);
+
+        Address address = new Address("Rua Sem nome", "200", "ap 101", "work", "Ipanema", "Rio de Janeiro", "RJ", "22220-000", "perto do banco", "brasil");
+        List<Address> addresses = new ArrayList<>();
+        addresses.add(address);
+
+        Phone phone = new Phone("mobile", "+5521998766574");
+        List<Phone> phones = new ArrayList<>();
+        phones.add(phone);
+
+        Document document = new Document("cpf", "23989146408");
+        List<Document> documents = new ArrayList<>();
+        documents.add(document);
+
+        Email email = new Email("connect@gmail.com");
+        List<Email> emails = new ArrayList<>();
+        emails.add(email);
+        return new SavePendingProfile(personalData, vehicles, addresses, phones, documents, emails);
     }
 
     @Override

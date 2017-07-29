@@ -14,6 +14,10 @@ public class Patches {
         this.patches.add(new Patch(op, path, value));
     }
 
+    public boolean isNullOrEmpty(){
+        return patches.size() <= 0;
+    }
+
     private class Patch{
 
         public Patch(String op, String path, String value){

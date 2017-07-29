@@ -21,7 +21,7 @@ public interface UserService {
             "Accept: application/json",
             "Content-Type: application/json"
     })
-    @GET("/public/users/{accountKey}")
+    @GET("/public/users/{accountKey}?include=documents&include=addresses&include=emails&include=personaldata&include=phones")
     Call<UserResponse> getUser(@Header("Authorization") String authorization, @Path("accountKey") String accountKey);
 
 }

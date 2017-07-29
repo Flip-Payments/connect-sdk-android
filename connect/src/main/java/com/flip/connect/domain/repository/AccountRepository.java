@@ -1,10 +1,12 @@
 package com.flip.connect.domain.repository;
 
+import com.flip.connect.data.model.SavePendingProfile;
 import com.flip.connect.data.model.UpdateModel;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.domain.model.auth.OauthToken;
+import com.flip.connect.domain.model.user.PendingProfile;
 import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
@@ -18,9 +20,5 @@ public interface AccountRepository {
 
     void update(OauthToken token, JsonObject update, CallbackBoundary<BaseResponse> callbackBoundary);
 
-    void getAddress();
-
-    void getDocuments();
-
-    void getPersonalData();
+    void savePendingProfile(String clientID, SavePendingProfile body, CallbackBoundary<PendingProfile> callbackBoundary);
 }

@@ -2,7 +2,6 @@ package com.flip.connect.presentation.views.login;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.webkit.WebViewClient;
 
 import com.flip.connect.Connect;
@@ -12,6 +11,7 @@ import com.flip.connect.presentation.base.BaseFlipActivity;
 
 import java.util.UUID;
 
+import static com.flip.connect.BuildConfig.DATA_KEY;
 import static com.flip.connect.BuildConfig.FLIP_LOGIN;
 import static com.flip.connect.BuildConfig.HOST;
 import static com.flip.connect.BuildConfig.KEY;
@@ -27,12 +27,20 @@ public final class LoginActivity extends BaseFlipActivity implements LoginContra
     @Override
     protected String urlToLoad() {
 
-        return FLIP_LOGIN
-                .replace(KEY, Connect.getInstance().getClientId())
-                .replace(HOST, Connect.getInstance().getHost())
-                .replace(SCHEMA, Connect.getInstance().getSchema())
-                .replace(STATE, uuid);
-
+        if (Connect.getInstance().getConnectConfigurations().getPendingProfile() != null)
+            return FLIP_LOGIN
+                    .replace(KEY, Connect.getInstance().getClientId())
+                    .replace(HOST, Connect.getInstance().getHost())
+                    .replace(SCHEMA, Connect.getInstance().getSchema())
+                    .replace(STATE, uuid)
+                    .replace(DATA_KEY, Connect.getInstance().getDataKey() == null ? "" : Connect.getInstance().getDataKey());
+        else {
+            return FLIP_LOGIN
+                    .replace(KEY, Connect.getInstance().getClientId())
+                    .replace(HOST, Connect.getInstance().getHost())
+                    .replace(SCHEMA, Connect.getInstance().getSchema())
+                    .replace(STATE, uuid);
+        }
     }
 
     @Override
@@ -45,15 +53,24 @@ public final class LoginActivity extends BaseFlipActivity implements LoginContra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Uri uri = getIntent().getData();
+        presenter = new LoginPresenter(this);
+        presenter.attachView(this);
         if (uri != null) {
             showProgress();
             String authCode = uri.getQueryParameter("code");
-            presenter = new LoginPresenter(this);
-            presenter.attachView(this);
             presenter.loadCredentials(authCode);
         } else {
-            loadWebView();
+            if (Connect.getInstance().getConnectConfigurations().getPendingProfile() != null) {
+                presenter.savePendingProfile(Connect.getInstance().getConnectConfigurations().getPendingProfile());
+            } else {
+                loadWebView();
+            }
         }
+    }
+
+    @Override
+    public void goToWebView() {
+        loadWebView();
     }
 
     @Override

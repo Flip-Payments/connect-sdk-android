@@ -2,7 +2,7 @@ package com.flip.connect.domain.model.user;
 
 import com.google.gson.annotations.SerializedName;
 
-public class EmailsItem {
+public class Email {
 
     @SerializedName("address")
     private String address;
@@ -15,6 +15,10 @@ public class EmailsItem {
 
     @SerializedName("key")
     private String key;
+
+    public Email(String address) {
+        this.address = address;
+    }
 
     public void setAddress(String address) {
         this.address = address;

@@ -25,16 +25,17 @@ import com.flip.connect.data.model.UpdateModel;
 import com.flip.connect.domain.entities.GenderType;
 import com.flip.connect.domain.entities.PersonalDataType;
 import com.flip.connect.domain.entities.PublicProfileType;
-import com.flip.connect.domain.model.account.EmailsAccount;
-import com.flip.connect.domain.model.account.PersonalDataAccount;
-import com.flip.connect.domain.model.account.PhonesAccount;
-import com.flip.connect.domain.model.account.PublicProfileAccount;
+import com.flip.connect.domain.model.user.Email;
+import com.flip.connect.domain.model.user.PersonalData;
+import com.flip.connect.domain.model.user.Phone;
+import com.flip.connect.domain.model.user.PublicProfile;
 import com.flip.connect.presentation.categories.Category;
 import com.flip.connect.presentation.manager.ImageManager;
 import com.flip.connect.presentation.util.DateFormatUtil;
 import com.flip.connect.presentation.util.LocaleUtil;
 import com.flip.connect.presentation.util.StringUtil;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,11 +56,12 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
 
     private Map<String, View> patches = new HashMap<>();
     private Map<String, Map<String, View>> updates = new HashMap<>();
+    private List<String> emailKeys = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_edition);
+        setContentView(R.layout.new_content_edition);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -105,7 +107,7 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
     }
 
     @Override
-    public void showPublicProfile(PublicProfileAccount publicProfile) {
+    public void showPublicProfile(PublicProfile publicProfile) {
         categoryPublicProfile.setVisibility(View.VISIBLE);
         patches = new HashMap<>();
         patches.put(PublicProfileType.name.toString(), name.getEditText());
@@ -118,7 +120,7 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
     }
 
     @Override
-    public void showPersonalData(PersonalDataAccount personalData) {
+    public void showPersonalData(PersonalData personalData) {
         categoryPersonalData.setVisibility(View.VISIBLE);
         patches = new HashMap<>();
         patches.put(PersonalDataType.birthdate.toString(), null);
@@ -150,17 +152,26 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
     }
 
     @Override
-    public void showEmails(List<EmailsAccount> emails) {
+    public void showEmails(List<Email> emails) {
         categoryEmail.setVisibility(View.VISIBLE);
         EmailAdapter emailAdapter = new EmailAdapter(emails);
         layoutManager = new LinearLayoutManager(this);
         emailRecyclerView.setHasFixedSize(true);
         emailRecyclerView.setLayoutManager(layoutManager);
         emailRecyclerView.setAdapter(emailAdapter);
+        //patches = new HashMap<>();
+        //patches.put("address", null);
+        //updates.put("emails", patches);
+        for(int i=0;i<emails.size();i++){
+
+        }
+        if (emailAdapter.getLayouts().size() > 0) {
+
+        }
     }
 
     @Override
-    public void showPhones(List<PhonesAccount> phones) {
+    public void showPhones(List<Phone> phones) {
         categoryPhone.setVisibility(View.VISIBLE);
         PhoneAdapter phoneAdapter = new PhoneAdapter(phones);
         layoutManager = new LinearLayoutManager(this);
@@ -182,11 +193,12 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
     private void getContents() {
         Patches patches;
         UpdateModel updateModel = new UpdateModel();
+        String key = "";
         for (Map.Entry<String, Map<String, View>> updateEntry : this.updates.entrySet()) {
             patches = new Patches();
             for (Map.Entry<String, View> patchEntry : updateEntry.getValue().entrySet()) {
                 String op;
-                String key = "/" + patchEntry.getKey();
+                String path = "/" + patchEntry.getKey();
                 String value = "";
 
                 if (patchEntry.getValue() != null) {
@@ -205,11 +217,16 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
 
                     op = value.length() > 0 ? "replace" : "remove";
 
-                    patches.addPatch(op, key, value);
+                    patches.addPatch(op, path, value);
                 }
-
             }
-            updateModel.addToBody(updateEntry.getKey(), patches);
+
+            if (!patches.isNullOrEmpty()) {
+                if (StringUtil.isEmptyOrNull(key))
+                    updateModel.addToBody(updateEntry.getKey(), patches);
+                //else
+                    //updateModel.addToBody(updateEntry.getKey(), patches, key);
+            }
         }
 
         presenter.updateProfile(updateModel.getBody());

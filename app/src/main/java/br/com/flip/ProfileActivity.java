@@ -19,7 +19,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ImageView imageView;
-    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,6 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         imageView = (ImageView) findViewById(R.id.imageView);
-        button = (Button) findViewById(R.id.editButton);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -38,12 +36,6 @@ public class ProfileActivity extends AppCompatActivity {
             public void success(UserResponse response) {
                 Glide.with(ProfileActivity.this).load(response.getUser().getPublicProfile().getPictureUrl()).into(imageView);
                 recyclerView.setAdapter(new ProfileAdapter(response.getUser()));
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        new UserData(ProfileActivity.this).editInformations(Category.emails, Category.phones, Category.publicProfile, Category.personalData);
-                    }
-                });
             }
 
             @Override

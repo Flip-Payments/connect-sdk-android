@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.flip.connect.domain.model.user.EmailsItem;
-import com.flip.connect.domain.model.user.PhonesItem;
+import com.flip.connect.domain.model.user.Email;
+import com.flip.connect.domain.model.user.Phone;
 import com.flip.connect.domain.model.user.PublicProfile;
 import com.flip.connect.domain.model.user.User;
 
@@ -60,10 +60,10 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             ((TextView) holder.view.findViewById(R.id.section)).setText((String) object);
         } else {
             TextView textView = ((TextView) holder.view.findViewById(R.id.item));
-            if (object instanceof PhonesItem) {
-                textView.setText(((PhonesItem) object).getFullNumber());
-            } else if(object instanceof EmailsItem) {
-                textView.setText(((EmailsItem) object).getAddress());
+            if (object instanceof Phone) {
+                textView.setText(((Phone) object).getFullNumber());
+            } else if(object instanceof Email) {
+                textView.setText(((Email) object).getAddress());
             }else {
                 textView.setText(((PublicProfile) object).getName());
             }

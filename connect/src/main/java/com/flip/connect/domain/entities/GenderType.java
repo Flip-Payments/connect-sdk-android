@@ -5,11 +5,11 @@ package com.flip.connect.domain.entities;
  */
 
 public enum GenderType {
-    undefined(0),
+    unmentioned(0),
     feminine(1),
     masculine(2);
 
-    private static String[] valuesPT = {"Indefinido", "Feminino", "Masculino"};
+    private static String[] valuesPT = {"Não informar", "Feminino", "Masculino"};
 
     private final int position;
 
@@ -23,7 +23,7 @@ public enum GenderType {
                 return values()[i];
             }
         }
-        return undefined;
+        return unmentioned;
     }
 
     public static int getPositionFromPT(String text){

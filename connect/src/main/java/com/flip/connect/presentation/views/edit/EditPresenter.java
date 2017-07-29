@@ -9,7 +9,7 @@ import com.flip.connect.domain.entities.TokenType;
 import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.domain.repository.LocalRepository;
-import com.flip.connect.domain.usecase.edition.EditUseCase;
+import com.flip.connect.domain.usecase.account.AccountUseCase;
 import com.flip.connect.presentation.categories.Category;
 import com.google.gson.JsonObject;
 
@@ -24,11 +24,11 @@ class EditPresenter implements EditContract.Presenter {
 
     private EditContract.View view;
     private List<Category> categoriesItems;
-    private EditUseCase useCase;
+    private AccountUseCase useCase;
     private LocalRepository localRepository;
 
     EditPresenter(Context context) {
-        useCase = new EditUseCase();
+        useCase = new AccountUseCase();
         localRepository = new LocalDataManager(context);
     }
 
