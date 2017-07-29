@@ -29,7 +29,7 @@ public class AuthManager implements AuthRepository {
         service.requestAccessToken(options).enqueue(new Callback<OauthToken>() {
             @Override
             public void onResponse(Call<OauthToken> call, Response<OauthToken> response) {
-                if (response.isSuccessful() && response.body().getSuccess()) {
+                if (response.isSuccessful() && response.body().hasSuccess()) {
                     callbackBoundary.success(response.body());
                 } else {
                     callbackBoundary.error(new Throwable(response.code() + " Error: " + response.message()));

@@ -71,7 +71,6 @@ class EditPresenter implements EditContract.Presenter {
             public void error(Throwable e) {
                 view.toast(e.getMessage());
                 e.printStackTrace();
-                Log.e("UpdateRequestError", e.getMessage());
             }
         });
     }

@@ -38,7 +38,6 @@ public abstract class BaseFlipActivity extends Activity {
         flipWebView = (WebView) findViewById(R.id.flipWebView);
         flipWebView.setWebViewClient(client());
         flipWebView.loadUrl(urlToLoad());
-        Log.e("URL", urlToLoad());
         flipWebView.getSettings().setJavaScriptEnabled(true);
         flipWebView.getSettings().setAppCacheEnabled(true);
         CookieManager.getInstance().setAcceptCookie(true);

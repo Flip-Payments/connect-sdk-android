@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.flip.connect.Connect;
-import com.flip.connect.data.model.TempProfile;
+import com.flip.connect.data.model.tempProfile.TempProfile;
 import com.flip.connect.data.repository.local.LocalDataManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.entities.TokenType;
@@ -39,7 +39,6 @@ class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginC
         oauthAccessUseCase.requestToken(authCode, new CallbackBoundary<OauthToken>() {
             @Override
             public void success(OauthToken response) {
-                Log.e("token", response.toString());
                 localManager.saveOauth(response, TokenType.ACCESS_TOKEN);
                 FingerPrintManager.sendFingerPrint(context, response);
                 getView().loginWithSuccess(response);

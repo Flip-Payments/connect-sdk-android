@@ -1,7 +1,7 @@
 package com.flip.connect.domain.usecase.account;
 
 import com.flip.connect.Connect;
-import com.flip.connect.data.model.TempProfile;
+import com.flip.connect.data.model.tempProfile.TempProfile;
 import com.flip.connect.data.repository.api.account.AccountManager;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
@@ -37,7 +37,7 @@ public class AccountUseCase {
                 if (response == null) {
                     callbackBoundary.error(new Throwable());
                 } else {
-                    if (response.getSuccess())
+                    if (response.hasSuccess())
                         callbackBoundary.success(response);
                     else
                         callbackBoundary.error(new Throwable(response.getOperationReport().toString()));

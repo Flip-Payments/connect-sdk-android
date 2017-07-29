@@ -1,6 +1,6 @@
 package com.flip.connect.domain.repository;
 
-import com.flip.connect.data.model.TempProfile;
+import com.flip.connect.data.model.tempProfile.TempProfile;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.account.AccountModel;

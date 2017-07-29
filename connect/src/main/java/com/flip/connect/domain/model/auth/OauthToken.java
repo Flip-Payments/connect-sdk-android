@@ -2,8 +2,6 @@ package com.flip.connect.domain.model.auth;
 
 import com.flip.connect.domain.model.BaseResponse;
 
-import java.util.List;
-
 /**
  * Created by jcosilva on 6/8/2017.
  */
@@ -63,7 +61,7 @@ public class OauthToken extends BaseResponse {
                 ", tokenExpiryDate=" + tokenExpiryDate +
                 ", refreshToken=" + refreshToken +
                 ", userKey=" + userKey +
-                ", success=" + getSuccess() +
+                ", success=" + hasSuccess() +
                 ", operationReport=" + getOperationReport() +
                 '}';
     }

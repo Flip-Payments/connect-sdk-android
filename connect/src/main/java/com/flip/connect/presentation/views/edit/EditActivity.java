@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.flip.connect.R;
-import com.flip.connect.data.model.Patches;
+import com.flip.connect.data.model.edit.Patches;
 import com.flip.connect.data.model.UpdateModel;
 import com.flip.connect.domain.entities.GenderType;
 import com.flip.connect.domain.entities.PersonalDataType;
@@ -162,12 +162,12 @@ public class EditActivity extends AppCompatActivity implements EditContract.View
         //patches = new HashMap<>();
         //patches.put("address", null);
         //updates.put("emails", patches);
-        for(int i=0;i<emails.size();i++){
-
-        }
-        if (emailAdapter.getLayouts().size() > 0) {
-
-        }
+//        for(int i=0;i<emails.size();i++){
+//
+//        }
+//        if (emailAdapter.getLayouts().size() > 0) {
+//
+//        }
     }
 
     @Override

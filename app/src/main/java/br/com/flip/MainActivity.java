@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.flip.connect.Connect;
 import com.flip.connect.ConnectConfigurations;
-import com.flip.connect.data.model.TempProfile;
+import com.flip.connect.data.model.tempProfile.TempProfile;
 import com.flip.connect.data.model.checkout.Transaction;
 import com.flip.connect.domain.boundary.AccountCallback;
 import com.flip.connect.domain.boundary.CallbackBoundary;
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
         new ConnectAuth(this).verifyToken(new CallbackBoundary<OauthToken>() {
             @Override
             public void success(OauthToken response) {
-                if (response.getSuccess()) {
+                if (response.hasSuccess()) {
                     startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                     finish();
                 }
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements CheckoutGrabber {
                     @Override
                     public void success(OauthToken response) {
                         Toast.makeText(MainActivity.this, "verify token realizado com sucesso", Toast.LENGTH_SHORT).show();
-                        if (response.getSuccess()) {
+                        if (response.hasSuccess()) {
                             Toast.makeText(MainActivity.this, "token valido", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(MainActivity.this, "token invalido", Toast.LENGTH_SHORT).show();

@@ -1,6 +1,6 @@
 package com.flip.connect;
 
-import com.flip.connect.data.model.TempProfile;
+import com.flip.connect.data.model.tempProfile.TempProfile;
 
 /**
  * Created by Kanda on 11/07/2017.

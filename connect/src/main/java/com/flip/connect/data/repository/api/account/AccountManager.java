@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.flip.connect.BuildConfig;
 import com.flip.connect.data.dependencies.NetworkDependencies;
-import com.flip.connect.data.model.TempProfile;
+import com.flip.connect.data.model.tempProfile.TempProfile;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.account.AccountModel;
@@ -34,7 +34,7 @@ public class AccountManager implements AccountRepository {
         service.getAccount("bearer " + token.getAccessToken()).enqueue(new Callback<AccountModel>() {
             @Override
             public void onResponse(@NonNull Call<AccountModel> call, @NonNull Response<AccountModel> response) {
-                if (response.isSuccessful() && response.body().getSuccess())
+                if (response.isSuccessful() && response.body().hasSuccess())
                     callbackBoundary.success(response.body());
                 else if (response.body() == null) {
                     callbackBoundary.error(new Throwable("Unknow error"));
@@ -54,7 +54,7 @@ public class AccountManager implements AccountRepository {
         service.update("bearer " + token.getAccessToken(), update).enqueue(new Callback<BaseResponse>() {
             @Override
             public void onResponse(@NonNull Call<BaseResponse> call, @NonNull Response<BaseResponse> response) {
-                if (response.isSuccessful() && response.body().getSuccess())
+                if (response.isSuccessful() && response.body().hasSuccess())
                     callbackBoundary.success(response.body());
                 else if (response.body() == null) {
                     callbackBoundary.error(new Throwable("Unknow error"));
@@ -75,7 +75,7 @@ public class AccountManager implements AccountRepository {
         service.savePendingProfile(body).enqueue(new Callback<PendingProfile>(){
             @Override
             public void onResponse(@NonNull Call<PendingProfile> call, @NonNull Response<PendingProfile> response) {
-                if (response.isSuccessful() && response.body().getSuccess())
+                if (response.isSuccessful() && response.body().hasSuccess())
                     callbackBoundary.success(response.body());
                 else if (response.body() == null) {
                     callbackBoundary.error(new Throwable("Unknow error"));

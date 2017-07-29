@@ -1,6 +1,6 @@
 package com.flip.connect.data.repository.api.account;
 
-import com.flip.connect.data.model.TempProfile;
+import com.flip.connect.data.model.tempProfile.TempProfile;
 import com.flip.connect.domain.model.BaseResponse;
 import com.flip.connect.domain.model.account.AccountModel;
 import com.flip.connect.domain.model.user.PendingProfile;

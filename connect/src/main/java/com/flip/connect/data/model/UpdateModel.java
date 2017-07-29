@@ -2,6 +2,7 @@ package com.flip.connect.data.model;
 
 import android.util.Log;
 
+import com.flip.connect.data.model.edit.Patches;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -25,7 +26,6 @@ public class UpdateModel {
             element.add("patches", new Gson().toJsonTree(patches.get(i)).getAsJsonObject());
         }
         body.add(field, element);
-        Log.e("ADD TO BODY", body.toString());
     }
 
     public JsonObject getBody() {

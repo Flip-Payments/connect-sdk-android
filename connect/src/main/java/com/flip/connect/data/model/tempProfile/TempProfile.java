@@ -1,4 +1,4 @@
-package com.flip.connect.data.model;
+package com.flip.connect.data.model.tempProfile;
 
 import com.flip.connect.domain.model.user.Address;
 import com.flip.connect.domain.model.user.Document;
@@ -19,24 +19,6 @@ public class TempProfile {
 
     public TempProfile(PersonalData personalData, List<Vehicle> vehicles, List<Address> addresses, List<Phone> phones, List<Document> documents, List<Email> emails) {
         data = new Data(personalData, vehicles, addresses, phones, documents, emails);
-    }
-
-    private class Data {
-        PersonalData personalData;
-        List<Vehicle> vehicles;
-        List<Address> addresses;
-        List<Phone> phones;
-        List<Document> documents;
-        List<Email> emails;
-
-        Data(PersonalData personalData, List<Vehicle> vehicles, List<Address> addresses, List<Phone> phones, List<Document> documents, List<Email> emails) {
-            this.addresses = addresses;
-            this.personalData = personalData;
-            this.vehicles = vehicles;
-            this.phones = phones;
-            this.documents = documents;
-            this.emails = emails;
-        }
     }
 
     public String getApplicationKey() {
