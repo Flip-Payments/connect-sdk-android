@@ -27,7 +27,7 @@ Adicione o artifactory no `/build.gradle` raíz
 E no seu `app/build.gradle`
 ```gradle
     // wallet sdk
-      compile 'com.github.Flip-Payments:connect-sdk-android:0.1.0'
+      compile 'com.github.Flip-Payments:connect-sdk-android:x.x.x'
 ```
 
 Veja abaixo como realizar a configuração inicial do Connect
