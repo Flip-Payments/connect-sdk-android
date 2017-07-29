@@ -20,7 +20,7 @@
             <intent-filter>
                 <data
                     android:host="HOST"
-                    android:schema="SCHEME" />
+                    android:scheme="SCHEME" />
 
                 <action android:name="android.intent.action.VIEW" />
 
