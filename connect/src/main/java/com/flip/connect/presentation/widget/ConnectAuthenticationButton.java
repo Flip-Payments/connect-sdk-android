@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.flip.connect.R;
 import com.flip.connect.domain.boundary.AccountCallback;
-import com.flip.connect.presentation.login.LoginActivity;
+import com.flip.connect.presentation.views.login.LoginActivity;
 
 /**
  * Created by JGabrielFreitas on 04/04/17.

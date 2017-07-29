@@ -42,7 +42,7 @@ Você deve adicionar a activity de Login do Connect ao seu manifest. Também é 
             <intent-filter>
                 <data
                     android:host="SEU_HOST"
-                    android:scheme="SEU_SCHEMA" />
+                    android:schema="SEU_SCHEMA" />
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -56,7 +56,18 @@ Você deve adicionar a activity de Login do Connect ao seu manifest. Também é 
 
 Você deve fornecer suas informações cadastradas no ambiente do Connect para inicializar a lib
 ```java
-Connect.initializer(CLIENT_ID, HOST, SCHEMA, CLIENT_SECRET);
+
+ConnectConfigurations config = new ConnectConfigurations();
+config.setClientId("CLIENTID");
+config.setClientSecret("CLIENTSECRET");
+config.setHost("HOST");
+config.setSchema("SCHEMA");
+config.setPublicToken("PUBLICTOKEN");
+config.setFingerPrintID("FINGERPRINT");
+
+//config.setTempProfile(feedTempProfile()); // Leia na WIKI(em progresso)
+
+Connect.initializer(config);
 ```
 
 Após a configuração básica do Connect você poderá fazer o Login

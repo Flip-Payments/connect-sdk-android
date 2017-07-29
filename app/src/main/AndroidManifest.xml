@@ -8,6 +8,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        tools:replace =""
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,19 +16,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.flip.connect.presentation.login.LoginActivity">
+        <activity android:name="com.flip.connect.presentation.views.login.LoginActivity">
             <intent-filter>
                 <data
-                    android:host="ipiranga"
-                    android:scheme="ipiranga" />
+                    android:host="HOST"
+                    android:scheme="SCHEME" />
+
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-
             </intent-filter>
         </activity>
+        <activity android:name="com.flip.connect.presentation.views.edit.EditActivity" />
+        <activity android:name=".ProfileActivity" />
     </application>
 
 </manifest>
