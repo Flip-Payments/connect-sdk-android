@@ -26,7 +26,6 @@ Adicione o artifactory no `/build.gradle` raíz
 
 E no seu `app/build.gradle`
 ```gradle
-    // wallet sdk
       compile 'com.github.Flip-Payments:connect-sdk-android:x.x.x'
 ```
 
