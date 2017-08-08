@@ -1,7 +1,6 @@
 package com.flip.connect.presentation.views.login;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.flip.connect.Connect;
 import com.flip.connect.data.model.tempProfile.TempProfile;

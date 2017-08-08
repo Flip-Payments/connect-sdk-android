@@ -26,7 +26,8 @@ public class UserData {
     }
 
     public void getUserInformation(CallbackBoundary<UserResponse> boundary) {
-        profileUseCase.getProfile(boundary);
+        //        profileUseCase.getProfile(boundary);
+        throw new UnsupportedOperationException("Unsupported operation to get user information.");
     }
 
     public void editInformations(@NonNull Category... categories) {

@@ -51,22 +51,63 @@ Você deve adicionar a activity de Login do Connect ao seu manifest. Também é 
         </activity>
 ```
 
-### Inicializando o Connect
+### Inicialização
+É necessário inicializar a classe ConnectConfigurations na abertura do app e devemos fazer esse trabalho dentro de uma especialização da classe Application, uma vez que essas instâncias devem ser declaradas apenas uma vez durante o ciclo de vida do aplicativo.
 
-Você deve fornecer suas informações cadastradas no ambiente do Connect para inicializar a lib
+Você deve fornecer suas informações cadastradas no ambiente do Connect para inicializar a lib.
 ```java
 
-ConnectConfigurations config = new ConnectConfigurations();
-config.setClientId("CLIENTID");
-config.setClientSecret("CLIENTSECRET");
-config.setHost("HOST");
-config.setSchema("SCHEMA");
-config.setPublicToken("PUBLICTOKEN");
-config.setFingerPrintID("FINGERPRINT");
 
-//config.setTempProfile(feedTempProfile()); // Leia na WIKI(em progresso)
+public class MyApp extends Application {
 
-Connect.initializer(config);
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        ConnectConfigurations config = new ConnectConfigurations();
+        config.setClientId("CLIENT_ID");
+        config.setClientSecret("CLIENT_SECRET");
+        config.setHost("HOST");
+        config.setSchema("SCHEMA");
+        config.setFingerPrintID("FINGER_PRINT_ID");
+
+        // config.setTempProfile(feedTempProfile()); // READ THE DOCUMENTATION
+
+
+        Connect.initializer(App.this, config);
+
+    }
+}
+
+```
+
+Por especializar a classe `Application`, precisamos especificar a classe `MyApp` no arquivo `AndroidManifest.xml`. 
+Com isso, por padrão seu app vai inicialmente instanciar a classe `MyApp`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.flip">
+
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true">
+        
+        ...
+        
+    </application>
+
+</manifest>
+
+```
+
+
+Após a inicialização, se for passado o fingerPrintID, o fingerPrintSessionId será setado e você poderá acessá-lo:
+
+```java
+
+  Connect.getInstance().getFingerPrintSessionId()
+
 ```
 
 Após a configuração básica do Connect você poderá fazer o Login

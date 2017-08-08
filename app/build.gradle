@@ -1,5 +1,23 @@
 apply plugin: 'com.android.application'
 
+
+def localPropertiesFile = rootProject.file("local.properties")
+def properties = new Properties()
+properties.load(new FileInputStream(localPropertiesFile))
+
+
+// Define properties
+
+def CLIENT_ID = properties.get('ClientId')
+def CLIENT_SECRET = properties.get('ClientSecret')
+def PUBLIC_TOKEN = properties.get('PublicToken')
+def FINGER_PRINT_ID = properties.get('FingerPrintID')
+def HOST = properties.get('Host')
+def SCHEMA = properties.get('Schema')
+
+
+def STRING = 'String'
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -11,7 +29,27 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        each { type ->
+            type.buildConfigField STRING, 'CLIENT_ID', CLIENT_ID
+            type.buildConfigField STRING, 'CLIENT_SECRET', CLIENT_SECRET
+            type.buildConfigField STRING, 'PUBLIC_TOKEN', PUBLIC_TOKEN
+            type.buildConfigField STRING, 'FINGER_PRINT_ID', FINGER_PRINT_ID
+            type.buildConfigField STRING, 'HOST', HOST
+            type.buildConfigField STRING, 'SCHEMA', SCHEMA
+        }
+
+        manifestPlaceholders = [
+                CLIENT_ID: 'CLIENT_ID',
+                CLIENT_SECRET: 'CLIENT_SECRET',
+                PUBLIC_TOKEN: 'PUBLIC_TOKEN',
+                FINGER_PRINT_ID: 'FINGER_PRINT_ID',
+                HOST: 'SCHEMA',
+                SCHEMA: 'SCHEMA'
+        ]
     }
+
+
+
     buildTypes {
         release {
             minifyEnabled false

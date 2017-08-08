@@ -57,7 +57,8 @@ public class ConnectConfigurations {
     }
 
     public void setPublicToken(String publicToken) {
-        this.publicToken = publicToken;
+        throw new UnsupportedOperationException("PublicToken unsupported!");
+//        this.publicToken = publicToken;
     }
 
     String getFingerPrintID() {

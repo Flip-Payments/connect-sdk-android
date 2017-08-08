@@ -14,9 +14,13 @@ import br.com.rexlab.fplib.FingerPrintLibrary;
 public class FingerPrintManager {
     public static void sendFingerPrint(Context context, OauthToken token) {
         //region Fingerprint
-        FingerPrintLibrary.initFingerprint(context, "production",
-                Connect.getInstance().getFingerPrintID(), token.getUserKey(),
-                Connect.getInstance().getUniqueId());
+        FingerPrintLibrary.initFingerprint(
+                context,
+                "sandbox",
+                Connect.getInstance().getFingerPrintID(),
+                token.getUserKey(),
+                Connect.getInstance().getFingerPrintSessionId());
+
         FingerPrintLibrary.configFingerprint(true, true, true, true, true, true);
         FingerPrintLibrary.getFingerprint();
         //endregion

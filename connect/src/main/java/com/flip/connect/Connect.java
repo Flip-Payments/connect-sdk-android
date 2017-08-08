@@ -1,5 +1,12 @@
 package com.flip.connect;
 
+import android.content.Context;
+
+import com.flip.connect.data.repository.local.LocalDataManager;
+import com.flip.connect.domain.entities.TokenType;
+import com.flip.connect.domain.model.auth.OauthToken;
+import com.flip.connect.domain.repository.LocalRepository;
+import com.flip.connect.presentation.manager.FingerPrintManager;
 import com.flip.connect.presentation.util.StringUtil;
 
 import java.util.UUID;
@@ -10,15 +17,33 @@ import java.util.UUID;
 
 public class Connect {
     private static final Connect instance = new Connect();
+
+    private Context context;
+    private LocalRepository localManager;
     private ConnectConfigurations connectConfigurations;
-    private String uniqueId, dataKey;
+
+    private String fingerPrintSessionId, dataKey;
+
+
 
     public static Connect getInstance() {
         return instance;
     }
 
-    public static void initializer(ConnectConfigurations configurations) {
+    public static void initializer(Context context, ConnectConfigurations configurations) {
+        getInstance().context = context;
         getInstance().connectConfigurations = configurations;
+
+        getInstance().localManager = new LocalDataManager(context);
+
+        if(getInstance().getToken() != null){
+
+            FingerPrintManager.sendFingerPrint(
+                    context,
+                    getInstance().getToken()
+            );
+
+        }
     }
 
     public String getClientId() {
@@ -41,11 +66,11 @@ public class Connect {
         return connectConfigurations.getPublicToken();
     }
 
-    public String getUniqueId() {
-        if (StringUtil.isEmptyOrNull(uniqueId))
-            uniqueId = UUID.randomUUID().toString();
-
-        return uniqueId;
+    public String getFingerPrintSessionId() {
+        if (StringUtil.isEmptyOrNull(fingerPrintSessionId)) {
+            fingerPrintSessionId = UUID.randomUUID().toString();
+        }
+        return fingerPrintSessionId;
     }
 
     public String getFingerPrintID(){
@@ -63,4 +88,9 @@ public class Connect {
     public ConnectConfigurations getConnectConfigurations() {
         return connectConfigurations;
     }
+
+    public OauthToken getToken() {
+        return localManager.getOauth(TokenType.ACCESS_TOKEN);
+    }
+
 }

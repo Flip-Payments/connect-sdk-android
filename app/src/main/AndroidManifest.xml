@@ -3,6 +3,7 @@
     package="br.com.flip">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/ic_logo"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -19,8 +20,8 @@
         <activity android:name="com.flip.connect.presentation.views.login.LoginActivity">
             <intent-filter>
                 <data
-                    android:host="HOST"
-                    android:scheme="SCHEME" />
+                    android:host="ipiranga"
+                    android:scheme="ipiranga" />
 
                 <action android:name="android.intent.action.VIEW" />
 
