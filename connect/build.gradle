@@ -16,11 +16,19 @@ android {
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
 
+
+        buildConfigField("String", "API_BASE_URL_SANDBOX", '"http://dlp-qrservices.cloudapp.net:20112"')
+        buildConfigField("String", "API_BASE_URL_PRODUCTION", '"http://dlp-qrservices.cloudapp.net:20112"')
+
+        buildConfigField("String", "PRIVATE_API_SANDBOX", '"http://dlp-qrservices.cloudapp.net:20115"')
+        buildConfigField("String", "PRIVATE_API_PRODUCTION", '"http://dlp-qrservices.cloudapp.net:20115"')
+
         buildConfigField("String", "KEY", '"${key}"')
         buildConfigField("String", "HOST", '"${host}"')
         buildConfigField("String", "SCHEMA", '"${schema}"')
         buildConfigField("String", "STATE", '"${state}"')
         buildConfigField("String", "DATA_KEY", '"${data_key}"')
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -29,17 +37,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField("String", "FLIP_LOGIN", '"http://flipconnect-signin-staging.herokuapp.com/?client_id=${key}&redirect_uri=${schema}://${host}&response_type=code&state=${state}&data_key=${data_key}"')
-            buildConfigField("String", "FLIP_CHECKOUT", '"http://flipconnect-signin-staging.herokuapp.com/checkout?client_id=${key}"')
-            buildConfigField "String", 'API_BASE_URL', '"http://dlp-qrservices.cloudapp.net:20112"'
-            buildConfigField("String", "PUBLIC_API", '"http://dlp-qrservices.cloudapp.net:20116"')
-            buildConfigField("String", "PRIVATE_API", '"http://dlp-qrservices.cloudapp.net:20115"')
         }
         debug {
             buildConfigField("String", "FLIP_LOGIN", '"http://flipconnect-signin-staging.herokuapp.com/?client_id=${key}&redirect_uri=${schema}://${host}&response_type=code&state=${state}&data_key=${data_key}"')
-            buildConfigField("String", "FLIP_CHECKOUT", '"http://flipconnect-signin-staging.herokuapp.com/checkout?client_id=${key}"')
-            buildConfigField "String", 'API_BASE_URL', '"http://dlp-qrservices.cloudapp.net:20112"'
-            buildConfigField("String", "PUBLIC_API", '"http://dlp-qrservices.cloudapp.net:20116"')
-            buildConfigField("String", "PRIVATE_API", '"http://dlp-qrservices.cloudapp.net:20115"')
         }
     }
 }
@@ -59,6 +59,7 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-//    compile project(':fplib-release')
+
     compile fileTree(dir: 'libs', include: '*.jar')
+
 }

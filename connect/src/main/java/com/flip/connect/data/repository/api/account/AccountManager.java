@@ -3,6 +3,7 @@ package com.flip.connect.data.repository.api.account;
 import android.support.annotation.NonNull;
 
 import com.flip.connect.BuildConfig;
+import com.flip.connect.Connect;
 import com.flip.connect.data.dependencies.NetworkDependencies;
 import com.flip.connect.data.model.tempProfile.TempProfile;
 import com.flip.connect.domain.boundary.CallbackBoundary;
@@ -26,7 +27,7 @@ public class AccountManager implements AccountRepository {
     private AccountService service;
 
     public AccountManager() {
-        service = NetworkDependencies.retrofit(BuildConfig.PRIVATE_API).create(AccountService.class);
+        service = NetworkDependencies.retrofit(Connect.getInstance().getPrivateApiUrl()).create(AccountService.class);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.flip.connect;
 
 import com.flip.connect.data.model.tempProfile.TempProfile;
+import com.flip.connect.domain.entities.Environment;
 
 /**
  * Created by Kanda on 11/07/2017.
@@ -8,7 +9,10 @@ import com.flip.connect.data.model.tempProfile.TempProfile;
 
 public class ConnectConfigurations {
     private String clientId, host, schema, clientSecret, publicToken, fingerPrintID;
+    private Environment environment;
     private TempProfile pendingProfile = null;
+
+
 
     String getClientId() {
         if (clientId == null)
@@ -71,6 +75,16 @@ public class ConnectConfigurations {
         this.fingerPrintID = fingerPrintID;
     }
 
+    public Environment getEnvironment() {
+        if(environment == null)
+            throw new RuntimeException("Environment not defined");
+        return environment;
+    }
+
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
+    }
+
     public TempProfile getTempProfile() {
         return pendingProfile;
     }
@@ -78,4 +92,28 @@ public class ConnectConfigurations {
     public void setTempProfile(TempProfile pendingProfile) {
         this.pendingProfile = pendingProfile;
     }
+
+
+    public String getBaseApiUrl(){
+        switch (this.getEnvironment()){
+            case SANDBOX:
+                return BuildConfig.API_BASE_URL_SANDBOX;
+            case PRODUCTION:
+                return BuildConfig.API_BASE_URL_SANDBOX;
+            default:
+                throw new RuntimeException("Environment not configured to get base url");
+        }
+    }
+
+    public String getPrivateApiUrl(){
+        switch (this.getEnvironment()){
+            case SANDBOX:
+                return BuildConfig.PRIVATE_API_SANDBOX;
+            case PRODUCTION:
+                return BuildConfig.PRIVATE_API_PRODUCTION;
+            default:
+                throw new RuntimeException("Environment not configured to get private url");
+        }
+    }
+
 }

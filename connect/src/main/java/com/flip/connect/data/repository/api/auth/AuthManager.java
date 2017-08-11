@@ -1,6 +1,7 @@
 package com.flip.connect.data.repository.api.auth;
 
 import com.flip.connect.BuildConfig;
+import com.flip.connect.Connect;
 import com.flip.connect.data.dependencies.NetworkDependencies;
 import com.flip.connect.domain.boundary.CallbackBoundary;
 import com.flip.connect.domain.model.auth.OauthToken;
@@ -21,7 +22,7 @@ public class AuthManager implements AuthRepository {
     private AuthService service;
 
     public AuthManager() {
-        service = NetworkDependencies.retrofit(BuildConfig.API_BASE_URL).create(AuthService.class);
+        service = NetworkDependencies.retrofit(Connect.getInstance().getBaseApiUrl()).create(AuthService.class);
     }
 
     @Override

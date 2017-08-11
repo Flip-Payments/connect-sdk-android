@@ -5,6 +5,7 @@ import android.app.Application;
 import com.flip.connect.Connect;
 import com.flip.connect.ConnectConfigurations;
 import com.flip.connect.data.model.tempProfile.TempProfile;
+import com.flip.connect.domain.entities.Environment;
 import com.flip.connect.domain.model.user.Address;
 import com.flip.connect.domain.model.user.Document;
 import com.flip.connect.domain.model.user.Email;
@@ -33,6 +34,8 @@ public class App extends Application {
         config.setHost("HOST");
         config.setSchema("SCHEMA");
         config.setFingerPrintID("FINGER_PRINT_ID");
+//        config.setEnvironment();
+
 
         config.setTempProfile(feedTempProfile()); // READ THE DOCUMENTATION
 
