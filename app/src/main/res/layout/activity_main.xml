@@ -18,10 +18,10 @@
         android:id="@+id/refreshToken"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="refreshToken"
         android:layout_below="@+id/connectButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="refreshToken" />
+        android:layout_centerHorizontal="true" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/verifyToken"

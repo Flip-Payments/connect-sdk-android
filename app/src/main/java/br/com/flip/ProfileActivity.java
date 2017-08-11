@@ -2,11 +2,19 @@ package br.com.flip;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.flip.connect.domain.boundary.AccountCallback;
+import com.flip.connect.domain.model.auth.OauthToken;
+import com.flip.connect.presentation.auth.ConnectAuth;
 
 public class ProfileActivity extends AppCompatActivity {
+
 
     RecyclerView recyclerView;
     ImageView imageView;
@@ -38,5 +46,8 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }

@@ -46,4 +46,13 @@ public class ConnectAuth {
         }
     }
 
+    public void revokeToken(CallbackBoundary callbackBoundary){
+        if (token == null) {
+            callbackBoundary.error(new Throwable("Token not found"));
+        } else {
+            useCase.revokeToken(token, callbackBoundary);
+            FingerPrintManager.sendFingerPrint(context, token);
+        }
+    }
+
 }

@@ -8,5 +8,6 @@ public enum Method {
     AUTHORIZATION_CODE,
     VERIFY_TOKEN,
     REFRESH_TOKEN,
+    REVOKE_TOKEN,
     CLIENT_CREDENTIALS
 }

@@ -39,5 +39,12 @@ public class OauthAccessUseCase extends BaseUseCase {
         request();
     }
 
+    public void revokeToken(OauthToken token, CallbackBoundary callbackBoundary){
+        this.callbackBoundary = callbackBoundary;
+        options.put(Options.ACCESS_TOKEN.toString(), token.getAccessToken());
+        options.put(Options.GRANT_TYPE.toString(), Method.REVOKE_TOKEN.name());
+        request();
+    }
+
 
 }

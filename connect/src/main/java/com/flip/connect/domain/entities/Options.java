@@ -8,6 +8,7 @@ public enum Options {
     REFRESH_TOKEN,
     GRANT_TYPE,
     ACCESS_TOKEN,
+    REVOKE_TOKEN,
     AUTHORIZATION_CODE,
     CLIENT_ID,
     CLIENT_SECRET,

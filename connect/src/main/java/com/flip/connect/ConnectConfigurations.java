@@ -10,6 +10,7 @@ public class ConnectConfigurations {
     private String clientId, host, schema, clientSecret, publicToken, fingerPrintID;
     private TempProfile pendingProfile = null;
 
+
     String getClientId() {
         if (clientId == null)
             throw new RuntimeException("clientId not defined");
@@ -57,7 +58,7 @@ public class ConnectConfigurations {
     }
 
     public void setPublicToken(String publicToken) {
-        throw new UnsupportedOperationException("PublicToken unsupported!");
+        throw new RuntimeException("PublicToken unsupported!");
 //        this.publicToken = publicToken;
     }
 
@@ -78,4 +79,6 @@ public class ConnectConfigurations {
     public void setTempProfile(TempProfile pendingProfile) {
         this.pendingProfile = pendingProfile;
     }
+
+
 }
