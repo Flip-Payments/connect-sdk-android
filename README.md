@@ -70,6 +70,7 @@ public class MyApp extends Application {
         config.setHost("HOST");
         config.setSchema("SCHEMA");
         config.setFingerPrintID("FINGER_PRINT_ID");
+        config.setEnvironment("ENVIRONMENT"); // Environment.SANDBOX or Environment.PRODUCTION
 
         // config.setTempProfile(feedTempProfile()); // READ THE DOCUMENTATION
 
