@@ -68,8 +68,7 @@
                     android:layout_below="@id/personalData"
                     android:layout_toEndOf="@id/personalDataIcon"
                     android:layout_toRightOf="@id/personalDataIcon"
-                    android:hint="Nascimento"
-                    app:hintTextAppearance="@style/Theme.EditProfile.Hint">
+                    android:hint="Nascimento">
 
                     <android.support.v7.widget.AppCompatEditText
                         android:layout_width="match_parent"
@@ -111,7 +110,7 @@
                     android:layout_toEndOf="@id/personalDataIcon"
                     android:layout_toRightOf="@id/personalDataIcon"
                     android:hint="Nº de dependentes"
-                    app:hintTextAppearance="@style/Theme.EditProfile.Hint">
+                     >
 
                     <android.support.v7.widget.AppCompatEditText
                         android:layout_width="match_parent"
@@ -281,8 +280,7 @@
                     android:layout_marginTop="14dp"
                     android:layout_toEndOf="@id/personIcon"
                     android:layout_toRightOf="@id/personIcon"
-                    android:hint="Nome"
-                    app:hintTextAppearance="@style/Theme.EditProfile.Hint">
+                    android:hint="Nome">
 
                     <android.support.v7.widget.AppCompatEditText
                         android:id="@+id/publicEditText"

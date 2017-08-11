@@ -1,1 +1,1 @@
-include ':app', ':fplib-release', ':connect'
+include ':app', ':connect', ':fplib-release'
