@@ -17,11 +17,15 @@ android {
         vectorDrawables.useSupportLibrary = true
 
 
-        buildConfigField("String", "API_BASE_URL_SANDBOX", '"http://dlp-qrservices.cloudapp.net:20112"')
-        buildConfigField("String", "API_BASE_URL_PRODUCTION", '"http://dlp-qrservices.cloudapp.net:20112"')
+        buildConfigField("String", "API_BASE_URL_SANDBOX", '"https://auth-sandbox.flipconnect.io:11443"')
+        buildConfigField("String", "PRIVATE_API_SANDBOX", '"https://api-sandbox.flipconnect.io:11443"')
+        buildConfigField("String", "FLIP_LOGIN_SANDBOX", '"https://signin-sandbox.flipconnect.io/?client_id=${key}&redirect_uri=${schema}://${host}&response_type=code&state=${state}&data_key=${data_key}"')
 
-        buildConfigField("String", "PRIVATE_API_SANDBOX", '"http://dlp-qrservices.cloudapp.net:20115"')
-        buildConfigField("String", "PRIVATE_API_PRODUCTION", '"http://dlp-qrservices.cloudapp.net:20115"')
+
+        buildConfigField("String", "API_BASE_URL_PRODUCTION", '"https://auth.flipconnect.io:11443"')
+        buildConfigField("String", "PRIVATE_API_PRODUCTION", '"https://api.flipconnect.io:11443"')
+        buildConfigField("String", "FLIP_LOGIN_PRODUCTION", '"https://signin.flipconnect.io/?client_id=${key}&redirect_uri=${schema}://${host}&response_type=code&state=${state}&data_key=${data_key}"')
+
 
         buildConfigField("String", "KEY", '"${key}"')
         buildConfigField("String", "HOST", '"${host}"')
@@ -36,10 +40,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "FLIP_LOGIN", '"http://flipconnect-signin-staging.herokuapp.com/?client_id=${key}&redirect_uri=${schema}://${host}&response_type=code&state=${state}&data_key=${data_key}"')
         }
         debug {
-            buildConfigField("String", "FLIP_LOGIN", '"http://flipconnect-signin-staging.herokuapp.com/?client_id=${key}&redirect_uri=${schema}://${host}&response_type=code&state=${state}&data_key=${data_key}"')
+
         }
     }
 }
