@@ -15,7 +15,5 @@ import com.google.gson.JsonObject;
 public interface AccountRepository {
     void getAccount(OauthToken token, CallbackBoundary<AccountModel> callbackBoundary);
 
-    void update(OauthToken token, JsonObject update, CallbackBoundary<BaseResponse> callbackBoundary);
-
     void savePendingProfile(String clientID, TempProfile body, CallbackBoundary<PendingProfile> callbackBoundary);
 }

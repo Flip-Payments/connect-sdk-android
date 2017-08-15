@@ -20,8 +20,6 @@ public interface EditContract {
         void attach(View view);
 
         void initProfile(Category... categories);
-
-        void updateProfile(JsonObject updateModel);
     }
 
     interface View {

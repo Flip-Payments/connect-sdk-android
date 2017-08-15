@@ -58,22 +58,6 @@ class EditPresenter implements EditContract.Presenter {
         }
     }
 
-    @Override
-    public void updateProfile(JsonObject updateModel) {
-        useCase.updateInformation(localRepository.getOauth(TokenType.ACCESS_TOKEN), updateModel, new CallbackBoundary<BaseResponse>() {
-            @Override
-            public void success(BaseResponse response) {
-                view.toast("Perfil editado com sucesso!");
-                view.finishView();
-            }
-
-            @Override
-            public void error(Throwable e) {
-                view.toast(e.getMessage());
-                e.printStackTrace();
-            }
-        });
-    }
 
     private void checkAccountCategories(AccountModel response, Category category) {
         switch (category) {
