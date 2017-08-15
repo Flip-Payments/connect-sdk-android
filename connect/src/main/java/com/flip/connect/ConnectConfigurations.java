@@ -94,6 +94,17 @@ public class ConnectConfigurations {
     }
 
 
+    public String getLoginUrl(){
+        switch (this.getEnvironment()){
+            case SANDBOX:
+                return BuildConfig.FLIP_LOGIN_SANDBOX;
+            case PRODUCTION:
+                return BuildConfig.FLIP_LOGIN_PRODUCTION;
+            default:
+                throw new RuntimeException("Environment not configured to get base url");
+        }
+    }
+
     public String getBaseApiUrl(){
         switch (this.getEnvironment()){
             case SANDBOX:

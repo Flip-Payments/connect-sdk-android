@@ -98,6 +98,10 @@ public class Connect {
         return connectConfigurations.getEnvironment();
     }
 
+    public String getLoginUrl(){
+        return connectConfigurations.getLoginUrl();
+    }
+
     public String getBaseApiUrl(){
        return connectConfigurations.getBaseApiUrl();
     }
