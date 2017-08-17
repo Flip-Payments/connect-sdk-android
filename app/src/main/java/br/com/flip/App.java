@@ -5,6 +5,7 @@ import android.app.Application;
 import com.flip.connect.Connect;
 import com.flip.connect.ConnectConfigurations;
 import com.flip.connect.data.model.tempProfile.TempProfile;
+import com.flip.connect.domain.entities.Environment;
 import com.flip.connect.domain.model.user.Address;
 import com.flip.connect.domain.model.user.Document;
 import com.flip.connect.domain.model.user.Email;
@@ -28,11 +29,13 @@ public class App extends Application {
 
         ConnectConfigurations config = new ConnectConfigurations();
 
-        config.setClientId("432B08E5-ACDA-4AD0-976F-CC5C323B2A1D");
-        config.setClientSecret("FC3E9D34-978B-483B-9CC0-462DFB82A75B");
-        config.setHost("ipiranga");
-        config.setSchema("ipiranga");
-        config.setFingerPrintID("c470458e-7845-4380-a5db-e7e28548c243");
+        config.setClientId("CLIENT_ID");
+        config.setClientSecret("CLIENT_SECRET");
+        config.setHost("HOST");
+        config.setSchema("SCHEMA");
+        config.setFingerPrintID("FINGER_PRINT_ID");
+//        config.setEnvironment();
+
 
         config.setTempProfile(feedTempProfile()); // READ THE DOCUMENTATION
 

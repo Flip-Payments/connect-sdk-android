@@ -20,8 +20,9 @@
         <activity android:name="com.flip.connect.presentation.views.login.LoginActivity">
             <intent-filter>
                 <data
-                    android:host="ipiranga"
-                    android:scheme="ipiranga" />
+                    android:host="HOST"
+                    android:scheme="SCHEMA"
+                    />
 
                 <action android:name="android.intent.action.VIEW" />
 
@@ -29,7 +30,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="com.flip.connect.presentation.views.edit.EditActivity" />
         <activity android:name=".ProfileActivity" />
     </application>
 

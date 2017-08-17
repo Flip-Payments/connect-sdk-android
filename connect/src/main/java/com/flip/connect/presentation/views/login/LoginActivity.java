@@ -12,7 +12,6 @@ import com.flip.connect.presentation.base.BaseFlipActivity;
 import java.util.UUID;
 
 import static com.flip.connect.BuildConfig.DATA_KEY;
-import static com.flip.connect.BuildConfig.FLIP_LOGIN;
 import static com.flip.connect.BuildConfig.HOST;
 import static com.flip.connect.BuildConfig.KEY;
 import static com.flip.connect.BuildConfig.SCHEMA;
@@ -28,14 +27,14 @@ public final class LoginActivity extends BaseFlipActivity implements LoginContra
     protected String urlToLoad() {
 
         if (Connect.getInstance().getConnectConfigurations().getTempProfile() != null)
-            return FLIP_LOGIN
+            return Connect.getInstance().getLoginUrl()
                     .replace(KEY, Connect.getInstance().getClientId())
                     .replace(HOST, Connect.getInstance().getHost())
                     .replace(SCHEMA, Connect.getInstance().getSchema())
                     .replace(STATE, uuid)
                     .replace(DATA_KEY, Connect.getInstance().getDataKey() == null ? "" : Connect.getInstance().getDataKey());
         else {
-            return FLIP_LOGIN
+            return Connect.getInstance().getLoginUrl()
                     .replace(KEY, Connect.getInstance().getClientId())
                     .replace(HOST, Connect.getInstance().getHost())
                     .replace(SCHEMA, Connect.getInstance().getSchema())

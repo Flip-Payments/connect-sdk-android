@@ -51,10 +51,6 @@ public class AccountUseCase {
         });
     }
 
-    public void updateInformation(OauthToken token, JsonObject update, final CallbackBoundary<BaseResponse> callbackBoundary) {
-        manager.update(token, update, callbackBoundary);
-    }
-
     public void savePendingProfile(TempProfile pendingProfile, final CallbackBoundary<PendingProfile> callbackBoundary){
         manager.savePendingProfile(Connect.getInstance().getClientId(), pendingProfile, callbackBoundary);
     }

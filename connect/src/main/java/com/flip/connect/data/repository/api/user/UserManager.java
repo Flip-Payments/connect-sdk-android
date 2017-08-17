@@ -1,7 +1,5 @@
 package com.flip.connect.data.repository.api.user;
 
-import android.util.Log;
-
 import com.flip.connect.BuildConfig;
 import com.flip.connect.Connect;
 import com.flip.connect.data.dependencies.NetworkDependencies;
@@ -20,7 +18,7 @@ public class UserManager extends BaseManager implements PublicDataRepository {
     private UserService service;
 
     public UserManager() {
-        service = NetworkDependencies.retrofit(BuildConfig.PUBLIC_API).create(UserService.class);
+        service = NetworkDependencies.retrofit(Connect.getInstance().getPrivateApiUrl()).create(UserService.class);
     }
 
     @Override

@@ -16,7 +16,7 @@ public class FingerPrintManager {
         //region Fingerprint
         FingerPrintLibrary.initFingerprint(
                 context,
-                "sandbox",
+                Connect.getInstance().getEnvironment().name(),
                 Connect.getInstance().getFingerPrintID(),
                 token.getUserKey(),
                 Connect.getInstance().getFingerPrintSessionId());

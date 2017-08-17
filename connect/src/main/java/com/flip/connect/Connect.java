@@ -3,6 +3,7 @@ package com.flip.connect;
 import android.content.Context;
 
 import com.flip.connect.data.repository.local.LocalDataManager;
+import com.flip.connect.domain.entities.Environment;
 import com.flip.connect.domain.entities.TokenType;
 import com.flip.connect.domain.model.auth.OauthToken;
 import com.flip.connect.domain.repository.LocalRepository;
@@ -91,6 +92,22 @@ public class Connect {
 
     public OauthToken getToken() {
         return localManager.getOauth(TokenType.ACCESS_TOKEN);
+    }
+
+    public Environment getEnvironment(){
+        return connectConfigurations.getEnvironment();
+    }
+
+    public String getLoginUrl(){
+        return connectConfigurations.getLoginUrl();
+    }
+
+    public String getBaseApiUrl(){
+       return connectConfigurations.getBaseApiUrl();
+    }
+
+    public String getPrivateApiUrl(){
+        return connectConfigurations.getPrivateApiUrl();
     }
 
 }
