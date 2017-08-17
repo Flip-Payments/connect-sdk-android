@@ -26,6 +26,11 @@ public class LocalDataManager implements LocalRepository {
     }
 
     @Override
+    public void deleteOauth(TokenType tokenType) {
+        dataController.remove(tokenType.toString());
+    }
+
+    @Override
     public OauthToken getOauth(TokenType tokenType) {
         return new Gson().fromJson(dataController.readStringData(tokenType.toString()), OauthToken.class);
     }

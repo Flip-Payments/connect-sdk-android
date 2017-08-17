@@ -51,6 +51,7 @@ public class ConnectAuth {
             callbackBoundary.error(new Throwable("Token not found"));
         } else {
             useCase.revokeToken(token, callbackBoundary);
+            localManager.deleteOauth(TokenType.ACCESS_TOKEN);
             FingerPrintManager.sendFingerPrint(context, token);
         }
     }

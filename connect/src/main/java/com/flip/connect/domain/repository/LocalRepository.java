@@ -8,7 +8,10 @@ import com.flip.connect.domain.model.auth.OauthToken;
  */
 
 public interface LocalRepository {
+
     void saveOauth(OauthToken token, TokenType tokenType);
+
+    void deleteOauth(TokenType tokenType);
 
     OauthToken getOauth(TokenType tokenType);
 }

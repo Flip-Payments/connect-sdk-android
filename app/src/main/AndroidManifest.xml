@@ -21,8 +21,7 @@
             <intent-filter>
                 <data
                     android:host="HOST"
-                    android:scheme="SCHEMA"
-                    />
+                    android:scheme="SCHEMA" />
 
                 <action android:name="android.intent.action.VIEW" />
 
