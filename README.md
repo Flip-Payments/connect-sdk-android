@@ -1,5 +1,13 @@
+
 # connect-sdk-android
+
+# ⚠ DEPRECATED ⚠
+
 [![](https://jitpack.io/v/Flip-Payments/connect-sdk-android.svg)](https://jitpack.io/#Flip-Payments/connect-sdk-android) [![Github Version](https://img.shields.io/github/release/Flip-Payments/connect-sdk-android.svg)](https://github.com/Flip-Payments/connect-sdk-ios/releases)
+
+## ⚠ ATENÇÃO ⚠
+
+**Esta SDK não recebe mais suporte. Para integrar com a nossa plataforma, favor usar [stone-payments/onestap-sdk-android](https://github.com/stone-payments/onestap-sdk-android)**
 
 SDK de integração com o Connect API.
 
